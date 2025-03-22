@@ -128,5 +128,31 @@ public class Grade {
     public int hashCode() {
         return toString().hashCode();
     }
+
+
+    /**
+     * Converts the letter grade to its numeric value.
+     * A = 100, B = 60, C = 50, D = 40, E = 30, F = 0
+     *
+     * @return The numeric value of the grade.
+     */
+    public double getNumericGrade() {
+        switch (this.grade) {
+        case "A":
+            return 100;
+        case "B":
+            return 60;
+        case "C":
+            return 50;
+        case "D":
+            return 40;
+        case "E":
+            return 30;
+        case "F":
+            return 0;
+        default:
+            throw new IllegalStateException("Invalid grade value: " + this.grade);
+        }
+    }
 }
 

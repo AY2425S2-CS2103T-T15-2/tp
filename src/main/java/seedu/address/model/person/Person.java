@@ -131,4 +131,27 @@ public class Person {
                 .toString();
     }
 
+    /**
+     * Calculates and returns the overall grade as an average of all numeric grades.
+     *
+     * @return The average numeric grade as a double value.
+     */
+    public double getOverallGrade() {
+        if (grades == null || grades.length == 0) {
+            return 0.0;
+        }
+
+        double sum = 0.0;
+        int validGrades = 0;
+
+        for (Grade grade : grades) {
+            if (grade != null) {
+                sum += grade.getNumericGrade();
+                validGrades++;
+            }
+        }
+
+        return validGrades > 0 ? sum / validGrades : 0.0;
+    }
+
 }
