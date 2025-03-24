@@ -77,7 +77,9 @@ public class Person {
         return Collections.unmodifiableSet(tags);
     }
 
-    public int getStudyGroup() { return studyGroup; }
+    public int getStudyGroup() {
+        return studyGroup;
+    }
 
     /**
      * Returns true if both persons have the same name.
@@ -166,6 +168,6 @@ public class Person {
     public void setStudyGroup(int group) {
         this.studyGroup = group;
         this.tags.removeIf(tag -> tag.tagName.contains("StudyGroup"));
-        this.tags.add(new Tag("StudyGroupx" + studyGroup));
+        this.tags.add(new Tag("StudyGroup" + studyGroup));
     }
 }
