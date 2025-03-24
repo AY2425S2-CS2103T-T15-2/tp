@@ -101,4 +101,20 @@ public class PersonTest {
                 + Arrays.toString(ALICE.getGrades()) + ", tags=" + ALICE.getTags() + "}";
         assertEquals(expected, ALICE.toString());
     }
+
+    @Test
+    void getStudyGroup() {
+    }
+
+    @Test
+    void getOverallGrade() {
+    }
+
+    @Test
+    void compareTo() {
+    }
+
+    @Test
+    void setStudyGroup() {
+    }
 }
