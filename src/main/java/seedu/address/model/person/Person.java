@@ -134,7 +134,6 @@ public class Person {
                 .add("address", address)
                 .add("grades", Arrays.toString(grades))
                 .add("tags", tags)
-                .add("study group", studyGroup)
                 .toString();
     }
 

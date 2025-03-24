@@ -34,6 +34,7 @@ public class PersonBuilder {
     private Remark remark;
     private Set<Tag> tags;
     private Grade[] grades;
+    private int studyGroup;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
@@ -134,4 +135,5 @@ public class PersonBuilder {
                 .toArray(Grade[]::new);
         return this;
     }
+
 }

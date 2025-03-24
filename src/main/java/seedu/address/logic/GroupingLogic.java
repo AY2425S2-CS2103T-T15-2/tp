@@ -24,7 +24,7 @@ public class GroupingLogic {
             s.setStudyGroup(groupIndex);
             groupIndex += direction;
             if (groupIndex == NUMBEROFGROUPS + 1 || groupIndex == -1) {
-                direction = -1;
+                direction *= -1;
                 groupIndex += direction;
             }
         }
