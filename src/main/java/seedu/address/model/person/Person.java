@@ -27,6 +27,7 @@ public class Person {
     private final Remark remark;
     private final Set<Tag> tags = new HashSet<>();
     private final Grade[] grades;
+    private int studyGroup;
 
 
     /**
@@ -76,6 +77,8 @@ public class Person {
         return Collections.unmodifiableSet(tags);
     }
 
+    public int getStudyGroup() { return studyGroup; }
+
     /**
      * Returns true if both persons have the same name.
      * This defines a weaker notion of equality between two persons.
@@ -110,13 +113,14 @@ public class Person {
                 && email.equals(otherPerson.email)
                 && address.equals(otherPerson.address)
                 && tags.equals(otherPerson.tags)
-                && Arrays.equals(grades, otherPerson.grades);
+                && Arrays.equals(grades, otherPerson.grades)
+                && studyGroup == otherPerson.studyGroup;
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, Arrays.hashCode(grades), tags);
+        return Objects.hash(name, phone, email, address, Arrays.hashCode(grades), tags, studyGroup);
     }
 
     @Override
@@ -128,6 +132,7 @@ public class Person {
                 .add("address", address)
                 .add("grades", Arrays.toString(grades))
                 .add("tags", tags)
+                .add("study group", studyGroup)
                 .toString();
     }
 
@@ -154,4 +159,12 @@ public class Person {
         return validGrades > 0 ? sum / validGrades : 0.0;
     }
 
+    public int compareTo(Person p) {
+        return Double.compare(this.getOverallGrade(), p.getOverallGrade());
+    }
+
+    public void setStudyGroup(int group) {
+        this.studyGroup = group;
+        this.tags.add(new Tag("StudyGroup" + studyGroup));
+    }
 }
