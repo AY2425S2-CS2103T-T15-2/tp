@@ -89,7 +89,6 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, ...SUBJEC
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01, g/Maths:A, Geography:B, History:B, Economics:A, Chemistry:C, Biology:A`
-* `add n/Betsy Crowe t/good at maths e/betsycrowe@example.com a/Elm College p/1234567 t/weak in physics`
 
 ### Listing all students : `list`
 
@@ -123,7 +122,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
+* Non-full words will still be matched e.g. `Han` will match `Hans`
 * Persons matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
@@ -164,6 +163,7 @@ Format: `filter KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `filter student tutor` filters all students with `student tutor` tag.
+* Non-full words will still be matched e.g. `friend` will match `friends`
 
 ### Clearing all entries : `clear`
 
