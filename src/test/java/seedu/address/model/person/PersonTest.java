@@ -11,16 +11,22 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
 import static seedu.address.testutil.TypicalPersons.BOB;
+import static seedu.address.testutil.TypicalPersons.DEFAULT_GRADES;
+import static seedu.address.testutil.TypicalPersons.NEW_TEST_PERSON;
 
 import java.util.Arrays;
+import java.util.Set;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
 
 
 public class PersonTest {
+    private Person person;
 
     @Test
     public void asObservableList_modifyList_throwsUnsupportedOperationException() {
@@ -100,5 +106,54 @@ public class PersonTest {
                 + ", email=" + ALICE.getEmail() + ", address=" + ALICE.getAddress() + ", grades="
                 + Arrays.toString(ALICE.getGrades()) + ", tags=" + ALICE.getTags() + "}";
         assertEquals(expected, ALICE.toString());
+    }
+
+    @BeforeEach
+    void setUp() {
+        person = new PersonBuilder(ALICE).withGrade(DEFAULT_GRADES).build();
+    }
+
+    @Test
+    void getStudyGroup() {
+        person.setStudyGroup(2);
+        assertEquals(2, person.getStudyGroup(), "Study group should be set correctly.");
+    }
+
+    @Test
+    void getOverallGrade() {
+        // Case 1: Default grades
+
+        // Case 2: Empty grades array
+
+        // Case 3: Null grades array
+
+        // Case 4: Mixed valid and null grades
+    }
+
+    @Test
+    void compareTo() {
+        Person higherGradeStudent = new PersonBuilder(NEW_TEST_PERSON).withGrade(PersonBuilder.A_GRADES).build();
+        Person lowerGradeStudent = new PersonBuilder(NEW_TEST_PERSON).withGrade(PersonBuilder.F_GRADES).build();
+
+        // Higher grade should be "less than" lower grade in sorting (ascending order)
+        assertTrue(higherGradeStudent.compareTo(person) > 0,
+                "Higher grade should be less than the default grade.");
+        assertTrue(lowerGradeStudent.compareTo(person) < 0,
+                "Default grade should be less than lower grade.");
+        assertEquals(0, person.compareTo(person),
+                "Same person should return 0 in comparison.");
+    }
+
+    @Test
+    void setStudyGroup() {
+        person.setStudyGroup(0);
+
+        // Verify study group is updated
+        assertEquals(0, person.getStudyGroup(), "Study group should be set correctly.");
+
+        // Verify the tag is updated
+        Set<Tag> tags = person.getTags();
+        assertTrue(tags.stream().anyMatch(tag -> tag.tagName.equals("StudyGroup0")),
+                "Person should have the correct StudyGroup tag.");
     }
 }
