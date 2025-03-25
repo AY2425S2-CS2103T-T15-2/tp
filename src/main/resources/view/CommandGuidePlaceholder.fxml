@@ -26,6 +26,7 @@
             <Label fx:id="findCommand" styleClass="cell_small_label" text="\$findCommand" />
             <Label fx:id="helpCommand" styleClass="cell_small_label" text="\$helpCommand" />
             <Label fx:id="listCommand" styleClass="cell_small_label" text="\$listCommand" />
+            <Label fx:id="filterCommand" styleClass="cell_small_label" text="\$filterCommand" />
             <Label fx:id="remarkCommand" styleClass="cell_small_label" text="\$remarkCommand" />
         </VBox>
     </GridPane>

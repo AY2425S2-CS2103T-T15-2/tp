@@ -21,9 +21,10 @@ public class CommandGuidePanel extends UiPart<Region> {
             "Edit a person: edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] "
                     + "[g/SUBJECT1:GRADE...SUBJECT6:GRADE] [t/TAG]";
     private static final String EXIT_COMMAND = "Exit the application: exit";
-    private static final String FIND_COMMAND = "Find persons: find KEYWORD [MORE_KEYWORDS]";
+    private static final String FIND_COMMAND = "Find persons by name: find KEYWORD [MORE_KEYWORDS]";
     private static final String HELP_COMMAND = "Open help window: help";
     private static final String LIST_COMMAND = "List all persons: list";
+    private static final String FILTER_COMMAND = "Filter persons by tag: filter KEYWORD [MORE_KEYWORDS]";
     private static final String REMARK_COMMAND = "Edit the remark of a person: remark INDEX r/REMARK";
 
     @FXML
@@ -60,6 +61,9 @@ public class CommandGuidePanel extends UiPart<Region> {
     private Label listCommand;
 
     @FXML
+    private Label filterCommand;
+
+    @FXML
     private Label remarkCommand;
 
     /**
@@ -77,6 +81,7 @@ public class CommandGuidePanel extends UiPart<Region> {
         setLabelWrap(findCommand, FIND_COMMAND);
         setLabelWrap(helpCommand, HELP_COMMAND);
         setLabelWrap(listCommand, LIST_COMMAND);
+        setLabelWrap(filterCommand, FILTER_COMMAND);
         setLabelWrap(remarkCommand, REMARK_COMMAND);
     }
 
