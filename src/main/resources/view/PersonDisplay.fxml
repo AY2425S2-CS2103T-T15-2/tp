@@ -18,15 +18,15 @@
                     <Region fx:constant="USE_PREF_SIZE" />
                 </minWidth>
             </Label>
-            <Label fx:id="name" text="\$first" styleClass="cell_big_label" wrapText="true" />
+            <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
 
             <Region HBox.hgrow="ALWAYS" />
 
             <Label fx:id="phone" styleClass="cell_small_label" text="$phone" />
             <Label fx:id="email" styleClass="cell_small_label" text="$email" />
             <Label fx:id="address" styleClass="cell_small_label" text="$address" />
+            <FlowPane fx:id="tags" />
         </VBox>
-        <FlowPane fx:id="tags" />
         <FlowPane fx:id="grades" />
     </GridPane>
 </VBox>
