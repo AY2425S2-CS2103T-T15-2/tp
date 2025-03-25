@@ -71,9 +71,11 @@ JCRoster+ (MVP) is a **desktop app for managing student contacts and details, op
 
 Shows a message explaning how to access the help page.
 
+Format: `help`
+
 ![help message](images/helpMessage.png)
 
-Format: `help`
+Copy the URL and open in a browser to view the full user guide.
 
 
 ### Adding a person: `add`
