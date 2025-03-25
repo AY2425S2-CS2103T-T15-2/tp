@@ -23,7 +23,7 @@ public class GroupingLogic {
         for (Person s : studentsCopy) {
             s.setStudyGroup(groupIndex);
             groupIndex += direction;
-            if (groupIndex == NUMBEROFGROUPS + 1 || groupIndex == -1) {
+            if (groupIndex == NUMBEROFGROUPS + 1 || groupIndex == 0) {
                 direction *= -1;
                 groupIndex += direction;
             }

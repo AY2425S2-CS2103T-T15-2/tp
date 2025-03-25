@@ -42,7 +42,7 @@ public class Person {
         this.remark = remark;
         this.grades = grades.clone();
         this.tags.addAll(tags);
-
+        this.studyGroup = 1;
     }
 
     public Grade[] getGrades() {
@@ -115,8 +115,7 @@ public class Person {
                 && email.equals(otherPerson.email)
                 && address.equals(otherPerson.address)
                 && tags.equals(otherPerson.tags)
-                && Arrays.equals(grades, otherPerson.grades)
-                && studyGroup == otherPerson.studyGroup;
+                && Arrays.equals(grades, otherPerson.grades);
     }
 
     @Override
