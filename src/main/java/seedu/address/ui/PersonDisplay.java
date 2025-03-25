@@ -1,6 +1,6 @@
 package seedu.address.ui;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Comparator;
 
 import javafx.fxml.FXML;
@@ -26,7 +26,7 @@ public class PersonDisplay extends UiPart<Region> {
      */
 
     // When updating person display, call PersonDisplay constructor again with the updated person
-    public Person person;
+    private Person person;
 
     @FXML
     private VBox cardDisplay;
@@ -63,7 +63,7 @@ public class PersonDisplay extends UiPart<Region> {
      */
     public void setPerson(Person person) {
         this.person = person;
-        setLabelWrap(name,"Name: " + person.getName().fullName);
+        setLabelWrap(name, "Name: " + person.getName().fullName);
         setLabelWrap(phone, "Phone: " + person.getPhone().value);
         setLabelWrap(address, "Address: " + person.getAddress().value);
         setLabelWrap(email, "Email: " + person.getEmail().value);
