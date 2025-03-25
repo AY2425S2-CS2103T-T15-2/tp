@@ -25,6 +25,8 @@ public class PersonBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
     public static final String DEFAULT_REMARK = "";
     public static final String DEFAULT_GRADES = "Math:A,Science:B,English:A,History:C,Geography:B,Music:A";
+    public static final String F_GRADES = "Math:F,Science:F,English:F,History:F,Geography:F,Music:F";
+    public static final String A_GRADES = "Math:A,Science:A,English:A,History:A,Geography:A,Music:A";
 
 
     private Name name;
