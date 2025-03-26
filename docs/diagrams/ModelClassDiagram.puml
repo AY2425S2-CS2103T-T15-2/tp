@@ -19,7 +19,10 @@ Class Email
 Class Name
 Class Phone
 Class Tag
-Class Grade
+Class Grade {
+    +subject : String
+    +grade : String
+}
 
 Class I #FFFFFF
 }
@@ -51,6 +54,7 @@ UniquePersonList -[hidden]right-> I
 Name -[hidden]right-> Phone
 Phone -[hidden]right-> Address
 Address -[hidden]right-> Email
+Grade -[hidden]right-> Tag
 
 ModelManager --> "~* filtered" Person
 @enduml
