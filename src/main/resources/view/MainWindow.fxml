@@ -39,7 +39,7 @@
           <!-- LEFT COLUMN: Command Guide -->
           <!-- Command Guide component that tells users what are all the possible commands -->
           <StackPane fx:id="commandGuidePlaceholder" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS"
-                     styleClass="pane-with-border" minWidth="200" prefWidth="200">
+                     styleClass="pane-with-border" minWidth="250" prefWidth="250">
             <padding>
               <Insets top="10" right="10" bottom="10" left="10" />
             </padding>
@@ -79,7 +79,7 @@
           <!-- RIGHT COLUMN: Person Display -->
           <!-- Person Display component, where you display the details of a person -->
           <StackPane fx:id="personDisplayPlaceholder" HBox.hgrow="ALWAYS" styleClass="pane-with-border"
-                     VBox.vgrow="ALWAYS" minWidth="200" prefWidth="200">
+                     VBox.vgrow="ALWAYS" minWidth="250" prefWidth="250">
             <padding>
               <Insets top="10" right="10" bottom="10" left="10" />
             </padding>
