@@ -25,7 +25,7 @@ JCRoster+ (MVP) is a **desktop app for managing student contacts and details, op
    The application will create a `data` folder in the home folder to store the data.
 
 1. Open a command terminal (*powershell for windows, terminal for Mac*), <br>
-   `cd` into the folder you put the jar file in, (Refer to the [Tech_support](#Tech_support) for using `cd` command). 
+   `cd` into the folder you put the jar file in, (Refer to the [Tech_support](#Tech_support) for using `cd` command)
    <br>and use the `java -jar jcroster+.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
@@ -229,17 +229,17 @@ Action     | Format, Examples
 
 
 ## Tech_support
-### using `cd` command
+### Using `cd` command
 
-after opening terminal, you we see screen like ![this](images/window's_powershell.png)<br>
-type `ls` to see files in this directory ![](images/ls_command.png)<br>
-type `cd [folder name] `to enter that folder <br>
-for example <br>
-`cd Downloads ` you will see terminal entering DownLoads folder <br>
+After opening terminal, you will see screen like ![this](images/window's_powershell.png)<br>
+Type `ls` to see files in this directory ![](images/ls_command.png)<br>
+Type `cd [folder name] `to enter that folder <br>
+For example : 
+`cd Downloads ` The terminal prompt should now show that you’re inside the Downloads folder <br>
 ![](images/cd_command.png)<br>
-type `cd ..` to go back to previous folder<br>
-##### if you dont know the path to your JAR file
-find the file and right click on it,<br>
-then click on properties, you will see the path to the file, <br>
-copy it and use it in the terminal `cd [path/to/file] `to navigate to the folder where the JAR file is located.
+Type `cd ..` to go back to previous folder<br>
+##### If you dont know the path to your JAR file
+Find the file and right click on it,<br>
+Then click on properties, you will see the path to the file, <br>
+Copy it and use it in the terminal `cd [path/to/file] `to navigate to the folder where the JAR file is located
 
