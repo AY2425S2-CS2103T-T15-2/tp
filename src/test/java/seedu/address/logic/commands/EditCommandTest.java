@@ -26,12 +26,11 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.person.Grade;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 
-import java.util.Arrays;
+
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for EditCommand.
@@ -196,7 +195,7 @@ public class EditCommandTest {
                 .withPhone(personToEdit.getPhone().value)
                 .withEmail(personToEdit.getEmail().value)
                 .withAddress(personToEdit.getAddress().value)
-                .withGrade(PersonBuilder.A_GRADES)  // Change all grades to A
+                .withGrade(PersonBuilder.A_GRADES)
                 .build();
 
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, descriptor);
