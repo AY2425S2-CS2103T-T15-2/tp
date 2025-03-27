@@ -25,6 +25,9 @@ public class DisplayCommand extends Command {
 
     private final Index index;
 
+    /**
+     * Creates a DisplayCommand to display the person at the specified {@code Index}
+     */
     public DisplayCommand(Index index) {
         requireNonNull(index);
 
