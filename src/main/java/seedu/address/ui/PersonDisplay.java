@@ -31,15 +31,17 @@ public class PersonDisplay extends UiPart<Region> {
     @FXML
     private VBox cardDisplay;
     @FXML
-    private Label name;
+    private Label personDisplayTitle;
     @FXML
-    private Label id;
+    private Label name;
     @FXML
     private Label phone;
     @FXML
     private Label address;
     @FXML
     private Label email;
+    @FXML
+    private Label remark;
     @FXML
     private FlowPane tags;
     // @FXML
@@ -51,11 +53,12 @@ public class PersonDisplay extends UiPart<Region> {
     public PersonDisplay() {
         super(FXML);
         this.person = null;
-        id.setText("");
+        personDisplayTitle.setText("Student Profile Display:");
         setLabelWrap(name, "Double click on a person to display their full profile");
         phone.setText("");
         address.setText("");
         email.setText("");
+        remark.setText("");
     }
 
     /**
@@ -67,6 +70,7 @@ public class PersonDisplay extends UiPart<Region> {
         setLabelWrap(phone, "Phone: " + person.getPhone().value);
         setLabelWrap(address, "Address: " + person.getAddress().value);
         setLabelWrap(email, "Email: " + person.getEmail().value);
+        setLabelWrap(remark, "Remarks: " + person.getRemark().value);
         tags.getChildren().clear();
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
@@ -79,8 +83,8 @@ public class PersonDisplay extends UiPart<Region> {
     /**
      * Sets text wrap attribute to every {@code Label}  based on {@code guiSettings}.
      */
-    private static void setLabelWrap(Label label, String title) {
-        label.setText(title);
+    private static void setLabelWrap(Label label, String labelText) {
+        label.setText(labelText);
         label.setWrapText(true);
     }
 }
