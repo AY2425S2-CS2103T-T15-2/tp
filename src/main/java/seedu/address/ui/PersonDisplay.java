@@ -1,6 +1,6 @@
 package seedu.address.ui;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Comparator;
 
 import javafx.fxml.FXML;
@@ -26,7 +26,7 @@ public class PersonDisplay extends UiPart<Region> {
      */
 
     // When updating person display, call PersonDisplay constructor again with the updated person
-    public final Person person;
+    private Person person;
 
     @FXML
     private VBox cardDisplay;
@@ -42,8 +42,8 @@ public class PersonDisplay extends UiPart<Region> {
     private Label email;
     @FXML
     private FlowPane tags;
-    @FXML
-    private FlowPane grades;
+    // @FXML
+    // private FlowPane grades;
 
     /**
      * Creates an empty {@code PersonCode} to display as a placeholder.
@@ -52,27 +52,35 @@ public class PersonDisplay extends UiPart<Region> {
         super(FXML);
         this.person = null;
         id.setText("");
-        name.setText("Click on a person to display their full profile (Coming soon!)");
+        setLabelWrap(name, "Double click on a person to display their full profile");
         phone.setText("");
         address.setText("");
         email.setText("");
     }
 
     /**
-     * Creates a {@code PersonCode} with the given {@code Person} and index to display.
+     * Sets the {@code Person} to be displayed.
      */
-    public PersonDisplay(Person person, int displayedIndex) {
-        super(FXML);
+    public void setPerson(Person person) {
         this.person = person;
-        id.setText(displayedIndex + ". ");
-        name.setText(person.getName().fullName);
-        phone.setText(person.getPhone().value);
-        address.setText(person.getAddress().value);
-        email.setText(person.getEmail().value);
+        setLabelWrap(name, "Name: " + person.getName().fullName);
+        setLabelWrap(phone, "Phone: " + person.getPhone().value);
+        setLabelWrap(address, "Address: " + person.getAddress().value);
+        setLabelWrap(email, "Email: " + person.getEmail().value);
+        tags.getChildren().clear();
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        Arrays.stream(person.getGrades())
-                .forEach(grade -> grades.getChildren().add(new Label(grade.toString())));
+        // Complete grades function later
+        // Arrays.stream(person.getGrades())
+        //         .forEach(grade -> grades.getChildren().add(new Label(grade.toString())));
+    }
+
+    /**
+     * Sets text wrap attribute to every {@code Label}  based on {@code guiSettings}.
+     */
+    private static void setLabelWrap(Label label, String title) {
+        label.setText(title);
+        label.setWrapText(true);
     }
 }
