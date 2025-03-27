@@ -10,6 +10,9 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
+/**
+ * Displays a person identified using displayed index from the address book.
+ */
 public class DisplayCommand extends Command {
     public static final String COMMAND_WORD = "display";
 
@@ -37,7 +40,7 @@ public class DisplayCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        // do display action (not implemented yet)
+        // do display action (NOT IMPLEMENTED)
         Person personToDisplay = lastShownList.get(index.getZeroBased());
 
         return new CommandResult(String.format(
