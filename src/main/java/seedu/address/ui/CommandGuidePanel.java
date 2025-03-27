@@ -26,6 +26,7 @@ public class CommandGuidePanel extends UiPart<Region> {
     private static final String LIST_COMMAND = "List all persons: list";
     private static final String FILTER_COMMAND = "Filter persons by tag: filter KEYWORD [MORE_KEYWORDS]";
     private static final String REMARK_COMMAND = "Edit the remark of a person: remark INDEX r/REMARK";
+    private static final String GROUP_COMMAND = "Group students into 4 groups: group";
 
     @FXML
     private VBox commandGuidePlaceholder;
@@ -66,6 +67,9 @@ public class CommandGuidePanel extends UiPart<Region> {
     @FXML
     private Label remarkCommand;
 
+    @FXML
+    private Label groupCommand;
+
     /**
      * Creates a {@code CommandGuidePlaceholder} with hardcoded commands.
      */
@@ -83,6 +87,7 @@ public class CommandGuidePanel extends UiPart<Region> {
         setLabelWrap(listCommand, LIST_COMMAND);
         setLabelWrap(filterCommand, FILTER_COMMAND);
         setLabelWrap(remarkCommand, REMARK_COMMAND);
+        setLabelWrap(groupCommand, GROUP_COMMAND);
     }
 
     private static void setLabelWrap(Label label, String title) {
