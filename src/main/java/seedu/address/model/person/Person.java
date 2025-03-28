@@ -27,6 +27,7 @@ public class Person {
     private final Remark remark;
     private final Set<Tag> tags = new HashSet<>();
     private final Grade[] grades;
+    private int studyGroup;
 
 
     /**
@@ -41,7 +42,7 @@ public class Person {
         this.remark = remark;
         this.grades = grades.clone();
         this.tags.addAll(tags);
-
+        this.studyGroup = 1;
     }
 
     public Grade[] getGrades() {
@@ -74,6 +75,10 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    public int getStudyGroup() {
+        return studyGroup;
     }
 
     /**
@@ -116,7 +121,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, Arrays.hashCode(grades), tags);
+        return Objects.hash(name, phone, email, address, Arrays.hashCode(grades), tags, studyGroup);
     }
 
     @Override
@@ -154,4 +159,13 @@ public class Person {
         return validGrades > 0 ? sum / validGrades : 0.0;
     }
 
+    public int compareTo(Person p) {
+        return Double.compare(this.getOverallGrade(), p.getOverallGrade());
+    }
+
+    public void setStudyGroup(int group) {
+        this.studyGroup = group;
+        this.tags.removeIf(tag -> tag.tagName.contains("StudyGroup"));
+        this.tags.add(new Tag("StudyGroup" + studyGroup));
+    }
 }

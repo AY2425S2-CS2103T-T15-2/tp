@@ -18,11 +18,15 @@ JCRoster+ (MVP) is a **desktop app for managing student contacts and details, op
 1. Ensure you have Java `17` or above installed in your Computer.<br>
    **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
-1. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-T15-2/tp/releases).
+1. Download the latest `.jar` file from [AY2425S2-CS2103T-T15-2/tp/releases](https://github.com/AY2425S2-CS2103T-T15-2/tp/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your JCRoster+.
+1. Move the file to the folder you want to use as the _home folder_ for your JCRoster+.<br>
+   **Important:** <br> It is recommended to put the file in a new empty folder as
+   The application will create a `data` folder in the home folder to store the data.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar jcroster+.jar` command to run the application.<br>
+1. Open a command terminal (*powershell for windows, terminal for Mac*), <br>
+   `cd` into the folder you put the jar file in, (Refer to the [Tech_support](#Tech_support) for using `cd` command)
+   <br>and use the `java -jar jcroster+.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
@@ -224,3 +228,20 @@ Action     | Format, Examples
 **Exit**   | `exit`
 **Filter**   | `filter KEYWORD [MORE_KEYWORDS]`<br> e.g., `filter student tutor`
 **Remark**   | `remark INDEX r/REMARK`<br> e.g., `remark 2 r/Completed project`
+
+
+## Tech_support
+### Using `cd` command
+
+After opening terminal, you will see screen like ![this](images/window's_powershell.png)<br>
+Type `ls` to see files in this directory ![](images/ls_command.png)<br>
+Type `cd [folder name] `to enter that folder <br>
+For example : 
+`cd Downloads ` The terminal prompt should now show that you’re inside the Downloads folder <br>
+![](images/cd_command.png)<br>
+Type `cd ..` to go back to previous folder<br>
+##### If you dont know the path to your JAR file
+Find the file and right click on it,<br>
+Then click on properties, you will see the path to the file, <br>
+Copy it and use it in the terminal `cd [path/to/file] `to navigate to the folder where the JAR file is located
+

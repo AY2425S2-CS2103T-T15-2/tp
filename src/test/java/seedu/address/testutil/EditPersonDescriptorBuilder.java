@@ -1,5 +1,6 @@
 package seedu.address.testutil;
 
+import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -7,6 +8,7 @@ import java.util.stream.Stream;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Grade;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -18,6 +20,7 @@ import seedu.address.model.tag.Tag;
 public class EditPersonDescriptorBuilder {
 
     private EditPersonDescriptor descriptor;
+    //private Grade[] grades;
 
     public EditPersonDescriptorBuilder() {
         descriptor = new EditPersonDescriptor();
@@ -36,6 +39,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
+        descriptor.setGrades(person.getGrades());
         descriptor.setTags(person.getTags());
     }
 
@@ -83,5 +87,21 @@ public class EditPersonDescriptorBuilder {
 
     public EditPersonDescriptor build() {
         return descriptor;
+    }
+
+    /**
+     * Sets the {@code Grade} array of the {@code Person} that we are building.
+     * The input string should contain subject-grade pairs separated by commas.
+     * Each subject-grade pair should be in the format "subject:grade".
+     *
+     * @param grades The string representation of the grades.
+     * @return The current instance of {@code PersonBuilder} with updated grades.
+     */
+    public EditPersonDescriptorBuilder withGrade(String grades) {
+        Grade[] gradeArray = Arrays.stream(grades.split(","))
+                .map(Grade::new)
+                .toArray(Grade[]::new);
+        descriptor.setGrades(gradeArray);
+        return this;
     }
 }

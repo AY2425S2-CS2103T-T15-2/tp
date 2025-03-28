@@ -16,6 +16,7 @@ import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Person;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -35,6 +36,7 @@ public class MainWindow extends UiPart<Stage> {
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
     private CommandGuidePanel commandGuidePanel;
+    private PersonDisplay personDisplay;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -117,7 +119,7 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        personListPanel = new PersonListPanel(logic.getFilteredPersonList());
+        personListPanel = new PersonListPanel(logic.getFilteredPersonList(), this::updatePersonDisplay);
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
@@ -132,9 +134,16 @@ public class MainWindow extends UiPart<Stage> {
         commandGuidePanel = new CommandGuidePanel();
         commandGuidePlaceholder.getChildren().add(commandGuidePanel.getRoot());
 
-        // currently, the person display is a placeholder which shows
-        PersonDisplay personDisplay = new PersonDisplay();
+        // currently, the person display is a placeholder which shows "coming soon..."
+        personDisplay = new PersonDisplay();
         personDisplayPlaceholder.getChildren().add(personDisplay.getRoot());
+    }
+
+    /**
+     * Updates the person display with the given person.
+     */
+    public void updatePersonDisplay(Person person) {
+        personDisplay.setPerson(person);
     }
 
     /**

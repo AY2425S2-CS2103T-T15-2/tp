@@ -11,6 +11,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
@@ -18,6 +19,7 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.GroupingLogic;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.model.AddressBook;
@@ -27,6 +29,8 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
+
+
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for EditCommand.
@@ -41,33 +45,54 @@ public class EditCommandTest {
         EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder(editedPerson).build();
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson));
-
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(model.getFilteredPersonList().get(0), editedPerson);
+        expectedModel.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        GroupingLogic.groupStudents(expectedModel.getFilteredPersonList());
+        GroupingLogic.groupStudents(model.getFilteredPersonList());
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson));
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
+        // Initial setup
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        GroupingLogic.groupStudents(model.getFilteredPersonList());
+
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
         Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
 
+        // Build person with grades to trigger recalculation
         PersonBuilder personInList = new PersonBuilder(lastPerson);
-        Person editedPerson = personInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+        Person editedPerson = personInList.withName(VALID_NAME_BOB)
+                .withPhone(VALID_PHONE_BOB)
+                .withTags(VALID_TAG_HUSBAND)
+                .withGrade(PersonBuilder.A_GRADES) // Add grades to trigger recalculation
+                .build();
 
-        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
-                .withPhone(VALID_PHONE_BOB).withTags(VALID_TAG_HUSBAND).build();
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder()
+                .withName(VALID_NAME_BOB)
+                .withPhone(VALID_PHONE_BOB)
+                .withTags(VALID_TAG_HUSBAND)
+                .withGrade(PersonBuilder.A_GRADES) // Add grades to descriptor
+                .build();
+
         EditCommand editCommand = new EditCommand(indexLastPerson, descriptor);
-
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(lastPerson, editedPerson);
+        expectedModel.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        GroupingLogic.groupStudents(expectedModel.getFilteredPersonList());
+
+        editedPerson = expectedModel.getFilteredPersonList().get(indexLastPerson.getZeroBased());
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson));
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+
     }
 
     @Test
@@ -179,6 +204,41 @@ public class EditCommandTest {
         String expected = EditCommand.class.getCanonicalName() + "{index=" + index + ", editPersonDescriptor="
                 + editPersonDescriptor + "}";
         assertEquals(expected, editCommand.toString());
+    }
+
+    @Test
+    public void execute_editGradesRecalculatesGroups_success() {
+        Person personToEdit = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+
+        // Prepare edit descriptor with new grades
+        EditPersonDescriptor descriptor = new EditPersonDescriptorBuilder()
+                .withName(personToEdit.getName().fullName)
+                .withPhone(personToEdit.getPhone().value)
+                .withEmail(personToEdit.getEmail().value)
+                .withAddress(personToEdit.getAddress().value)
+                .withGrade(PersonBuilder.A_GRADES)
+                .build();
+
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, descriptor);
+
+        Person editedPerson = new PersonBuilder(personToEdit)
+                .withGrade(PersonBuilder.A_GRADES)
+                .build();
+
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(personToEdit, editedPerson);
+        expectedModel.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        GroupingLogic.groupStudents(expectedModel.getFilteredPersonList());
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS,
+                Messages.format(editedPerson));
+
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+
+        // Verify that the study group has been updated
+        Person editedPersonInModel = model.getFilteredPersonList().get(0);
+        Person editedPersonInExpectedModel = expectedModel.getFilteredPersonList().get(0);
+        assertEquals(editedPersonInExpectedModel.getStudyGroup(), editedPersonInModel.getStudyGroup());
     }
 
 }
