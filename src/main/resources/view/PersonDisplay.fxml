@@ -26,8 +26,8 @@
             <Label fx:id="email" styleClass="cell_small_label" text="$email" />
             <Label fx:id="address" styleClass="cell_small_label" text="$address" />
             <Label fx:id="remark" styleClass="cell_small_label" text="$remark" />
+            <FlowPane fx:id="grades" orientation="VERTICAL" minHeight="160" prefHeight="160" maxHeight="160" VBox.vgrow="NEVER"/>
             <FlowPane fx:id="tags" />
         </VBox>
-        <FlowPane fx:id="grades" />
     </GridPane>
 </VBox>

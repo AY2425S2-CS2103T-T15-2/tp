@@ -330,5 +330,13 @@
 }
 #personDisplayPlaceholder Label {
     -fx-text-fill: #333333;
+    -fx-padding: 0 0 5px 0;
+}
+#grades {
+    -fx-hgap: 7;
+}
+#grades Label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
 }
 

@@ -1,6 +1,6 @@
 package seedu.address.ui;
 
-//import java.util.Arrays;
+import java.util.Arrays;
 import java.util.Comparator;
 
 import javafx.fxml.FXML;
@@ -44,8 +44,8 @@ public class PersonDisplay extends UiPart<Region> {
     private Label remark;
     @FXML
     private FlowPane tags;
-    // @FXML
-    // private FlowPane grades;
+    @FXML
+    private FlowPane grades;
 
     /**
      * Creates an empty {@code PersonCode} to display as a placeholder.
@@ -75,9 +75,10 @@ public class PersonDisplay extends UiPart<Region> {
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        // Complete grades function later
-        // Arrays.stream(person.getGrades())
-        //         .forEach(grade -> grades.getChildren().add(new Label(grade.toString())));
+        grades.getChildren().clear();
+        grades.getChildren().add(new Label("Grades: "));
+        Arrays.stream(person.getGrades())
+                 .forEach(grade -> grades.getChildren().add(new Label("- " + grade.toString())));
     }
 
     /**

@@ -93,7 +93,7 @@ public class Grade {
      */
     @Override
     public String toString() {
-        return subject + ":" + grade;
+        return subject + " : " + grade;
     }
 
 
