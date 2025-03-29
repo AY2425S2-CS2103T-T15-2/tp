@@ -152,6 +152,6 @@ with(this){return _c('h5',{attrs:{"id":"if-you-dont-know-the-path-to-your-jar-fi
 with(this){return _c('p',[_v("Find the file and right click on it,"),_c('br'),_v("\nThen click on properties, you will see the path to the file, "),_c('br'),_v("\nCopy it and use it in the terminal "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("cd [path/to/file] ")]),_v("to navigate to the folder where the JAR file is located")])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Sat, 29 Mar 2025, 5:29:16 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Sat, 29 Mar 2025, 14:48:56 GMT+8]")])])])}
 }];
   
