@@ -161,6 +161,15 @@ Examples:
 * `remark 2 r/Needs follow-up on project deadline` adds a remark to 2nd student.
 * `remark 2 r/Completed project` edits the remark of 2nd student.
 
+### Group students into 4 groups: `group`
+
+Groups students into 4 groups based on their grades. Their group will then be displayed as a tag when you view their details on the list.
+
+Format: `group`
+
+Examples:
+* `group` groups students into 4 groups based on their grades.
+
 ### Advanced Tag-Based Filtering : `filter`
 
 Users can filter students based on multiple tags.
@@ -228,6 +237,7 @@ Action     | Format, Examples
 **Exit**   | `exit`
 **Filter**   | `filter KEYWORD [MORE_KEYWORDS]`<br> e.g., `filter student tutor`
 **Remark**   | `remark INDEX r/REMARK`<br> e.g., `remark 2 r/Completed project`
+**Group**   | `group`
 
 
 ## Tech_support
@@ -240,8 +250,9 @@ For example :
 `cd Downloads ` The terminal prompt should now show that you’re inside the Downloads folder <br>
 ![](images/cd_command.png)<br>
 Type `cd ..` to go back to previous folder<br>
+
 ##### If you dont know the path to your JAR file
-Find the file and right click on it,<br>
-Then click on properties, you will see the path to the file, <br>
+Find your JAR file and right click on it,<br>
+After clicking on properties, locate the path to the file, <br>
 Copy it and use it in the terminal `cd [path/to/file] `to navigate to the folder where the JAR file is located
 
