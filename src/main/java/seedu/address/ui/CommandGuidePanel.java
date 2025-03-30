@@ -12,37 +12,38 @@ public class CommandGuidePanel extends UiPart<Region> {
     private static final String FXML = "CommandGuidePlaceholder.fxml";
     private static final String COMMAND_GUIDE_TITLE = "Command Guide";
     private static final String[] ADD_COMMAND = {
-            "Add a person: ", "add n/NAME p/PHONE e/EMAIL a/ADDRESS g/SUBJECT1:GRADE...SUBJECT6:GRADE [t/TAG]"
+        "Add a person: ", "add n/NAME p/PHONE e/EMAIL a/ADDRESS g/SUBJECT1:GRADE...SUBJECT6:GRADE [t/TAG]"
     };
     private static final String[] CLEAR_COMMAND = {
-            "Clear all persons: ", "clear"
+        "Clear all persons: ", "clear"
     };
     private static final String[] DELETE_COMMAND = {
-            "Delete a person: ", "delete INDEX1 [INDEX2 ...] ,"
+        "Delete a person: ", "delete INDEX1 [INDEX2 ...] ,"
     };
     private static final String[] EDIT_COMMAND = {
-            "Edit a person: ", "edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/SUBJECT1:GRADE ... SUBJECT6:GRADE] [t/TAG]"
+        "Edit a person: ", "edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] "
+            + "[a/ADDRESS] [g/SUBJECT1:GRADE ... SUBJECT6:GRADE] [t/TAG]"
     };
     private static final String[] EXIT_COMMAND = {
-            "Exit the application: ", "exit"
+        "Exit the application: ", "exit"
     };
     private static final String[] FIND_COMMAND = {
-            "Find persons by name: ", "find KEYWORD [MORE_KEYWORDS]"
+        "Find persons by name: ", "find KEYWORD [MORE_KEYWORDS]"
     };
     private static final String[] HELP_COMMAND = {
-            "Open help window: ", "help"
+        "Open help window: ", "help"
     };
     private static final String[] LIST_COMMAND = {
-            "List all persons: ", "list"
+        "List all persons: ", "list"
     };
     private static final String[] FILTER_COMMAND = {
-            "Filter persons by tag: ", "filter KEYWORD [MORE_KEYWORDS]"
+        "Filter persons by tag: ", "filter KEYWORD [MORE_KEYWORDS]"
     };
     private static final String[] REMARK_COMMAND = {
-            "Edit the remark of a person: ", "remark INDEX r/REMARK"
+        "Edit the remark of a person: ", "remark INDEX r/REMARK"
     };
     private static final String[] GROUP_COMMAND = {
-            "Group students into 4 groups: ", "group"
+        "Group students into 4 groups: ", "group"
     };
 
     @FXML
