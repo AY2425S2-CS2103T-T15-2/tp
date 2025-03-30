@@ -243,7 +243,7 @@ Action     | Format, Examples
 ## Tech_support
 ### Using `cd` command
 
-After opening terminal, you will see screen like ![this](images/window's_powershell.png)<br>
+After opening terminal, you will see a screen like ![this](images/window's_powershell.png)<br>
 Type `ls` to see files in this directory ![](images/ls_command.png)<br>
 Type `cd [folder name] `to enter that folder <br>
 For example : 
