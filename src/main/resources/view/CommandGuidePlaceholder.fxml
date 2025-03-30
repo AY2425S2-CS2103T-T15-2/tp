@@ -17,18 +17,28 @@
                     <Region fx:constant="USE_PREF_SIZE" />
                 </minWidth>
             </Label>
-            <Label fx:id="commandGuideDescription" styleClass="cell_big_label" text="\$first" />
             <Label fx:id="addCommand" styleClass="cell_small_label" text="\$addCommand" />
+            <Label fx:id="addDesc" styleClass="cell_small_label_desc" text="\$addDesc" />
             <Label fx:id="clearCommand" styleClass="cell_small_label" text="\$clearCommand" />
+            <Label fx:id="clearDesc" styleClass="cell_small_label_desc" text="\$clearDesc" />
             <Label fx:id="deleteCommand" styleClass="cell_small_label" text="\$deleteCommand" />
+            <Label fx:id="deleteDesc" styleClass="cell_small_label_desc" text="\$deleteDesc" />
             <Label fx:id="editCommand" styleClass="cell_small_label" text="\$editCommand" />
+            <Label fx:id="editDesc" styleClass="cell_small_label_desc" text="\$editDesc" />
             <Label fx:id="exitCommand" styleClass="cell_small_label" text="\$exitCommand" />
+            <Label fx:id="exitDesc" styleClass="cell_small_label_desc" text="\$exitDesc" />
             <Label fx:id="findCommand" styleClass="cell_small_label" text="\$findCommand" />
+            <Label fx:id="findDesc" styleClass="cell_small_label_desc" text="\$findDesc" />
             <Label fx:id="helpCommand" styleClass="cell_small_label" text="\$helpCommand" />
+            <Label fx:id="helpDesc" styleClass="cell_small_label_desc" text="\$helpDesc" />
             <Label fx:id="listCommand" styleClass="cell_small_label" text="\$listCommand" />
+            <Label fx:id="listDesc" styleClass="cell_small_label_desc" text="\$listDesc" />
             <Label fx:id="filterCommand" styleClass="cell_small_label" text="\$filterCommand" />
+            <Label fx:id="filterDesc" styleClass="cell_small_label_desc" text="\$filterDesc" />
             <Label fx:id="remarkCommand" styleClass="cell_small_label" text="\$remarkCommand" />
+            <Label fx:id="remarkDesc" styleClass="cell_small_label_desc" text="\$remarkDesc" />
             <Label fx:id="groupCommand" styleClass="cell_small_label" text="\$groupCommand" />
+            <Label fx:id="groupDesc" styleClass="cell_small_label_desc" text="\$groupDesc" />
         </VBox>
     </GridPane>
 </VBox>

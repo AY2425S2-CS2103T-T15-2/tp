@@ -319,7 +319,12 @@
 }
 #commandGuidePlaceholder Label {
     -fx-text-fill: #333333;
-    -fx-padding: 0 0 5px 0;
+}
+#commandGuidePlaceholder .cell_small_label_desc {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 10px 0;
 }
 
 /* Person Display Specific Styling */
@@ -328,12 +333,17 @@
     -fx-font-weight: bold;
     -fx-text-fill: #333333;
 }
+#personDisplayPlaceholder .cell_big_label_name {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
 #personDisplayPlaceholder Label {
     -fx-text-fill: #333333;
-    -fx-padding: 0 0 5px 0;
 }
 #grades {
     -fx-hgap: 7;
+    -fx-padding: 0 0 5px 0;
 }
 #grades Label {
     -fx-font-size: 13px;
