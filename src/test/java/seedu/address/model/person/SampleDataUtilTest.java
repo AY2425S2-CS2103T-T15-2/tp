@@ -60,16 +60,16 @@ public class SampleDataUtilTest {
 
     @Test
     public void getSampleGrades_returnsCorrectGrades() {
-        String gradeString = "Math:A,Science:B,English:A,History:C,Geography:B,Music:A";
+        String gradeString = "Math : A,Science : B,English : A,History : C,Geography : B,Music : A";
         Grade[] grades = SampleDataUtil.getSampleGrades(gradeString);
 
         assertEquals(6, grades.length);
-        assertEquals("Math:A", grades[0].toString());
-        assertEquals("Science:B", grades[1].toString());
-        assertEquals("English:A", grades[2].toString());
-        assertEquals("History:C", grades[3].toString());
-        assertEquals("Geography:B", grades[4].toString());
-        assertEquals("Music:A", grades[5].toString());
+        assertEquals("Math : A", grades[0].toString());
+        assertEquals("Science : B", grades[1].toString());
+        assertEquals("English : A", grades[2].toString());
+        assertEquals("History : C", grades[3].toString());
+        assertEquals("Geography : B", grades[4].toString());
+        assertEquals("Music : A", grades[5].toString());
     }
 
     @Test
