@@ -73,7 +73,7 @@ JCRoster+ (MVP) is a **desktop app for managing student contacts and details, op
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Displays a link to the User Guide.
 
 Format: `help`
 
@@ -91,6 +91,9 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, ...SUBJEC
 <box type="tip" seamless>
 
 **Tip:** A student can have any number of tags (including 0)
+
+**Note:** Use single-word tags only.
+
 </box>
 
 Examples:
@@ -163,12 +166,19 @@ Examples:
 
 ### Group students into 4 groups: `group`
 
-Groups students into 4 groups based on their grades. Their group will then be displayed as a tag when you view their details on the list.
+Groups students into 4 study groups based on their grades. Their study group will then be displayed as a tag.
 
 Format: `group`
 
 Examples:
-* `group` groups students into 4 groups based on their grades.
+* `group` groups all students into 4 study groups based on their grades.
+
+**Note:** The algorithm sorts students by grades and assigns them to groups in a zig-zag pattern:  The first student(weakest) goes into Group 1, the second into Group 2, the third into Group 3, the forth into Group 4, the fifth back to Group 4, the sixth into group 3, and so on. 
+This ensures a balanced mix of students in each group.
+
+**Tip:** Editing any student's grade will cause the system to automatically recalculate and reassign study groups to maintain balance and fairness.
+
+**Tip:** You can manually edit a student's study group by editing their tags.
 
 ### Advanced Tag-Based Filtering : `filter`
 
@@ -227,7 +237,7 @@ Furthermore, certain edits can cause the JCRoster+ to behave in unexpected ways 
 
 Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, ...SUBJECT6:GRADE [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 g/Maths:A, Geography:B, History:B, Economics:A, Chemistry:C, Biology:A t/good at maths`
+**Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, ...SUBJECT6:GRADE [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 g/Maths:A, Geography:B, History:B, Economics:A, Chemistry:C, Biology:A t/Famliy`
 **Clear**  | `clear`
 **Delete** | `delete INDEX1 INDEX2...`<br> e.g., `delete 2 3`
 **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [g/SUBJECT1:GRADE, ...SUBJECT6:GRADE] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
