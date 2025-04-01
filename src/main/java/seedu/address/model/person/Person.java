@@ -165,7 +165,7 @@ public class Person {
 
     public void setStudyGroup(int group) {
         this.studyGroup = group;
-        this.tags.removeIf(tag -> tag.tagName.contains("StudyGroup"));
-        this.tags.add(new Tag("StudyGroup" + studyGroup));
+        this.tags.removeIf(tag -> tag.tagName.contains("Studygroup"));
+        this.tags.add(new Tag("Studygroup" + studyGroup));
     }
 }
