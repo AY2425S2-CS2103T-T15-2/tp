@@ -44,10 +44,12 @@ public class DisplayCommandResultTest {
         DisplayCommandResult displayCommandResult = new DisplayCommandResult("feedback", displayPerson);
 
         // same values -> returns same hashcode
-        assertEquals(displayCommandResult.hashCode(), new DisplayCommandResult("feedback", displayPerson).hashCode());
+        assertEquals(displayCommandResult.hashCode(),
+                new DisplayCommandResult("feedback", displayPerson).hashCode());
 
         // different feedbackToUser value -> returns different hashcode
-        assertNotEquals(displayCommandResult.hashCode(), new DisplayCommandResult("different", displayPerson).hashCode());
+        assertNotEquals(displayCommandResult.hashCode(),
+                new DisplayCommandResult("different", displayPerson).hashCode());
     }
 
     @Test
