@@ -184,10 +184,10 @@ This ensures a balanced mix of students in each group.
 
 Users can filter students based on multiple tags.
 
-Format: `filter KEYWORD [MORE_KEYWORDS]`
+Format: `filter KEYWORD`
 
 Examples:
-* `filter student tutor` filters all students with `student tutor` tag.
+* `filter student` filters all students with `student` tag.
 * Non-full words will still be matched e.g. `friend` will match `friends`
 
 ### Clearing all entries : `clear`

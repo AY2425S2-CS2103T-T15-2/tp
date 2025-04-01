@@ -135,7 +135,7 @@ public class MainWindow extends UiPart<Stage> {
         commandGuidePanel = new CommandGuidePanel();
         commandGuidePlaceholder.getChildren().add(commandGuidePanel.getRoot());
 
-        // currently, the person display is a placeholder which shows "coming soon..."
+        // during gui init, person display placeholder  shows "double click to display..."
         personDisplay = new PersonDisplay();
         personDisplayPlaceholder.getChildren().add(personDisplay.getRoot());
     }
