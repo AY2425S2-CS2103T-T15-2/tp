@@ -46,8 +46,10 @@ public class ParserUtil {
      */
     public static Name parseName(String name) throws ParseException {
         requireNonNull(name);
+        // Ignoring trailing spaces between given names
         String trimmedName = name.trim().replaceAll("\\s+", " ");
 
+        // Formatting names via camelcase - case insensitive names
         String formattedName = Arrays.stream(trimmedName.toLowerCase().split(" "))
                 .map(n -> n.substring(0, 1).toUpperCase() + n.substring(1))  // Capitalize first letter
                 .collect(Collectors.joining(" "));  // Rejoin words with spaces
