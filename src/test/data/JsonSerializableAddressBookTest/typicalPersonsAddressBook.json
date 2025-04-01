@@ -14,7 +14,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "Friends", "StudyGroup1"]
+    "tags" : [ "Friends", "Studygroup1"]
   }, {
     "name" : "Benson Meier",
     "phone" : "98765432",
@@ -29,7 +29,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "OwesMoney", "Friends", "StudyGroup2" ]
+    "tags" : [ "Owesmoney", "Friends", "Studygroup2" ]
   }, {
     "name" : "Carl Kurz",
     "phone" : "95352563",
@@ -44,7 +44,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "StudyGroup3" ]
+    "tags" : [ "Studygroup3" ]
   }, {
     "name" : "Daniel Meier",
     "phone" : "87652533",
@@ -59,7 +59,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "Friends", "StudyGroup4" ]
+    "tags" : [ "Friends", "Studygroup4" ]
   }, {
     "name" : "Elle Meyer",
     "phone" : "9482224",
@@ -74,7 +74,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "StudyGroup4" ]
+    "tags" : [ "Studygroup4" ]
   }, {
     "name" : "Fiona Kunz",
     "phone" : "9482427",
@@ -89,7 +89,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "StudyGroup3" ]
+    "tags" : [ "Studygroup3" ]
   }, {
     "name" : "George Best",
     "phone" : "9482442",
@@ -104,7 +104,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "StudyGroup2" ]
+    "tags" : [ "Studygroup2" ]
   }, {
     "name" : "Harold",
     "phone" : "96778766",
@@ -119,7 +119,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "Enemy", "StudyGroup1" ]
+    "tags" : [ "Enemy", "Studygroup1" ]
 
   }, {
     "name" : "name",
@@ -135,7 +135,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "Test", "StudyGroup1" ]
+    "tags" : [ "Test", "Studygroup1" ]
 
   } ]
 }
