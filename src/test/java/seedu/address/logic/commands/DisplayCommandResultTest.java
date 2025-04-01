@@ -46,6 +46,10 @@ public class DisplayCommandResultTest {
 
         // different feedbackToUser value -> returns false
         assertFalse(displayCommandResult.equals(new DisplayCommandResult("different", displayPerson)));
+
+        // different person -> returns false
+        Person differentPerson = new PersonBuilder().withName("different").build();
+        assertFalse(displayCommandResult.equals(new DisplayCommandResult("feedback", differentPerson)));
     }
 
     @Test

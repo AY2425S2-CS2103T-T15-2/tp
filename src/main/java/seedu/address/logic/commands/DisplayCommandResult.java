@@ -29,10 +29,17 @@ public class DisplayCommandResult extends CommandResult {
 
     @Override
     public boolean equals(Object other) {
-        return other == this
-                || (other instanceof DisplayCommandResult
-                && setPerson.equals(((DisplayCommandResult) other).setPerson)
-                && super.equals(other));
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof DisplayCommandResult)) {
+            return false;
+        }
+
+        DisplayCommandResult otherDisplayCommandResult = (DisplayCommandResult) other;
+        return setPerson.equals(otherDisplayCommandResult.setPerson)
+                && super.equals(other);
     }
 
     @Override
