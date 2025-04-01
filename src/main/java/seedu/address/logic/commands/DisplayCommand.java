@@ -43,12 +43,12 @@ public class DisplayCommand extends Command {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        // do display action (NOT IMPLEMENTED)
         Person personToDisplay = lastShownList.get(index.getZeroBased());
 
-        return new CommandResult(String.format(
+        // return a display command result to display the person
+        return new DisplayCommandResult(String.format(
                 MESSAGE_DISPLAY_PERSON_SUCCESS,
                 Messages.format(personToDisplay)
-        ));
+        ), personToDisplay);
     }
 }
