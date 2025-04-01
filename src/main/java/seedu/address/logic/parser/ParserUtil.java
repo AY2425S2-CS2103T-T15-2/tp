@@ -51,8 +51,8 @@ public class ParserUtil {
 
         // Formatting names via camelcase - case insensitive names
         String formattedName = Arrays.stream(trimmedName.toLowerCase().split(" "))
-                .map(n -> n.substring(0, 1).toUpperCase() + n.substring(1))  // Capitalize first letter
-                .collect(Collectors.joining(" "));  // Rejoin words with spaces
+                .map(n -> n.substring(0, 1).toUpperCase() + n.substring(1)) // Capitalize first letter
+                .collect(Collectors.joining(" ")); // Rejoin words with spaces
         if (!Name.isValidName(formattedName)) {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS);
         }
