@@ -9,8 +9,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class Tag {
 
-    public static final String MESSAGE_CONSTRAINTS = "Tag names must be a single alphanumeric word " +
-            "(e.g., 'Family', 'Enemy').";
+    public static final String MESSAGE_CONSTRAINTS = "Tag names must be a single alphanumeric word "
+            + "(e.g., 'Family', 'Enemy').";
     public static final String VALIDATION_REGEX = "\\p{Alnum}+";
 
     public final String tagName;
@@ -23,7 +23,7 @@ public class Tag {
     public Tag(String tagName) {
         requireNonNull(tagName);
         checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
-        tagName = tagName.substring(0,1).toUpperCase() + tagName.substring(1).toLowerCase();
+        tagName = tagName.substring(0, 1).toUpperCase() + tagName.substring(1).toLowerCase();
         this.tagName = tagName;
     }
 
