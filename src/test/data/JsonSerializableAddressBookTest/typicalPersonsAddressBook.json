@@ -14,7 +14,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "friends", "StudyGroup1"]
+    "tags" : [ "Friends", "StudyGroup1"]
   }, {
     "name" : "Benson Meier",
     "phone" : "98765432",
@@ -29,7 +29,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "owesMoney", "friends", "StudyGroup2" ]
+    "tags" : [ "OwesMoney", "Friends", "StudyGroup2" ]
   }, {
     "name" : "Carl Kurz",
     "phone" : "95352563",
@@ -59,7 +59,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "friends", "StudyGroup4" ]
+    "tags" : [ "Friends", "StudyGroup4" ]
   }, {
     "name" : "Elle Meyer",
     "phone" : "9482224",
@@ -119,7 +119,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "enemy", "StudyGroup1" ]
+    "tags" : [ "Enemy", "StudyGroup1" ]
 
   }, {
     "name" : "name",
@@ -135,7 +135,7 @@
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags" : [ "test", "StudyGroup1" ]
+    "tags" : [ "Test", "StudyGroup1" ]
 
   } ]
 }
