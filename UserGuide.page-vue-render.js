@@ -110,10 +110,10 @@ with(this){return _c('p',[_c('strong',[_v("Tip:")]),_v(" You can manually edit a
 with(this){return _c('h3',{attrs:{"id":"advanced-tag-based-filtering-filter"}},[_v("Advanced Tag-Based Filtering : "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("filter")]),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#advanced-tag-based-filtering-filter","onclick":"event.stopPropagation()"}})])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_v("Format: "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("filter KEYWORD [MORE_KEYWORDS]")])])}
+with(this){return _c('p',[_v("Format: "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("filter KEYWORD")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("filter student tutor")]),_v(" filters all students with "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("student tutor")]),_v(" tag.")]),_v(" "),_c('li',[_v("Non-full words will still be matched e.g. "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("friend")]),_v(" will match "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("friends")])])])}
+with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("filter student")]),_v(" filters all students with "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("student")]),_v(" tag.")]),_v(" "),_c('li',[_v("Non-full words will still be matched e.g. "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("friend")]),_v(" will match "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("friends")])])])}
 },function anonymous(
 ) {
 with(this){return _c('h3',{attrs:{"id":"clearing-all-entries-clear"}},[_v("Clearing all entries : "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("clear")]),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#clearing-all-entries-clear","onclick":"event.stopPropagation()"}})])}
@@ -170,6 +170,6 @@ with(this){return _c('h5',{attrs:{"id":"if-you-dont-know-the-path-to-your-jar-fi
 with(this){return _c('p',[_v("Find your JAR file and right click on it,"),_c('br'),_v("\nAfter clicking on properties, locate the path to the file, "),_c('br'),_v("\nCopy it and use it in the terminal "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("cd [path/to/file] ")]),_v("to navigate to the folder where the JAR file is located")])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Tue, 1 Apr 2025, 13:12:20 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Tue, 1 Apr 2025, 13:14:43 GMT+8]")])])])}
 }];
   
