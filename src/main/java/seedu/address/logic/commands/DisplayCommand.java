@@ -51,4 +51,23 @@ public class DisplayCommand extends Command {
                 Messages.format(personToDisplay)
         ), personToDisplay);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof DisplayCommand)) {
+            return false;
+        }
+
+        DisplayCommand otherDisplayCommand = (DisplayCommand) other;
+        return index.equals(otherDisplayCommand.index);
+    }
+
+    @Override
+    public String toString() {
+        return "DisplayCommand{index=" + index + "}";
+    }
 }

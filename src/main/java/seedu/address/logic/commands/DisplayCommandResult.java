@@ -18,6 +18,8 @@ public class DisplayCommandResult extends CommandResult {
      */
     public DisplayCommandResult(String feedbackToUser, Person setPerson) {
         super(feedbackToUser);
+        assert setPerson != null;
+
         this.setPerson = setPerson;
     }
 
