@@ -13,12 +13,13 @@ public class Grade {
      */
     public static final String MESSAGE_CONSTRAINTS =
             "Subject should be less than 100 characters and grade should be A-F\n"
-                    + "Format: subject:grade";
+                    + "Format: subject:grade"
+            + "Grade must not be empty";
 
     /**
      * Regular expression to validate the grade value.
      */
-    public static final String GRADE_VALIDATION_REGEX = "[A-F]";
+    public static final String GRADE_VALIDATION_REGEX = "[A-Fa-f]";
 
     /**
      * Maximum length for the subject.
@@ -52,7 +53,7 @@ public class Grade {
         String grade = parts[1].trim();
         checkArgument(isValidGrade(subject, grade), MESSAGE_CONSTRAINTS);
         this.subject = subject;
-        this.grade = grade;
+        this.grade = grade.toUpperCase();
     }
 
     /**
@@ -67,7 +68,7 @@ public class Grade {
         requireNonNull(grade);
         checkArgument(isValidGrade(subject, grade), MESSAGE_CONSTRAINTS);
         this.subject = subject;
-        this.grade = grade;
+        this.grade = grade.toUpperCase();
     }
     /**
      * Checks if the given subject and grade are valid.

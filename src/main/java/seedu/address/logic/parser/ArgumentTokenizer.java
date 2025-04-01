@@ -105,7 +105,6 @@ public class ArgumentTokenizer {
             String argValue = extractArgumentValue(argsString, prefixPositions.get(i), prefixPositions.get(i + 1));
             argMultimap.put(argPrefix, argValue);
         }
-
         return argMultimap;
     }
 
