@@ -14,6 +14,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
+import seedu.address.logic.commands.DisplayCommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Person;
@@ -186,11 +187,6 @@ public class MainWindow extends UiPart<Stage> {
         primaryStage.hide();
     }
 
-    // add later
-    // @FXML
-    // private void handleSelectPerson() {
-    // }
-
     public PersonListPanel getPersonListPanel() {
         return personListPanel;
     }
@@ -205,6 +201,10 @@ public class MainWindow extends UiPart<Stage> {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
             resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+
+            if (commandResult instanceof DisplayCommandResult) {
+                updatePersonDisplay(((DisplayCommandResult) commandResult).getPerson());
+            }
 
             if (commandResult.isShowHelp()) {
                 handleHelp();

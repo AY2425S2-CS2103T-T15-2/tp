@@ -23,6 +23,8 @@
             <Label fx:id="clearDesc" styleClass="cell_small_label_desc" text="\$clearDesc" />
             <Label fx:id="deleteCommand" styleClass="cell_small_label" text="\$deleteCommand" />
             <Label fx:id="deleteDesc" styleClass="cell_small_label_desc" text="\$deleteDesc" />
+            <Label fx:id="displayCommand" styleClass="cell_small_label" text="\$displayCommand" />
+            <Label fx:id="displayDesc" styleClass="cell_small_label_desc" text="\$displayDesc" />
             <Label fx:id="editCommand" styleClass="cell_small_label" text="\$editCommand" />
             <Label fx:id="editDesc" styleClass="cell_small_label_desc" text="\$editDesc" />
             <Label fx:id="exitCommand" styleClass="cell_small_label" text="\$exitCommand" />

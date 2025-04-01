@@ -20,6 +20,9 @@ public class CommandGuidePanel extends UiPart<Region> {
     private static final String[] DELETE_COMMAND = {
         "Delete a person: ", "delete INDEX1 [INDEX2 ...] ,"
     };
+    private static final String[] DISPLAY_COMMAND = {
+        "Display a person on the display panel: ", "display INDEX"
+    };
     private static final String[] EDIT_COMMAND = {
         "Edit a person: ", "edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] "
             + "[a/ADDRESS] [g/SUBJECT1:GRADE ... SUBJECT6:GRADE] [t/TAG]"
@@ -62,6 +65,10 @@ public class CommandGuidePanel extends UiPart<Region> {
     private Label deleteCommand;
     @FXML
     private Label deleteDesc;
+    @FXML
+    private Label displayCommand;
+    @FXML
+    private Label displayDesc;
     @FXML
     private Label editCommand;
     @FXML
@@ -106,6 +113,7 @@ public class CommandGuidePanel extends UiPart<Region> {
         setLabels(addCommand, addDesc, ADD_COMMAND);
         setLabels(clearCommand, clearDesc, CLEAR_COMMAND);
         setLabels(deleteCommand, deleteDesc, DELETE_COMMAND);
+        setLabels(displayCommand, displayDesc, DISPLAY_COMMAND);
         setLabels(editCommand, editDesc, EDIT_COMMAND);
         setLabels(exitCommand, exitDesc, EXIT_COMMAND);
         setLabels(findCommand, findDesc, FIND_COMMAND);
