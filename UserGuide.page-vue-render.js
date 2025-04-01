@@ -35,7 +35,7 @@ with(this){return _c('h3',{attrs:{"id":"adding-a-person-add"}},[_v("Adding a per
 with(this){return _c('p',[_v("Format: "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, ...SUBJECT6:GRADE [t/TAG]…​")])])}
 },function anonymous(
 ) {
-with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01, g/Maths:A, Geography:B, History:B, Economics:A, Chemistry:C, Biology:A")])])])}
+with(this){return _c('ul',[_c('li',[_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 g/Maths:A, Geography:B, History:B, Economics:A, Chemistry:C, Biology:A")])])])}
 },function anonymous(
 ) {
 with(this){return _c('h3',{attrs:{"id":"listing-all-students-list"}},[_v("Listing all students : "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("list")]),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#listing-all-students-list","onclick":"event.stopPropagation()"}})])}
@@ -170,6 +170,6 @@ with(this){return _c('h5',{attrs:{"id":"if-you-dont-know-the-path-to-your-jar-fi
 with(this){return _c('p',[_v("Find your JAR file and right click on it,"),_c('br'),_v("\nAfter clicking on properties, locate the path to the file, "),_c('br'),_v("\nCopy it and use it in the terminal "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("cd [path/to/file] ")]),_v("to navigate to the folder where the JAR file is located")])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Tue, 1 Apr 2025, 23:08:27 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Tue, 1 Apr 2025, 23:09:54 GMT+8]")])])])}
 }];
   
