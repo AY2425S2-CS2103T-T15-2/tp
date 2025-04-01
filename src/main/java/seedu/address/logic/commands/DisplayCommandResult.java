@@ -13,9 +13,16 @@ import seedu.address.model.person.Person;
 public class DisplayCommandResult extends CommandResult {
     private final Person setPerson;
 
+    /**
+     * Constructs a {@code DisplayCommandResult} with the specified fields.
+     */
     public DisplayCommandResult(String feedbackToUser, Person setPerson) {
         super(feedbackToUser);
         this.setPerson = setPerson;
+    }
+
+    public Person getPerson() {
+        return setPerson;
     }
 
     @Override
