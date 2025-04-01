@@ -18,6 +18,16 @@ public class DisplayCommandResultTest {
     }
 
     @Test
+    public void getters() {
+        Person displayPerson = new PersonBuilder().build();
+        DisplayCommandResult displayCommandResult = new DisplayCommandResult("feedback", displayPerson);
+        assertEquals(displayPerson, displayCommandResult.getPerson());
+        assertEquals("feedback", displayCommandResult.getFeedbackToUser());
+        assertFalse(displayCommandResult.isShowHelp());
+        assertFalse(displayCommandResult.isExit());
+    }
+
+    @Test
     public void equals() {
         Person displayPerson = new PersonBuilder().build();
         DisplayCommandResult displayCommandResult = new DisplayCommandResult("feedback", displayPerson);
