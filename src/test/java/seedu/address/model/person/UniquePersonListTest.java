@@ -30,13 +30,16 @@ public class UniquePersonListTest {
 
     @Test
     public void contains_personNotInList_returnsFalse() {
-        assertFalse(uniquePersonList.contains(ALICE));
+        ContainsResult result = uniquePersonList.contains(ALICE);
+        assertFalse(result.isDuplicate);
+        assertFalse(result.isSimilar);
     }
 
     @Test
     public void contains_personInList_returnsTrue() {
-        uniquePersonList.add(ALICE);
-        assertTrue(uniquePersonList.contains(ALICE));
+        ContainsResult result = uniquePersonList.contains(ALICE);
+        assertFalse(result.isDuplicate);
+        assertFalse(result.isSimilar);
     }
 
     @Test
@@ -44,7 +47,9 @@ public class UniquePersonListTest {
         uniquePersonList.add(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(uniquePersonList.contains(editedAlice));
+        ContainsResult result = uniquePersonList.contains(editedAlice);
+        assertFalse(result.isDuplicate);
+        assertTrue(result.isSimilar);
     }
 
     @Test

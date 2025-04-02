@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_GRADES_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
@@ -36,6 +37,7 @@ public class PersonTest {
 
     @Test
     public void isSamePerson() {
+
         // same object -> returns true with no likely similarity
         PersonSimilarity result = ALICE.isSamePerson(ALICE);
         assertTrue(result.isSame);
@@ -58,6 +60,7 @@ public class PersonTest {
         assertFalse(result.isSame);
         assertTrue(result.isLikelySame);
 
+        // different name, but similar (part of uppercase) -> returns false but likely same
         editedAlice = new PersonBuilder(ALICE).withName("ALICE Pauline").build();
         result = ALICE.isSamePerson(editedAlice);
         assertFalse(result.isSame);
@@ -76,6 +79,12 @@ public class PersonTest {
         assertFalse(result.isSame);
         assertFalse(result.isLikelySame);
 
+        // same name  but different email -> returns false but similar
+        editedBob = new PersonBuilder(BOB).withName(VALID_NAME_BOB)
+                .withEmail("alice@example.com").build();
+        result = BOB.isSamePerson(editedBob);
+        assertFalse(result.isSame);
+        assertTrue(result.isLikelySame);
     }
 
     @Test

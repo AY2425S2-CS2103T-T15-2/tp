@@ -97,10 +97,6 @@ public class Person {
 
         boolean exactMatch = otherPerson.getName().equals(getName());
 
-        if (exactMatch) {
-            return new PersonSimilarity(true, false);
-        }
-
         // Check for similarity by comparing alphanumeric characters
         boolean nameSimilar = stripNonAlphanumeric(name.toString())
                 .equals(stripNonAlphanumeric(otherPerson.getName().toString()));
@@ -110,8 +106,19 @@ public class Person {
                 .equals(stripNonAlphanumeric(otherPerson.getPhone().toString()));
         boolean addressSimilar = stripNonAlphanumeric(address.toString())
                 .equals(stripNonAlphanumeric(otherPerson.getAddress().toString()));
+        boolean gradesSimilar = Arrays.equals(grades, otherPerson.getGrades());
+        boolean tagsSimilar = tags.equals(otherPerson.getTags());
 
-        boolean isLikelySame = nameSimilar && emailSimilar && phoneSimilar && addressSimilar;
+        boolean isLikelySame = nameSimilar && emailSimilar && phoneSimilar && addressSimilar
+                && gradesSimilar && tagsSimilar;
+        boolean isOtherFieldfifferent = !nameSimilar || !emailSimilar || !phoneSimilar || !addressSimilar
+                || !gradesSimilar || !tagsSimilar;
+        if (exactMatch) {
+            if (isOtherFieldfifferent) {
+                return new PersonSimilarity(false, true);
+            }
+            return new PersonSimilarity(true, false);
+        }
 
         if (isLikelySame) {
             return new PersonSimilarity(false, true);

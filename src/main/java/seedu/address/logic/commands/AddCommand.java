@@ -59,16 +59,17 @@ public class AddCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-
-        boolean hasLikelyMatch = false;
-        Person likelyMatch = null;
         for (Person person : model.getFilteredPersonList()) {
             PersonSimilarity similarity = person.isSamePerson(toAdd);
             if (similarity.isSame) {
                 throw new CommandException(MESSAGE_DUPLICATE_PERSON);
             }
+        }
+
+        // Check again for similar persons and add with warning
+        for (Person person : model.getFilteredPersonList()) {
+            PersonSimilarity similarity = person.isSamePerson(toAdd);
             if (similarity.isLikelySame) {
-                // Just store the warning message to include with the success message
                 model.addPerson(toAdd);
                 return new CommandResult(String.format(MESSAGE_SIMILAR_PERSON + "\n" + MESSAGE_SUCCESS,
                         Messages.format(toAdd)));
