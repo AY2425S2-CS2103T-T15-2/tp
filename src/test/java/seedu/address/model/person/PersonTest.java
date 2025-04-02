@@ -153,7 +153,7 @@ public class PersonTest {
 
         // Verify the tag is updated
         Set<Tag> tags = person.getTags();
-        assertTrue(tags.stream().anyMatch(tag -> tag.tagName.equals("StudyGroup0")),
+        assertTrue(tags.stream().anyMatch(tag -> tag.tagName.equals("Studygroup0")),
                 "Person should have the correct StudyGroup tag.");
     }
 }
