@@ -52,12 +52,8 @@ public class UniquePersonList implements Iterable<Person> {
     public void add(Person toAdd) {
         requireNonNull(toAdd);
         ContainsResult result = contains(toAdd);
-        if (result.isDuplicate || result.isSimilar) {
-            // Only throw if it's an exact duplicate
-            if (result.isDuplicate) {
-                throw new DuplicatePersonException();
-            }
-            // Allow similar persons to be added (warning handled at command level)
+        if (result.isDuplicate) {
+            throw new DuplicatePersonException();
         }
         internalList.add(toAdd);
     }
@@ -104,17 +100,8 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public void setPersons(List<Person> persons) {
         requireAllNonNull(persons);
-
-        // Check for duplicates in the new list
-        for (int i = 0; i < persons.size(); i++) {
-            Person person = persons.get(i);
-            for (int j = i + 1; j < persons.size(); j++) {
-                Person otherPerson = persons.get(j);
-                PersonSimilarity similarity = person.isSamePerson(otherPerson);
-                if (similarity.isSame) {
-                    throw new DuplicatePersonException();
-                }
-            }
+        if (!personsAreUnique(persons)) {
+            throw new DuplicatePersonException();
         }
 
         internalList.setAll(persons);
