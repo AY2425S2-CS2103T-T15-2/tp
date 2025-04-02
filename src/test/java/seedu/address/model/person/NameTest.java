@@ -14,7 +14,7 @@ public class NameTest {
     }
 
     @Test
-    public void constructor_invalidName_throwsIllegalArgumentException() {
+    public void constructor_invalidName_emptyString_throwsIllegalArgumentException() {
         String invalidName = "";
         assertThrows(IllegalArgumentException.class, () -> new Name(invalidName));
     }
@@ -28,6 +28,7 @@ public class NameTest {
         assertFalse(Name.isValidName("")); // empty string
         assertFalse(Name.isValidName(" ")); // spaces only
         assertFalse(Name.isValidName("^")); // only non-alphanumeric characters
+        assertFalse(Name.isValidName("^*")); // special characters
         assertFalse(Name.isValidName("peter*")); // contains non-alphanumeric characters
 
         // valid name
@@ -36,6 +37,9 @@ public class NameTest {
         assertTrue(Name.isValidName("peter the 2nd")); // alphanumeric characters
         assertTrue(Name.isValidName("Capital Tan")); // with capital letters
         assertTrue(Name.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
+        assertTrue(Name.isValidName("person s/o person")); // slash
+        assertTrue(Name.isValidName("person with apostrophe'")); // apostrophe
+        assertTrue(Name.isValidName("person '@&~_./")); // List of non-alphanumeric characters
     }
 
     @Test
