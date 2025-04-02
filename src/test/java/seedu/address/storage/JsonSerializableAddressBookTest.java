@@ -63,5 +63,5 @@ public class JsonSerializableAddressBookTest {
         // Verify the data was loaded successfully
         assertEquals(2, addressBook.getPersonList().size());
     }
-
 }
+

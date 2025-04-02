@@ -355,7 +355,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2d1. JCRoster+ shows an error message: "Invalid address format. Only letters, numbers, and basic punctuation are allowed."
 
       Use case resumes at step 1.
- 
 * 3a. A person with the same phone number already exists.
     * 3a1. JCRoster+ shows an error message: "A person with this phone number already exists."
 
