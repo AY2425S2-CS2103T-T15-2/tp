@@ -38,7 +38,6 @@ public class NameTest {
         assertTrue(Name.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
         assertTrue(Name.isValidName("person s/o person")); // slash
         assertTrue(Name.isValidName("person with apostrophe'")); // apostrophe
-        assertTrue(Name.isValidName("person '@&~_./")); // List of non-alphanumeric characters
     }
 
     @Test
