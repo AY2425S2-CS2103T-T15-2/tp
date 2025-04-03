@@ -333,7 +333,9 @@
     -fx-text-fill: #333333;
     -fx-padding: 0 0 10px 0;
 }
-
+#commandGuideScrollPane {
+    -fx-background-color: white;
+}
 /* Person Display Specific Styling */
 #personDisplayPlaceholder .cell_big_label {
     -fx-font-size: 16px;
