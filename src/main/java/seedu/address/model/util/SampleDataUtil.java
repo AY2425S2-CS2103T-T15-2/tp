@@ -27,7 +27,7 @@ public class SampleDataUtil {
             new Person(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
                 new Address("Blk 30 Geylang Street 29, #06-40"), EMPTY_REMARK,
                     getSampleGrades("Math:A,Science:B,English:A,History:C,Geography:B,Music:A"),
-                getTagSet("council", "track")),
+                getTagSet("track")),
             new Person(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
                 new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"), new Remark("Good at maths."),
                     getSampleGrades("Math:A,Science:B,English:A,History:C,Geography:B,Music:A"),
