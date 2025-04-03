@@ -184,7 +184,7 @@ This ensures a balanced mix of students in each group.
 
 Users can filter students based on multiple tags.
 
-Format: `filter KEYWORD`
+Format: `filter KEYWORD [MORE KEYWORDS]`
 
 Examples:
 * `filter student` filters all students with `student` tag.
