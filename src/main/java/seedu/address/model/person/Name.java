@@ -16,7 +16,7 @@ public class Name {
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "^[\\p{Alnum}][\\p{Alnum} /'@&~_.]*";
+    public static final String VALIDATION_REGEX = "^[\\p{L}][\\p{L}0-9 ]*(?:[@.,!'/\\\\-][\\p{L}0-9 ]+)*$";
 
     public final String fullName;
 
