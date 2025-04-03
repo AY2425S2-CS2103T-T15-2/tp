@@ -132,6 +132,7 @@ public class PersonBuilder {
      * @return The current instance of {@code PersonBuilder} with updated grades.
      */
     public PersonBuilder withGrade(String grades) {
+
         this.grades = Arrays.stream(grades.split(","))
                 .map(Grade::new)
                 .toArray(Grade[]::new);

@@ -51,7 +51,7 @@ public class DeleteCommand extends Command {
 
         // Perform deletions
         personsToDelete.forEach(model::deletePerson);
-        GroupingLogic.groupStudents(model.getFilteredPersonList());
+        GroupingLogic.groupStudents(model);
 
         return new CommandResult(String.format(
                 MESSAGE_DELETE_PERSON_SUCCESS,

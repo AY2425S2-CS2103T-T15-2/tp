@@ -18,7 +18,7 @@ public class SampleDataUtilTest {
 
         // Check if array is not empty
         assertNotNull(persons);
-        assertEquals(6, persons.length);
+        assertEquals(20, persons.length);
 
         // Check first person's details
         Person firstPerson = persons[0];
@@ -27,7 +27,7 @@ public class SampleDataUtilTest {
         assertEquals("alexyeoh@example.com", firstPerson.getEmail().toString());
         assertEquals("Blk 30 Geylang Street 29, #06-40", firstPerson.getAddress().toString());
         assertTrue(firstPerson.getTags().stream()
-                .anyMatch(tag -> tag.tagName.equals("Friends")));
+                .anyMatch(tag -> tag.tagName.equals("Track")));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class SampleDataUtilTest {
 
         assertNotNull(addressBook);
         assertTrue(addressBook instanceof AddressBook);
-        assertEquals(6, addressBook.getPersonList().size());
+        assertEquals(20, addressBook.getPersonList().size());
     }
 
     @Test

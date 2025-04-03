@@ -32,7 +32,6 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonSimilarity;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Remark;
-import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -46,7 +45,6 @@ public class EditCommand extends Command {
             + "by the index number used in the displayed person list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "Only one INDEX is allowed per command.\n"
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
@@ -63,7 +61,6 @@ public class EditCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
     public static final String MESSAGE_SIMILAR_PERSON = "It is likely that this "
             + "person already exists in the address book.";
-    private static boolean recalculateGrades;
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -91,27 +88,21 @@ public class EditCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
-        //PersonSimilarity similarity = personToEdit.isSamePerson(editedPerson);
-        // First check if the edit would make this person match another person
-        for (Person person : lastShownList) {
-            if (person != personToEdit) {
-                PersonSimilarity similarity = editedPerson.isSamePerson(person);
-                if (similarity.isSame || similarity.isLikelySame) {
-                    throw new CommandException(similarity.isSame ? MESSAGE_DUPLICATE_PERSON : MESSAGE_SIMILAR_PERSON);
-                }
+        PersonSimilarity similarity = personToEdit.isSamePerson(editedPerson);
+        if (!similarity.isSame && model.hasPerson(editedPerson)) {
+            if (similarity.isLikelySame) {
+                // Optional: Add warning message here
+                throw new CommandException(MESSAGE_SIMILAR_PERSON);
             }
-        }
-
-        try {
-            model.setPerson(personToEdit, editedPerson);
-            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-            if (recalculateGrades) {
-                GroupingLogic.groupStudents(model.getFilteredPersonList());
-            }
-            return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
-        } catch (DuplicatePersonException e) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
+
+        model.setPerson(personToEdit, editedPerson);
+        if (editPersonDescriptor.isGradeFieldEdited()) {
+            GroupingLogic.groupStudents(model); // 1. delete current Studygroup tag if exists 2. add new Studygroup tag
+        }
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
     }
 
     /**
@@ -126,9 +117,6 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Remark updatedRemark = personToEdit.getRemark(); // edit command does not allow editing remarks
-        if (editPersonDescriptor.getGrades().isPresent()) { // sets recalculates to true if grades are changed
-            recalculateGrades = true;
-        }
         Grade[] updatedGrades = editPersonDescriptor.getGrades().orElse(personToEdit.getGrades());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
@@ -187,13 +175,18 @@ public class EditCommand extends Command {
             setTags(toCopy.tags);
         }
 
-
-
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, grades, tags);
+        }
+
+        /**
+         * Returns true if at least one field is edited.
+         */
+        public boolean isGradeFieldEdited() {
+            return CollectionUtil.isAnyNonNull((Object) grades);
         }
 
         /**

@@ -29,24 +29,28 @@ public class TypicalPersons {
     public static final String DEFAULT_GRADES = "Math:A,Science:B,English:A,History:C,Geography:B,Music:A";
     public static final Person ALICE = new PersonBuilder().withName("Alice Pauline")
             .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
-            .withPhone("94351253").withRemark("She likes cats.").withGrade(DEFAULT_GRADES)
+            .withPhone("94351253").withRemark("She likes cats.")
+            .withGrade("Math:A,Science:A,English:A,History:A,Geography:A,Music:A")
             .withTags("Friends", "Studygroup1").build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com").withPhone("98765432").withRemark("He can't sing!")
-            .withGrade("Math:A,Science:B,English:A,History:C,Geography:B,Music:A ")
+            .withGrade("Math:A,Science:A,English:A,History:A,Geography:B,Music:A")
             .withTags("Owesmoney", "Friends", "Studygroup2").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
             .withRemark("He loves ice cream.")
-            .withEmail("heinz@example.com").withAddress("wall street").withGrade(DEFAULT_GRADES)
+            .withEmail("heinz@example.com").withAddress("wall street")
+            .withGrade("Math:A,Science:A,English:A,History:C,Geography:A,Music:A")
             .withTags("Studygroup3").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
             .withRemark("He runs fast.")
             .withEmail("cornelia@example.com").withAddress("10th street")
-            .withGrade(DEFAULT_GRADES).withTags("Friends", "Studygroup4").build();
+            .withGrade("Math:A,Science:A,English:A,History:B,Geography:C,Music:A")
+            .withTags("Friends", "Studygroup4").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
             .withRemark("She can dance.")
-            .withEmail("werner@example.com").withAddress("michegan ave").withGrade(DEFAULT_GRADES)
+            .withEmail("werner@example.com").withAddress("michegan ave")
+            .withGrade("Math:F,Science:F,English:F,History:F,Geography:F,Music:F")
             .withTags("Studygroup4").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
             .withRemark("She's a vegetarian.")
