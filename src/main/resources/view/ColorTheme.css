@@ -86,6 +86,12 @@
 }
 
 /* List View – White background with alternating row colors */
+.person-list-placeholder {
+    -fx-background-color: white !important;
+}
+#personListPlaceholder {
+    -fx-background-color: white;
+}
 .list-view {
     -fx-background-insets: 0;
     -fx-padding: 0;
@@ -292,6 +298,7 @@
     -fx-text-fill: #333333;
 }
 #filterField, #personListPanel, #personWebpage {
+    -fx-background-color: white;
     -fx-effect: innershadow(gaussian, #cccccc, 5, 0, 0, 0);
 }
 #resultDisplay .content {
@@ -325,6 +332,17 @@
     -fx-font-size: 13px;
     -fx-text-fill: #333333;
     -fx-padding: 0 0 10px 0;
+}
+#commandGuideScrollPane {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-padding: 0;
+}
+#commandGuideScrollPane .viewport {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
 }
 
 /* Person Display Specific Styling */
