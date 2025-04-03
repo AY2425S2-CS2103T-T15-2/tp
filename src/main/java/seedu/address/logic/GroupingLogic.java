@@ -33,7 +33,6 @@ public class GroupingLogic {
             Person editedPerson = createStudentWithGroupTag(studentsCopy.get(i), groupIndex[i]);
             model.setPerson(studentsCopy.get(i), editedPerson);
         }
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
     }
 
     /**
