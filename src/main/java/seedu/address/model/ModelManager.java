@@ -15,6 +15,7 @@ import seedu.address.model.person.Person;
 
 /**
  * Represents the in-memory model of the address book data.
+ * Manages the address book, user preferences, and the filtered list of persons.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
@@ -24,7 +25,10 @@ public class ModelManager implements Model {
     private final FilteredList<Person> filteredPersons;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given {@code addressBook} and {@code userPrefs}.
+     *
+     * @param addressBook The address book to manage.
+     * @param userPrefs The user preferences.
      */
     public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
         requireAllNonNull(addressBook, userPrefs);
@@ -144,5 +148,4 @@ public class ModelManager implements Model {
                 && userPrefs.equals(otherModelManager.userPrefs)
                 && filteredPersons.equals(otherModelManager.filteredPersons);
     }
-
 }

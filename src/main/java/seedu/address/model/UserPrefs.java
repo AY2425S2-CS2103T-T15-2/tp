@@ -9,7 +9,7 @@ import java.util.Objects;
 import seedu.address.commons.core.GuiSettings;
 
 /**
- * Represents User's preferences.
+ * Represents User's preferences, including GUI settings and file paths.
  */
 public class UserPrefs implements ReadOnlyUserPrefs {
 
@@ -22,7 +22,9 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     public UserPrefs() {}
 
     /**
-     * Creates a {@code UserPrefs} with the prefs in {@code userPrefs}.
+     * Creates a {@code UserPrefs} by copying preferences from an existing {@code ReadOnlyUserPrefs} instance.
+     *
+     * @param userPrefs The user preferences to copy.
      */
     public UserPrefs(ReadOnlyUserPrefs userPrefs) {
         this();
@@ -31,6 +33,8 @@ public class UserPrefs implements ReadOnlyUserPrefs {
 
     /**
      * Resets the existing data of this {@code UserPrefs} with {@code newUserPrefs}.
+     *
+     * @param newUserPrefs The new user preferences to apply.
      */
     public void resetData(ReadOnlyUserPrefs newUserPrefs) {
         requireNonNull(newUserPrefs);
@@ -42,15 +46,30 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         return guiSettings;
     }
 
+    /**
+     * Sets the GUI settings to the specified value.
+     *
+     * @param guiSettings The new GUI settings.
+     */
     public void setGuiSettings(GuiSettings guiSettings) {
         requireNonNull(guiSettings);
         this.guiSettings = guiSettings;
     }
 
+    /**
+     * Gets the file path of the address book.
+     *
+     * @return The {@code Path} of the address book file.
+     */
     public Path getAddressBookFilePath() {
         return addressBookFilePath;
     }
 
+    /**
+     * Sets the file path for the address book.
+     *
+     * @param addressBookFilePath The new file path for the address book.
+     */
     public void setAddressBookFilePath(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
         this.addressBookFilePath = addressBookFilePath;
