@@ -5,12 +5,12 @@
     "email": "alice@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
     "remark": "She likes cats.",
-    "grades": [
+    "grades" : [
       {"subject": "Math", "grade": "A"},
-      {"subject": "Science", "grade": "B"},
+      {"subject": "Science", "grade": "A"},
       {"subject": "English", "grade": "A"},
-      {"subject": "History", "grade": "C"},
-      {"subject": "Geography", "grade": "B"},
+      {"subject": "History", "grade": "A"},
+      {"subject": "Geography", "grade": "A"},
       {"subject": "Music", "grade": "A"}
     ],
     "tags": ["friends"]
@@ -20,11 +20,11 @@
     "email": "pauline@example.com",
     "address": "4th street",
     "remark": "She likes cats.",
-    "grades": [
+    "grades" : [
       {"subject": "Math", "grade": "A"},
-      {"subject": "Science", "grade": "B"},
+      {"subject": "Science", "grade": "A"},
       {"subject": "English", "grade": "A"},
-      {"subject": "History", "grade": "C"},
+      {"subject": "History", "grade": "A"},
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],

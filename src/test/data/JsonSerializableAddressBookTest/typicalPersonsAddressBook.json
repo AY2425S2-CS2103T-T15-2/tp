@@ -8,10 +8,10 @@
     "remark" : "She likes cats.",
     "grades" : [
       {"subject": "Math", "grade": "A"},
-      {"subject": "Science", "grade": "B"},
+      {"subject": "Science", "grade": "A"},
       {"subject": "English", "grade": "A"},
-      {"subject": "History", "grade": "C"},
-      {"subject": "Geography", "grade": "B"},
+      {"subject": "History", "grade": "A"},
+      {"subject": "Geography", "grade": "A"},
       {"subject": "Music", "grade": "A"}
     ],
     "tags" : [ "Friends", "Studygroup1"]
@@ -23,9 +23,9 @@
     "remark" : "He can't sing!",
     "grades" : [
       {"subject": "Math", "grade": "A"},
-      {"subject": "Science", "grade": "B"},
+      {"subject": "Science", "grade": "A"},
       {"subject": "English", "grade": "A"},
-      {"subject": "History", "grade": "C"},
+      {"subject": "History", "grade": "A"},
       {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
@@ -38,10 +38,10 @@
     "remark" : "He loves ice cream.",
     "grades" : [
       {"subject": "Math", "grade": "A"},
-      {"subject": "Science", "grade": "B"},
+      {"subject": "Science", "grade": "A"},
       {"subject": "English", "grade": "A"},
       {"subject": "History", "grade": "C"},
-      {"subject": "Geography", "grade": "B"},
+      {"subject": "Geography", "grade": "A"},
       {"subject": "Music", "grade": "A"}
     ],
     "tags" : [ "Studygroup3" ]
@@ -53,10 +53,10 @@
     "remark" : "He runs fast.",
     "grades" : [
       {"subject": "Math", "grade": "A"},
-      {"subject": "Science", "grade": "B"},
+      {"subject": "Science", "grade": "A"},
       {"subject": "English", "grade": "A"},
-      {"subject": "History", "grade": "C"},
-      {"subject": "Geography", "grade": "B"},
+      {"subject": "History", "grade": "B"},
+      {"subject": "Geography", "grade": "C"},
       {"subject": "Music", "grade": "A"}
     ],
     "tags" : [ "Friends", "Studygroup4" ]
@@ -67,12 +67,12 @@
     "address" : "michegan ave",
     "remark" : "She can dance.",
     "grades" : [
-      {"subject": "Math", "grade": "A"},
-      {"subject": "Science", "grade": "B"},
-      {"subject": "English", "grade": "A"},
-      {"subject": "History", "grade": "C"},
-      {"subject": "Geography", "grade": "B"},
-      {"subject": "Music", "grade": "A"}
+      {"subject": "Math", "grade": "F"},
+      {"subject": "Science", "grade": "F"},
+      {"subject": "English", "grade": "F"},
+      {"subject": "History", "grade": "F"},
+      {"subject": "Geography", "grade": "F"},
+      {"subject": "Music", "grade": "F"}
     ],
     "tags" : [ "Studygroup4" ]
   }, {

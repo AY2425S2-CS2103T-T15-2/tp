@@ -61,7 +61,6 @@ public class EditCommand extends Command {
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
     public static final String MESSAGE_SIMILAR_PERSON = "It is likely that this "
             + "person already exists in the address book.";
-    private static boolean recalculateGrades;
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -99,10 +98,10 @@ public class EditCommand extends Command {
         }
 
         model.setPerson(personToEdit, editedPerson);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        if (recalculateGrades) {
-            GroupingLogic.groupStudents(model.getFilteredPersonList()); // to edit 1. delete current tagging 2. add new
+        if (editPersonDescriptor.isGradeFieldEdited()) {
+            GroupingLogic.groupStudents(model); // 1. delete current Studygroup tag if exists 2. add new Studygroup tag
         }
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
     }
 
@@ -118,9 +117,6 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Remark updatedRemark = personToEdit.getRemark(); // edit command does not allow editing remarks
-        if (editPersonDescriptor.getGrades().isPresent()) { // sets recalculates to true if grades are changed
-            recalculateGrades = true;
-        }
         Grade[] updatedGrades = editPersonDescriptor.getGrades().orElse(personToEdit.getGrades());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
@@ -179,13 +175,18 @@ public class EditCommand extends Command {
             setTags(toCopy.tags);
         }
 
-
-
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, grades, tags);
+        }
+
+        /**
+         * Returns true if at least one field is edited.
+         */
+        public boolean isGradeFieldEdited() {
+            return CollectionUtil.isAnyNonNull((Object) grades);
         }
 
         /**
