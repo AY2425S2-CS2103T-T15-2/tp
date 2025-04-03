@@ -97,7 +97,7 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, ...SUBJEC
 </box>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01, g/Maths:A, Geography:B, History:B, Economics:A, Chemistry:C, Biology:A`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 g/Maths:A, Geography:B, History:B, Economics:A, Chemistry:C, Biology:A`
 
 ### Listing all students : `list`
 
@@ -173,7 +173,7 @@ Format: `group`
 Examples:
 * `group` groups all students into 4 study groups based on their grades.
 
-**Note:** The algorithm sorts students by grades and assigns them to groups in a zig-zag pattern:  The first student(weakest) goes into Group 1, the second into Group 2, the third into Group 3, the forth into Group 4, the fifth back to Group 4, the sixth into group 3, and so on. 
+**Note:** The algorithm sorts students by grades and assigns them to groups in a zig-zag pattern:  The first student(weakest) goes into Group 1, the second into Group 2, the third into Group 3, the forth into Group 4, the fifth back to Group 4, the sixth into group 3, and so on.
 This ensures a balanced mix of students in each group.
 
 **Tip:** Editing any student's grade will cause the system to automatically recalculate and reassign study groups to maintain balance and fairness.
@@ -184,7 +184,7 @@ This ensures a balanced mix of students in each group.
 
 Users can filter students based on multiple tags.
 
-Format: `filter KEYWORD`
+Format: `filter KEYWORD [MORE KEYWORDS]`
 
 Examples:
 * `filter student` filters all students with `student` tag.
@@ -256,7 +256,7 @@ Action     | Format, Examples
 After opening terminal, you will see a screen like ![this](images/window's_powershell.png)<br>
 Type `ls` to see files in this directory ![](images/ls_command.png)<br>
 Type `cd [folder name] `to enter that folder <br>
-For example : 
+For example :
 `cd Downloads ` The terminal prompt should now show that you’re inside the Downloads folder <br>
 ![](images/cd_command.png)<br>
 Type `cd ..` to go back to previous folder<br>

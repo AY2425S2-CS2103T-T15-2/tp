@@ -27,7 +27,7 @@ public class SampleDataUtilTest {
         assertEquals("alexyeoh@example.com", firstPerson.getEmail().toString());
         assertEquals("Blk 30 Geylang Street 29, #06-40", firstPerson.getAddress().toString());
         assertTrue(firstPerson.getTags().stream()
-                .anyMatch(tag -> tag.tagName.equals("friends")));
+                .anyMatch(tag -> tag.tagName.equals("Friends")));
     }
 
     @Test
@@ -42,20 +42,20 @@ public class SampleDataUtilTest {
     @Test
     public void getTagSet_returnsCorrectTags() {
         // Single tag
-        var singleTag = SampleDataUtil.getTagSet("friends");
+        var singleTag = SampleDataUtil.getTagSet("Friends");
         assertEquals(1, singleTag.size());
         assertTrue(singleTag.stream()
-                .anyMatch(tag -> tag.tagName.equals("friends")));
+                .anyMatch(tag -> tag.tagName.equals("Friends")));
 
         // Multiple tags
-        var multipleTags = SampleDataUtil.getTagSet("friends", "colleagues", "family");
+        var multipleTags = SampleDataUtil.getTagSet("Friends", "Colleagues", "Family");
         assertEquals(3, multipleTags.size());
         assertTrue(multipleTags.stream()
-                .anyMatch(tag -> tag.tagName.equals("friends")));
+                .anyMatch(tag -> tag.tagName.equals("Friends")));
         assertTrue(multipleTags.stream()
-                .anyMatch(tag -> tag.tagName.equals("colleagues")));
+                .anyMatch(tag -> tag.tagName.equals("Colleagues")));
         assertTrue(multipleTags.stream()
-                .anyMatch(tag -> tag.tagName.equals("family")));
+                .anyMatch(tag -> tag.tagName.equals("Family")));
     }
 
     @Test

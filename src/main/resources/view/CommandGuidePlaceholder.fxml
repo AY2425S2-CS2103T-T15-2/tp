@@ -5,42 +5,46 @@
 <?import javafx.geometry.Insets?>
 
 <VBox id="commandGuidePlaceholder" fx:id="commandGuidePlaceholder" xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_LEFT" HBox.hgrow="ALWAYS" minWidth="250" prefWidth="250">
+      xmlns:fx="http://javafx.com/fxml/1" alignment="TOP_LEFT" HBox.hgrow="ALWAYS" >
     <GridPane VBox.vgrow="ALWAYS">
         <padding>
             <Insets top="5" right="5" bottom="5" left="15" />
         </padding>
-        <VBox spacing="0.5" alignment="CENTER_LEFT">
-            <Label fx:id="commandGuideTitle" styleClass="cell_big_label">
-                <minWidth>
-                    <!-- Ensures that the label text is never truncated -->
-                    <Region fx:constant="USE_PREF_SIZE" />
-                </minWidth>
-            </Label>
-            <Label fx:id="addCommand" styleClass="cell_small_label" text="\$addCommand" />
-            <Label fx:id="addDesc" styleClass="cell_small_label_desc" text="\$addDesc" />
-            <Label fx:id="clearCommand" styleClass="cell_small_label" text="\$clearCommand" />
-            <Label fx:id="clearDesc" styleClass="cell_small_label_desc" text="\$clearDesc" />
-            <Label fx:id="deleteCommand" styleClass="cell_small_label" text="\$deleteCommand" />
-            <Label fx:id="deleteDesc" styleClass="cell_small_label_desc" text="\$deleteDesc" />
-            <Label fx:id="displayCommand" styleClass="cell_small_label" text="\$displayCommand" />
-            <Label fx:id="displayDesc" styleClass="cell_small_label_desc" text="\$displayDesc" />
-            <Label fx:id="editCommand" styleClass="cell_small_label" text="\$editCommand" />
-            <Label fx:id="editDesc" styleClass="cell_small_label_desc" text="\$editDesc" />
-            <Label fx:id="exitCommand" styleClass="cell_small_label" text="\$exitCommand" />
-            <Label fx:id="exitDesc" styleClass="cell_small_label_desc" text="\$exitDesc" />
-            <Label fx:id="findCommand" styleClass="cell_small_label" text="\$findCommand" />
-            <Label fx:id="findDesc" styleClass="cell_small_label_desc" text="\$findDesc" />
-            <Label fx:id="helpCommand" styleClass="cell_small_label" text="\$helpCommand" />
-            <Label fx:id="helpDesc" styleClass="cell_small_label_desc" text="\$helpDesc" />
-            <Label fx:id="listCommand" styleClass="cell_small_label" text="\$listCommand" />
-            <Label fx:id="listDesc" styleClass="cell_small_label_desc" text="\$listDesc" />
-            <Label fx:id="filterCommand" styleClass="cell_small_label" text="\$filterCommand" />
-            <Label fx:id="filterDesc" styleClass="cell_small_label_desc" text="\$filterDesc" />
-            <Label fx:id="remarkCommand" styleClass="cell_small_label" text="\$remarkCommand" />
-            <Label fx:id="remarkDesc" styleClass="cell_small_label_desc" text="\$remarkDesc" />
-            <Label fx:id="groupCommand" styleClass="cell_small_label" text="\$groupCommand" />
-            <Label fx:id="groupDesc" styleClass="cell_small_label_desc" text="\$groupDesc" />
-        </VBox>
+        <ScrollPane id="commandGuideScrollPane" fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS">
+            <content>
+                <VBox spacing="0.5" alignment="CENTER_LEFT" >
+                    <Label fx:id="commandGuideTitle" styleClass="cell_big_label">
+                        <minWidth>
+                            <!-- Ensures that the label text is never truncated -->
+                            <Region fx:constant="USE_PREF_SIZE" />
+                        </minWidth>
+                    </Label>
+                    <Label fx:id="addCommand" styleClass="cell_small_label" text="\$addCommand" maxWidth="200"/>
+                    <Label fx:id="addDesc" styleClass="cell_small_label_desc" text="\$addDesc" maxWidth="200"/>
+                    <Label fx:id="clearCommand" styleClass="cell_small_label" text="\$clearCommand" />
+                    <Label fx:id="clearDesc" styleClass="cell_small_label_desc" text="\$clearDesc" />
+                    <Label fx:id="deleteCommand" styleClass="cell_small_label" text="\$deleteCommand" />
+                    <Label fx:id="deleteDesc" styleClass="cell_small_label_desc" text="\$deleteDesc" />
+                    <Label fx:id="displayCommand" styleClass="cell_small_label" text="\$displayCommand" />
+                    <Label fx:id="displayDesc" styleClass="cell_small_label_desc" text="\$displayDesc" />
+                    <Label fx:id="editCommand" styleClass="cell_small_label" text="\$editCommand" />
+                    <Label fx:id="editDesc" styleClass="cell_small_label_desc" text="\$editDesc" />
+                    <Label fx:id="exitCommand" styleClass="cell_small_label" text="\$exitCommand" />
+                    <Label fx:id="exitDesc" styleClass="cell_small_label_desc" text="\$exitDesc" />
+                    <Label fx:id="findCommand" styleClass="cell_small_label" text="\$findCommand" />
+                    <Label fx:id="findDesc" styleClass="cell_small_label_desc" text="\$findDesc" />
+                    <Label fx:id="helpCommand" styleClass="cell_small_label" text="\$helpCommand" />
+                    <Label fx:id="helpDesc" styleClass="cell_small_label_desc" text="\$helpDesc" />
+                    <Label fx:id="listCommand" styleClass="cell_small_label" text="\$listCommand" />
+                    <Label fx:id="listDesc" styleClass="cell_small_label_desc" text="\$listDesc" />
+                    <Label fx:id="filterCommand" styleClass="cell_small_label" text="\$filterCommand" />
+                    <Label fx:id="filterDesc" styleClass="cell_small_label_desc" text="\$filterDesc" />
+                    <Label fx:id="remarkCommand" styleClass="cell_small_label" text="\$remarkCommand" />
+                    <Label fx:id="remarkDesc" styleClass="cell_small_label_desc" text="\$remarkDesc" />
+                    <Label fx:id="groupCommand" styleClass="cell_small_label" text="\$groupCommand" />
+                    <Label fx:id="groupDesc" styleClass="cell_small_label_desc" text="\$groupDesc" />
+                </VBox>
+            </content>
+        </ScrollPane>
     </GridPane>
 </VBox>

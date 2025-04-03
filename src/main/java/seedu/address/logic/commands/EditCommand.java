@@ -29,6 +29,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Grade;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.PersonSimilarity;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
@@ -58,6 +59,8 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
+    public static final String MESSAGE_SIMILAR_PERSON = "It is likely that this "
+            + "person already exists in the address book.";
     private static boolean recalculateGrades;
 
     private final Index index;
@@ -86,8 +89,12 @@ public class EditCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
-
-        if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
+        PersonSimilarity similarity = personToEdit.isSamePerson(editedPerson);
+        if (!similarity.isSame && model.hasPerson(editedPerson)) {
+            if (similarity.isLikelySame) {
+                // Optional: Add warning message here
+                throw new CommandException(MESSAGE_SIMILAR_PERSON);
+            }
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
