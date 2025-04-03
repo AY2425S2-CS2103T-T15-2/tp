@@ -163,6 +163,7 @@ public class EditCommand extends Command {
         private Address address;
         private Grade[] grades;
         private Set<Tag> tags;
+        private Remark remark;
 
         public EditPersonDescriptor() {}
 
@@ -178,8 +179,6 @@ public class EditCommand extends Command {
             setGrades(toCopy.grades);
             setTags(toCopy.tags);
         }
-
-
 
         /**
          * Returns true if at least one field is edited.
@@ -197,6 +196,18 @@ public class EditCommand extends Command {
         public void setGrades(Grade[] grades) {
             this.grades = grades;
         }
+
+        /**
+         * Returns an Optional containing a defensive copy of the grades array.
+         * Returns {@code Optional#empty()} if {@code grades} is null.
+         * The defensive copy prevents external modification of the internal grades array.
+         *
+         * @return an {@code Optional<Grade[]>} containing a copy of the grades array, or empty if grades is null
+         */
+        public Optional<Grade[]> getGrades() {
+            return grades == null ? Optional.empty() : Optional.of(grades.clone());
+        }
+
         public void setName(Name name) {
             this.name = name;
         }
@@ -246,15 +257,12 @@ public class EditCommand extends Command {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
-        /**
-         * Returns an Optional containing a defensive copy of the grades array.
-         * Returns {@code Optional#empty()} if {@code grades} is null.
-         * The defensive copy prevents external modification of the internal grades array.
-         *
-         * @return an {@code Optional<Grade[]>} containing a copy of the grades array, or empty if grades is null
-         */
-        public Optional<Grade[]> getGrades() {
-            return grades == null ? Optional.empty() : Optional.of(grades.clone());
+        public void setRemark(Remark remark) {
+            this.remark = remark;
+        }
+
+        public Optional<Remark> getRemark() {
+            return Optional.ofNullable(remark);
         }
 
         @Override

@@ -12,6 +12,7 @@ import seedu.address.model.person.Grade;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -20,6 +21,7 @@ import seedu.address.model.tag.Tag;
 public class EditPersonDescriptorBuilder {
 
     private EditPersonDescriptor descriptor;
+    private Remark remarkToInject = null; //for testing
     //private Grade[] grades;
 
     public EditPersonDescriptorBuilder() {
@@ -41,6 +43,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setAddress(person.getAddress());
         descriptor.setGrades(person.getGrades());
         descriptor.setTags(person.getTags());
+        this.remarkToInject = person.getRemark();
     }
 
     /**
@@ -85,7 +88,22 @@ public class EditPersonDescriptorBuilder {
         return this;
     }
 
+    public EditPersonDescriptorBuilder withRemark(String remark) {
+        descriptor.setRemark(new Remark(remark));
+        return this;
+    }
+
     public EditPersonDescriptor build() {
+        return descriptor;
+    }
+
+    /**
+     * Builds an EditPersonDescriptor INCLUDING the stored remark (for test verification).
+     */
+    public EditPersonDescriptor buildAll() {
+        if (remarkToInject != null) {
+            descriptor.setRemark(remarkToInject);
+        }
         return descriptor;
     }
 
