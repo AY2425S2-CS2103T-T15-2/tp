@@ -70,10 +70,16 @@ public class UniquePersonList implements Iterable<Person> {
         if (index == -1) {
             throw new PersonNotFoundException();
         }
-        PersonSimilarity similarity = target.isSamePerson(editedPerson);
-        ContainsResult result = contains(editedPerson);
-        if (!similarity.isSame && result.isDuplicate) {
-            throw new DuplicatePersonException();
+
+        // Check if editing would create a duplicate with any other person
+        for (int i = 0; i < internalList.size(); i++) {
+            if (i != index) {
+                Person existingPerson = internalList.get(i);
+                PersonSimilarity similarity = editedPerson.isSamePerson(existingPerson);
+                if (similarity.isSame || similarity.isLikelySame) {
+                    throw new DuplicatePersonException();
+                }
+            }
         }
         internalList.set(index, editedPerson);
     }

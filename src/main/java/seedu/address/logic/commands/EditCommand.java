@@ -32,6 +32,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonSimilarity;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Remark;
+import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -45,6 +46,7 @@ public class EditCommand extends Command {
             + "by the index number used in the displayed person list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
+            + "Only one INDEX is allowed per command.\n"
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
@@ -89,21 +91,27 @@ public class EditCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
-        PersonSimilarity similarity = personToEdit.isSamePerson(editedPerson);
-        if (!similarity.isSame && model.hasPerson(editedPerson)) {
-            if (similarity.isLikelySame) {
-                // Optional: Add warning message here
-                throw new CommandException(MESSAGE_SIMILAR_PERSON);
+        //PersonSimilarity similarity = personToEdit.isSamePerson(editedPerson);
+        // First check if the edit would make this person match another person
+        for (Person person : lastShownList) {
+            if (person != personToEdit) {
+                PersonSimilarity similarity = editedPerson.isSamePerson(person);
+                if (similarity.isSame || similarity.isLikelySame) {
+                    throw new CommandException(similarity.isSame ? MESSAGE_DUPLICATE_PERSON : MESSAGE_SIMILAR_PERSON);
+                }
             }
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        model.setPerson(personToEdit, editedPerson);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        if (recalculateGrades) {
-            GroupingLogic.groupStudents(model.getFilteredPersonList()); // to edit 1. delete current tagging 2. add new
+        try {
+            model.setPerson(personToEdit, editedPerson);
+            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+            if (recalculateGrades) {
+                GroupingLogic.groupStudents(model.getFilteredPersonList());
+            }
+            return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
+        } catch (DuplicatePersonException e) {
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
     }
 
     /**
