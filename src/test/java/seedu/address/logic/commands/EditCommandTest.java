@@ -64,7 +64,6 @@ public class EditCommandTest {
         Person editedPerson = personInList.withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB)
                 .withTags(VALID_TAG_HUSBAND)
-//                .withRemark(VALID_REMARK_BOB)
                 .withGrade(PersonBuilder.A_GRADES) // Add grades to trigger recalculation
                 .build();
 
@@ -72,7 +71,6 @@ public class EditCommandTest {
                 .withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB)
                 .withTags(VALID_TAG_HUSBAND)
-//                .withRemark(VALID_REMARK_BOB)
                 .withGrade(PersonBuilder.A_GRADES) // Add grades to descriptor
                 .build();
 
