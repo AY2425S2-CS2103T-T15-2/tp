@@ -27,7 +27,7 @@ public class Person {
     private final Remark remark;
     private final Set<Tag> tags = new HashSet<>();
     private final Grade[] grades;
-    private int studyGroup;
+    private final int studyGroup;
 
 
     /**
@@ -43,6 +43,22 @@ public class Person {
         this.grades = grades.clone();
         this.tags.addAll(tags);
         this.studyGroup = 1;
+    }
+
+    /**
+     * Every field must be present and not null.
+     */
+    public Person(Name name, Phone phone, Email email, Address address, Remark remark, Grade[] grades, Set<Tag> tags,
+                  int studyGroup) {
+        requireAllNonNull(name, phone, email, address, tags, grades);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.remark = remark;
+        this.grades = grades.clone();
+        this.tags.addAll(tags);
+        this.studyGroup = studyGroup;
     }
 
     public Grade[] getGrades() {
@@ -201,9 +217,4 @@ public class Person {
         return Double.compare(this.getOverallGrade(), p.getOverallGrade());
     }
 
-    public void setStudyGroup(int group) {
-        this.studyGroup = group;
-        this.tags.removeIf(tag -> tag.tagName.contains("Studygroup"));
-        this.tags.add(new Tag("Studygroup" + studyGroup));
-    }
 }

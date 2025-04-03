@@ -7,10 +7,10 @@
     "remark" : "She likes cats.",
     "grades" : [
       {"subject": "Math", "grade": "A"},
-      {"subject": "Science", "grade": "B"},
+      {"subject": "Science", "grade": "A"},
       {"subject": "English", "grade": "A"},
-      {"subject": "History", "grade": "C"},
-      {"subject": "Geography", "grade": "B"},
+      {"subject": "History", "grade": "A"},
+      {"subject": "Geography", "grade": "A"},
       {"subject": "Music", "grade": "A"}
     ],
     "tags": [ "friends" ]
@@ -22,10 +22,10 @@
     "remark" : "She likes cats.",
     "grades" : [
       {"subject": "Math", "grade": "A"},
-      {"subject": "Science", "grade": "B"},
+      {"subject": "Science", "grade": "A"},
       {"subject": "English", "grade": "A"},
-      {"subject": "History", "grade": "C"},
-      {"subject": "Geography", "grade": "B"},
+      {"subject": "History", "grade": "A"},
+      {"subject": "Geography", "grade": "A"},
       {"subject": "Music", "grade": "A"}
     ],
     "tags": [ "friends" ]

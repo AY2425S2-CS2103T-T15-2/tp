@@ -1,48 +1,43 @@
 package seedu.address.logic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
-import seedu.address.testutil.PersonBuilder;
 
 /**
  * Test class for GroupingLogic.
  */
 public class GroupingLogicTest {
+    
+    private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
-    private List<Person> students;
+    // Defines the study group for each person in the addressbook according to their overall grade
+    private final int[] studyGroups = {1,1,2,3,1,2,3,4,4};
 
-    @BeforeEach
-    public void setUp() {
-        students = new ArrayList<>();
-        students.add(new PersonBuilder().withName("Alice").withGrade(PersonBuilder.DEFAULT_GRADES).build());
-        students.add(new PersonBuilder().withName("Bob").withGrade(PersonBuilder.F_GRADES).build());
-        students.add(new PersonBuilder().withName("Charlie").withGrade(PersonBuilder.DEFAULT_GRADES).build());
-        students.add(new PersonBuilder().withName("David").withGrade(PersonBuilder.A_GRADES).build());
-    }
-
+    /**
+     * Tests the {@link GroupingLogic#groupStudents(Model)} method to ensure that students are grouped correctly.
+     * This test checks that the students in the address book are assigned the correct study group
+     * based on their grades.
+     * It calls the {@code GroupingLogic.groupStudents()} method to assign groups, and then verifies that each student's
+     * assigned study group matches the expected group in the {@code studyGroups} array.
+     * The test will pass if all students are placed in the correct group, and fail if any student's
+     * study group is incorrect.
+     */
     @Test
     public void groupStudents_validStudents_correctGrouping() {
-        GroupingLogic.groupStudents(students);
-
-        // Expected snake draft grouping order (students list is ordered alphabetically)
-        assertEquals(2, students.get(0).getStudyGroup()); // Lowest grade (Bob) goes to group 1
-        assertEquals(1, students.get(1).getStudyGroup()); // Next student (Alice) goes to group 2
-        assertEquals(3, students.get(2).getStudyGroup()); // Next (Charlie) goes to group 3
-        assertEquals(4, students.get(3).getStudyGroup()); // Lowest grade (Bob) goes to group 4
-    }
-
-    @Test
-    public void groupStudents_emptyList_noError() {
-        List<Person> emptyList = new ArrayList<>();
-        GroupingLogic.groupStudents(emptyList);
-
-        assertEquals(0, emptyList.size()); // Ensure nothing is added or modified
+        GroupingLogic.groupStudents(model);
+        for (int i = 0; i < model.getFilteredPersonList().size(); i++) {
+            assertEquals(model.getFilteredPersonList().get(i).getStudyGroup(), studyGroups[i]);
+        }
     }
 }

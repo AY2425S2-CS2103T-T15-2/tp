@@ -101,7 +101,7 @@ public class EditCommand extends Command {
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         if (recalculateGrades) {
-            GroupingLogic.groupStudents(model.getFilteredPersonList()); // to edit 1. delete current tagging 2. add new
+            GroupingLogic.groupStudents(model); // 1. delete current Studygroup tag if exists 2. add new Studygroup tag
         }
         return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
     }
@@ -178,8 +178,6 @@ public class EditCommand extends Command {
             setGrades(toCopy.grades);
             setTags(toCopy.tags);
         }
-
-
 
         /**
          * Returns true if at least one field is edited.

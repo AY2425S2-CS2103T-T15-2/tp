@@ -138,22 +138,6 @@ public class PersonTest {
         person = new PersonBuilder(ALICE).withGrade(DEFAULT_GRADES).build();
     }
 
-    @Test
-    void getStudyGroup() {
-        person.setStudyGroup(2);
-        assertEquals(2, person.getStudyGroup(), "Study group should be set correctly.");
-    }
-
-    @Test
-    void getOverallGrade() {
-        // Case 1: Default grades
-
-        // Case 2: Empty grades array
-
-        // Case 3: Null grades array
-
-        // Case 4: Mixed valid and null grades
-    }
 
     @Test
     void compareTo() {
@@ -167,18 +151,5 @@ public class PersonTest {
                 "Default grade should be less than lower grade.");
         assertEquals(0, person.compareTo(person),
                 "Same person should return 0 in comparison.");
-    }
-
-    @Test
-    void setStudyGroup() {
-        person.setStudyGroup(0);
-
-        // Verify study group is updated
-        assertEquals(0, person.getStudyGroup(), "Study group should be set correctly.");
-
-        // Verify the tag is updated
-        Set<Tag> tags = person.getTags();
-        assertTrue(tags.stream().anyMatch(tag -> tag.tagName.equals("Studygroup0")),
-                "Person should have the correct StudyGroup tag.");
     }
 }

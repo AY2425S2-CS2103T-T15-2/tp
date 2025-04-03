@@ -27,8 +27,7 @@ public class JsonSerializableAddressBookTest {
                 JsonSerializableAddressBook.class).get();
         AddressBook addressBookFromFile = dataFromFile.toModelType();
         AddressBook typicalPersonsAddressBook = TypicalPersons.getTypicalAddressBook();
-        GroupingLogic.groupStudents(addressBookFromFile.getPersonList());
-        GroupingLogic.groupStudents(typicalPersonsAddressBook.getPersonList());
+
         // Debug output
         System.out.println("From file: " + addressBookFromFile.getPersonList());
         System.out.println("From TypicalPersons: " + typicalPersonsAddressBook.getPersonList());

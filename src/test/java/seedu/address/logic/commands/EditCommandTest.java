@@ -49,8 +49,8 @@ public class EditCommandTest {
         expectedModel.setPerson(model.getFilteredPersonList().get(0), editedPerson);
         expectedModel.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        GroupingLogic.groupStudents(expectedModel.getFilteredPersonList());
-        GroupingLogic.groupStudents(model.getFilteredPersonList());
+        GroupingLogic.groupStudents(expectedModel);
+        GroupingLogic.groupStudents(model);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson));
 
@@ -61,7 +61,7 @@ public class EditCommandTest {
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
         // Initial setup
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        GroupingLogic.groupStudents(model.getFilteredPersonList());
+        GroupingLogic.groupStudents(model);
 
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
         Person lastPerson = model.getFilteredPersonList().get(indexLastPerson.getZeroBased());
@@ -86,7 +86,7 @@ public class EditCommandTest {
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(lastPerson, editedPerson);
         expectedModel.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        GroupingLogic.groupStudents(expectedModel.getFilteredPersonList());
+        GroupingLogic.groupStudents(expectedModel);
 
         editedPerson = expectedModel.getFilteredPersonList().get(indexLastPerson.getZeroBased());
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson));
@@ -228,7 +228,7 @@ public class EditCommandTest {
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setPerson(personToEdit, editedPerson);
         expectedModel.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        GroupingLogic.groupStudents(expectedModel.getFilteredPersonList());
+        GroupingLogic.groupStudents(expectedModel);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS,
                 Messages.format(editedPerson));

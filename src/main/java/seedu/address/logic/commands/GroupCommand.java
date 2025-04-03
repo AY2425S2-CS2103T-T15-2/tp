@@ -19,7 +19,7 @@ public class GroupCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        GroupingLogic.groupStudents(model.getFilteredPersonList());
+        GroupingLogic.groupStudents(model);
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }
