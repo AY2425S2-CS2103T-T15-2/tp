@@ -1,28 +1,22 @@
 package seedu.address.logic;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.person.Person;
 
 /**
  * Test class for GroupingLogic.
  */
 public class GroupingLogicTest {
-    
     private final Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     // Defines the study group for each person in the addressbook according to their overall grade
-    private final int[] studyGroups = {1,1,2,3,1,2,3,4,4};
+    private final int[] studyGroups = {1, 1, 2, 3, 1, 2, 3, 4, 4};
 
     /**
      * Tests the {@link GroupingLogic#groupStudents(Model)} method to ensure that students are grouped correctly.

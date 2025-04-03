@@ -39,8 +39,8 @@ public class TypicalPersons {
             .withTags("Owesmoney", "Friends", "Studygroup2").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
             .withRemark("He loves ice cream.")
-            .withEmail("heinz@example.com").withAddress("wall street").
-            withGrade("Math:A,Science:A,English:A,History:C,Geography:A,Music:A")
+            .withEmail("heinz@example.com").withAddress("wall street")
+            .withGrade("Math:A,Science:A,English:A,History:C,Geography:A,Music:A")
             .withTags("Studygroup3").build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
             .withRemark("He runs fast.")

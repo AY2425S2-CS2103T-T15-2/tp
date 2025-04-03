@@ -1,5 +1,7 @@
 package seedu.address.logic;
 
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -8,8 +10,6 @@ import java.util.Set;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
-
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
 
 /**
@@ -32,7 +32,7 @@ public class GroupingLogic {
         for (int i = 0; i < studentsCopy.size(); i++) {
             Person editedPerson = createStudentWithGroupTag(studentsCopy.get(i), groupIndex[i]);
             model.setPerson(studentsCopy.get(i), editedPerson);
-            }
+        }
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
     }
 

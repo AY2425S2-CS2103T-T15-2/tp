@@ -15,12 +15,10 @@ import static seedu.address.testutil.TypicalPersons.DEFAULT_GRADES;
 import static seedu.address.testutil.TypicalPersons.NEW_TEST_PERSON;
 
 import java.util.Arrays;
-import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
 
