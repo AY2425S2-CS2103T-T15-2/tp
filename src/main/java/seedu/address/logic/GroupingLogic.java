@@ -1,7 +1,5 @@
 package seedu.address.logic;
 
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
