@@ -65,6 +65,17 @@ public class Person {
         return grades.clone();
     }
 
+    public String getGradesString() {
+        StringBuilder sb = new StringBuilder();
+        for (Grade grade : grades) {
+            if (grade != null) {
+                sb.append(grade.toString());
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
+    }
+
     public Name getName() {
         return name;
     }
