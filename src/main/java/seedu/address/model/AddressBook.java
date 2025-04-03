@@ -6,8 +6,11 @@ import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.person.ContainsResult;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.PersonSimilarity;
 import seedu.address.model.person.UniquePersonList;
+import seedu.address.model.person.exceptions.DuplicatePersonException;
 
 /**
  * Wraps all data at the address-book level
@@ -54,7 +57,21 @@ public class AddressBook implements ReadOnlyAddressBook {
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
 
-        setPersons(newData.getPersonList());
+
+        List<Person> persons = newData.getPersonList();
+
+        // Check for duplicates before setting
+        for (int i = 0; i < persons.size(); i++) {
+            Person person = persons.get(i);
+            for (int j = i + 1; j < persons.size(); j++) {
+                Person otherPerson = persons.get(j);
+                PersonSimilarity similarity = person.isSamePerson(otherPerson);
+                if (similarity.isSame) {
+                    throw new DuplicatePersonException();
+                }
+            }
+        }
+        setPersons(persons);
     }
 
     //// person-level operations
@@ -64,7 +81,8 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public boolean hasPerson(Person person) {
         requireNonNull(person);
-        return persons.contains(person);
+        ContainsResult result = persons.contains(person);
+        return result.isDuplicate;
     }
 
     /**

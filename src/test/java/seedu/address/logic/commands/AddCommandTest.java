@@ -14,6 +14,7 @@ import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.Messages;
@@ -24,6 +25,7 @@ import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
+
 
 public class AddCommandTest {
 
@@ -173,7 +175,14 @@ public class AddCommandTest {
         @Override
         public boolean hasPerson(Person person) {
             requireNonNull(person);
-            return this.person.isSamePerson(person);
+            return this.person.isSamePerson(person).isSame;
+        }
+
+        @Override
+        public ObservableList<Person> getFilteredPersonList() {
+            ArrayList<Person> list = new ArrayList<>();
+            list.add(person);
+            return FXCollections.observableList(list);
         }
     }
 
@@ -186,7 +195,14 @@ public class AddCommandTest {
         @Override
         public boolean hasPerson(Person person) {
             requireNonNull(person);
-            return personsAdded.stream().anyMatch(person::isSamePerson);
+            return personsAdded.stream()
+                    .anyMatch(p -> p.isSamePerson(person).isSame);
+        }
+
+
+        @Override
+        public ObservableList<Person> getFilteredPersonList() {
+            return FXCollections.observableList(personsAdded);
         }
 
         @Override

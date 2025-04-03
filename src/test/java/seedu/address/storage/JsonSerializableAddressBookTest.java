@@ -44,11 +44,24 @@ public class JsonSerializableAddressBookTest {
     }
 
     @Test
-    public void toModelType_duplicatePersons_throwsIllegalValueException() throws Exception {
+    public void toModelType_exactDuplicatePersons_throwsIllegalValueException() throws Exception {
         JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(DUPLICATE_PERSON_FILE,
                 JsonSerializableAddressBook.class).get();
         assertThrows(IllegalValueException.class, JsonSerializableAddressBook.MESSAGE_DUPLICATE_PERSON,
                 dataFromFile::toModelType);
     }
 
+    @Test
+    public void toModelType_similarButDifferentPersons_success() throws Exception {
+        // This test assumes you have a new test file with similar but not exact duplicates
+        Path similarPersonsFile = TEST_DATA_FOLDER.resolve("similarPersonsAddressBook.json");
+        JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(similarPersonsFile,
+                JsonSerializableAddressBook.class).get();
+
+        // Should not throw any exception
+        AddressBook addressBook = dataFromFile.toModelType();
+        // Verify the data was loaded successfully
+        assertEquals(2, addressBook.getPersonList().size());
+    }
 }
+
