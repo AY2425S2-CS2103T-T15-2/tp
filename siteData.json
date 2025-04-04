@@ -63,7 +63,8 @@
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-person": "Deleting a person",
         "appendix-planned-enhancements": "Appendix: Planned Enhancements",
-        "1-ui-enhancement-full-visibility-of-command-guide-panel": "1. UI Enhancement – Full Visibility of Command Guide Panel"
+        "1-ui-enhancement-full-visibility-of-command-guide-panel": "1. UI Enhancement – Full Visibility of Command Guide Panel",
+        "2-ui-enhancement-improve-responsiveness-of-person-display-panel": "2. UI Enhancement - Improve Responsiveness of Person Display Panel"
       },
       "headingKeywords": {}
     },
@@ -113,6 +114,7 @@
         "viewing-help-help": "Viewing help : help",
         "adding-a-person-add": "Adding a person: add",
         "listing-all-students-list": "Listing all students : list",
+        "displaying-a-student-s-details-display": "Displaying a student's details : display",
         "editing-a-student-edit": "Editing a student : edit",
         "locating-students-by-name-find": "Locating students by name: find",
         "deleting-students-delete": "Deleting students : delete",
