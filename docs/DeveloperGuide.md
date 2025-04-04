@@ -286,14 +286,23 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | JC Homeroom Teacher                                   | search for a student by name       | quickly retrieve their information                 |
-| `* * *`  | JC Homeroom Teacher                                       | add a new contact             | keep track of their contact details efficiently                                                                       |
-| `* * *`  | JC Homeroom Teacher                                       | delete a contact              | remove entries that I no longer need                                   |
-| `* * *`  | JC Homeroom Teacher                                       | exit the program        | close the application when I am done using it |
-
-*{More to be added}*
+| Priority | As a …​                | I want to …​                                   | So that I can…​                                                       |
+|----------|------------------------|-----------------------------------------------|------------------------------------------------------------------------|
+| `* * *`  | JC Homeroom Teacher     | search for a student by name                  | quickly retrieve their information                                     |
+| `* * *`  | JC Homeroom Teacher     | add a new contact                             | keep track of their contact details efficiently                        |
+| `* * *`  | JC Homeroom Teacher     | delete a contact                              | remove entries that I no longer need                                   |
+| `* * *`  | JC Homeroom Teacher     | exit the program                              | close the application when I am done using it                          |
+| `* * *`  | JC Homeroom Teacher     | list all students                             | view the entire class roster at once                                   |
+| `* * *`  | JC Homeroom Teacher     | edit a student’s information                  | update details like phone, email, and grades                           |
+| `* * *`  | JC Homeroom Teacher     | add complex names (e.g., with s/o, d/o)       | accommodate real-world naming formats                                  |
+| `* * *`  | JC Homeroom Teacher     | be warned when adding a student with duplicate name | avoid accidental duplicates while allowing flexibility          |
+| `* * *`  | JC Homeroom Teacher     | group students into 4 balanced study groups   | create fair and effective groupings for collaboration                  |
+| `* * *`  | JC Homeroom Teacher     | automatically regroup students when grades change | keep groupings fair without manual effort                        |
+| `* * *`  | JC Homeroom Teacher     | view a student’s study group via tag          | identify their assigned group easily                                   |
+| `* *`    | JC Homeroom Teacher     | filter students based on tags                 | view specific categories (e.g., student leaders)                       |
+| `* *`    | JC Homeroom Teacher     | leave remarks for students                    | record notes like progress or follow-up actions                        |
+| `*`      | JC Homeroom Teacher     | clear all student entries                     | reset the roster when needed                                           |
+| `*`      | JC Homeroom Teacher     | view a help guide                             | understand how to use the app effectively                              |
 
 ### Use cases
 
