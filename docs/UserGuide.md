@@ -6,7 +6,7 @@
 
 # JCRoster+ User Guide
 
-JCRoster+ (MVP) is a **desktop app for managing student contacts and details, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, JCRoster+ can get your homeroom teacher tasks done faster than traditional GUI apps.
+JCRoster+ (MVP) is a **desktop app for managing student contacts and details, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, JCRoster+ can get your homeroom teacher tasks done much faster than a traditional GUI app.
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -105,6 +105,27 @@ Shows a list of all students in the JCRoster+.
 
 Format: `list`
 
+### Displaying a student's details : `display`
+
+Displays all contact details, grades and tags of a student in the right panel of the GUI.
+
+Format: `display INDEX`
+
+* Displays the student at the specified index in the displayed student list.
+* The index **must be a positive integer** 1, 2, 3, ...
+
+<box type="tip" seamless>
+
+**Tip:** Double-clicking on a student in the list also calls the display command!
+
+**Note:** After updating any of the student's details, re-run the display command to see the updated details! 
+
+</box>
+
+Examples: 
+
+* `display 1` displays the details of the 1st student in the list.
+
 ### Editing a student : `edit`
 
 Edits an existing student in the JCRoster+.
@@ -155,7 +176,7 @@ Examples:
 
 ### Optional remarks for students : `remark`
 
-Allows adding or editing remarks for a person
+Allows adding, editing or removing remarks for a person
 
 Format: `remark INDEX r/REMARK`
 
@@ -181,17 +202,18 @@ This ensures a balanced mix of students in each group.
 
 ### Advanced Tag-Based Filtering : `filter`
 
-Users can filter students based on multiple tags.
+Users can filter students based on multiple tags. Tags include study groups, and any other unique tags that have been added to students.
 
 Format: `filter KEYWORD [MORE KEYWORDS]`
 
 Examples:
 * `filter student` filters all students with `student` tag.
+* `filter Studygroup1` filters all students with `StudyGroup1` tag.
 * Non-full words will still be matched e.g. `friend` will match `friends`
 
 ### Clearing all entries : `clear`
 
-Clears all entries from the JCRoster+.
+Clears all students entries from the JCRoster+ app. Do use with caution, as this action is irreversible!
 
 Format: `clear`
 
@@ -229,6 +251,7 @@ Furthermore, certain edits can cause the JCRoster+ to behave in unexpected ways 
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
+3. 
 
 --------------------------------------------------------------------------------------------------------------------
 
