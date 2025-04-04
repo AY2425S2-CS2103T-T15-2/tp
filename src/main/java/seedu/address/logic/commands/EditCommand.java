@@ -88,21 +88,30 @@ public class EditCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
-        PersonSimilarity similarity = personToEdit.isSamePerson(editedPerson);
-        if (!similarity.isSame && model.hasPerson(editedPerson)) {
-            if (similarity.isLikelySame) {
-                // Optional: Add warning message here
-                throw new CommandException(MESSAGE_SIMILAR_PERSON);
+        // Check for duplicates in the entire address book
+        List<Person> allPersons = model.getAddressBook().getPersonList();
+        for (Person person : allPersons) {
+            if (!person.equals(personToEdit)) { // Skip the person being edited
+                PersonSimilarity similarity = editedPerson.isSamePerson(person);
+                if (similarity.isSame) {
+                    throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+                }
+                if (similarity.isLikelySame) {
+                    throw new CommandException(MESSAGE_SIMILAR_PERSON);
+                }
             }
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        model.setPerson(personToEdit, editedPerson);
-        if (editPersonDescriptor.isGradeFieldEdited()) {
-            GroupingLogic.groupStudents(model); // 1. delete current Studygroup tag if exists 2. add new Studygroup tag
+        try {
+            model.setPerson(personToEdit, editedPerson);
+            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+            if (editPersonDescriptor.isGradeFieldEdited()) {
+                GroupingLogic.groupStudents(model);
+            }
+            return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
+        } catch (Exception e) {
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
     }
 
     /**
