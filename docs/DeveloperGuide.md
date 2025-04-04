@@ -459,6 +459,6 @@ testers are expected to do more *exploratory* testing.
 
 Currently, the visibility of the Command Guide Panel may be limited depending on window size or layout constraints. We plan to enhance the user interface by ensuring that the Command Guide Panel is always fully visible, regardless of window state or resolution. This will improve usability by making the available commands consistently accessible to the user, reducing confusion and enhancing overall user experience.
 
-### 2. UI Enhancement - Improve Responsiveness of Person Display Panel 
+### 2. UI Enhancement - Improve Responsiveness of Person Display Panel
 
-Currently, the Person Display Panel takes in a Person object which is then displayed in the panel. If you use any command afterward that updates the state of the already displayed person, you will have to run the 'display' command again to see the updated information. We plan to improve this by ensuring that the Person Display Panel is always updated with the latest information of the displayed person. This will enhance the user experience by providing real-time updates and reducing the need for manual refreshes. 
+Currently, the Person Display Panel takes in a Person object which is then displayed in the panel. If you use any command afterward that updates the state of the already displayed person, you will have to run the 'display' command again to see the updated information. We plan to improve this by ensuring that the Person Display Panel is always updated with the latest information of the displayed person. This will enhance the user experience by providing real-time updates and reducing the need for manual refreshes.

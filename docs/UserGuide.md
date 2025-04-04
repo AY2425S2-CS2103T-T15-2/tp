@@ -118,11 +118,11 @@ Format: `display INDEX`
 
 **Tip:** Double-clicking on a student in the list also calls the display command!
 
-**Note:** After updating any of the student's details, re-run the display command to see the updated details! 
+**Note:** After updating any of the student's details, re-run the display command to see the updated details!
 
 </box>
 
-Examples: 
+Examples:
 
 * `display 1` displays the details of the 1st student in the list.
 
@@ -251,7 +251,6 @@ Furthermore, certain edits can cause the JCRoster+ to behave in unexpected ways 
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
-3. 
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -270,6 +269,7 @@ Action     | Format, Examples
 **Filter**   | `filter KEYWORD [MORE_KEYWORDS]`<br> e.g., `filter student tutor`
 **Remark**   | `remark INDEX r/REMARK`<br> e.g., `remark 2 r/Completed project`
 **Group**   | `group`
+**Display**   | `display INDEX`<br> e.g., `display 2`
 
 
 ## Tech_support
