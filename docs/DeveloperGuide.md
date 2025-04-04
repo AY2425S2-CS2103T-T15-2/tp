@@ -276,7 +276,7 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Value proposition**:
 
-* Efficient Contact Management: Provides quick access to student, teacher, and guardian details for Junior College homeroom teachers.
+* Efficient Contact Management: Provides quick access to student details for Junior College homeroom teachers.
 * Smart Tagging System: Enables quick categorization and seamless student grouping based on academic strengths.
 * Administrative Convenience: Reduces the hassle of managing student information and classroom interactions.
 * Improved Efficiency: Streamlines administrative tasks, allowing teachers to focus more on student engagement.
@@ -421,13 +421,13 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Run it using the command 'java -jar jcroster+.jar' Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+   1. Re-launch the app.<br>
        Expected: The most recent window size and location is retained.
 
 1. _{ more test cases …​ }_
@@ -439,20 +439,23 @@ testers are expected to do more *exploratory* testing.
    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
 
    1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message.
 
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: No person is deleted. Error details shown in the status message.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
 1. _{ more test cases …​ }_
 
-### Saving data
+--------------------------------------------------------------------------------------------------------------------
 
-1. Dealing with missing/corrupted data files
+## **Appendix: Planned Enhancements**
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+**Team Size:** 4
 
-1. _{ more test cases …​ }_
+### 1. UI Enhancement – Full Visibility of Command Guide Panel
+
+Currently, the visibility of the Command Guide Panel may be limited depending on window size or layout constraints. We plan to enhance the user interface by ensuring that the Command Guide Panel is always fully visible, regardless of window state or resolution. This will improve usability by making the available commands consistently accessible to the user, reducing confusion and enhancing overall user experience.
+
