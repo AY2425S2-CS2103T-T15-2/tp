@@ -40,7 +40,7 @@ public class CommandGuidePanel extends UiPart<Region> {
         "List all persons: ", "list"
     };
     private static final String[] FILTER_COMMAND = {
-        "Filter persons by tag: ", "filter KEYWORD"
+        "Filter persons by tag: ", "filter KEYWORD [MORE_KEYWORDS]"
     };
     private static final String[] REMARK_COMMAND = {
         "Edit the remark of a person: ", "remark INDEX r/REMARK"
