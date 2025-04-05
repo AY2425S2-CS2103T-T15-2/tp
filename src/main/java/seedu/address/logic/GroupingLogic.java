@@ -22,7 +22,7 @@ public class GroupingLogic {
      * @param model The model containing the list of students to be grouped.
      */
     public static void groupStudents(Model model) {
-        List<Person> studentsCopy = new ArrayList<>(model.getFilteredPersonList());
+        List<Person> studentsCopy = new ArrayList<>(model.getAddressBook().getPersonList());
         studentsCopy.sort(Person::compareTo);
         int[] groupIndex = getGroupIndexes(studentsCopy);
 
