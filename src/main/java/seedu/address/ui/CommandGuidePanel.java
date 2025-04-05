@@ -21,7 +21,7 @@ public class CommandGuidePanel extends UiPart<Region> {
         "Delete a person: ", "delete INDEX1 [INDEX2 ...] ,"
     };
     private static final String[] DISPLAY_COMMAND = {
-        "Display a person on the display panel: ", "display INDEX"
+        "Display a person: ", "display INDEX"
     };
     private static final String[] EDIT_COMMAND = {
         "Edit a person: ", "edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] "
