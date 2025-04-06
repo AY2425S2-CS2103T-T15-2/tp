@@ -6,7 +6,7 @@
 
 # JCRoster+ User Guide
 
-JCRoster+ (MVP) is a **desktop app for managing student contacts and details, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, JCRoster+ can get your homeroom teacher tasks done faster than traditional GUI apps.
+JCRoster+ is a **desktop app for managing student contacts and details, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, JCRoster+ can get your homeroom teacher tasks done faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -86,13 +86,14 @@ Copy the URL and open in a browser to view the full user guide.
 
 Adds a person to the JCRoster+.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, ...SUBJECT6:GRADE [t/TAG]…​`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, SUBJECT2:GRADE, SUBJECT3:GRADE, SUBJECT4:GRADE SUBJECT5:GRADE, SUBJECT6:GRADE [t/TAG]…​`
 
 <box type="tip" seamless>
 
 **Tip:** A student can have any number of tags (including 0)
 
 **Note:** Use single-word tags only.
+**Note:** Names are case-insensitive and are formatted to capitalise the first letter of the name
 
 </box>
 
@@ -132,7 +133,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Non-full words will still be matched e.g. `Han` will match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
+* Persons matching at least one keyword will be returned.
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
@@ -161,6 +162,7 @@ Allows adding or editing remarks for a person
 Format: `remark INDEX r/REMARK`
 
 Examples:
+* `remark 2 r/` removes all remarks of the 2nd student.
 * `remark 2 r/Needs follow-up on project deadline` adds a remark to 2nd student.
 * `remark 2 r/Completed project` edits the remark of 2nd student.
 
@@ -176,7 +178,9 @@ Examples:
 **Note:** The algorithm sorts students by grades and assigns them to groups in a zig-zag pattern:  The first student(weakest) goes into Group 1, the second into Group 2, the third into Group 3, the forth into Group 4, the fifth back to Group 4, the sixth into group 3, and so on. 
 This ensures a balanced mix of students in each group.
 
-**Tip:** Editing any student's grade will cause the system to automatically recalculate and reassign study groups to maintain balance and fairness.
+**Note:** The system will automatically recalculate and reassign study groups (ie. Their Studygroup tags will be updated) to maintain balance and fairness in 2 cases:
+1. Deleting any student
+2. Editing any student's grade will cause the system to
 
 **Tip:** You can manually edit a student's study group by editing their tags.
 
@@ -189,6 +193,8 @@ Format: `filter KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `filter student tutor` filters all students with `student tutor` tag.
 * Non-full words will still be matched e.g. `friend` will match `friends`
+
+**Tip:** Quickly find the students of a specific study group by using `filter studygroup#` where '#' is a number from 1 to 4.
 
 ### Clearing all entries : `clear`
 
