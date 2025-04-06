@@ -29,7 +29,7 @@
 
         <Region HBox.hgrow="ALWAYS" />
 
-        <Label fx:id="phone" styleClass="cell_big_label" text="\$phone" />
+        <Label fx:id="phone" styleClass="cell_big_label" text="\$phone" minWidth="150" alignment="CENTER_RIGHT"/>
       </HBox>
       <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
       <Label fx:id="address" styleClass="cell_small_label" text="\$address" />
