@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.GroupingLogic;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -87,6 +88,7 @@ public class DeleteCommandTest {
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.deletePerson(personToDelete);
         showNoPerson(expectedModel);
+        GroupingLogic.groupStudents(expectedModel);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
@@ -108,6 +110,7 @@ public class DeleteCommandTest {
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         personsToDelete.forEach(expectedModel::deletePerson);
         showNoPerson(expectedModel);
+        GroupingLogic.groupStudents(expectedModel);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
