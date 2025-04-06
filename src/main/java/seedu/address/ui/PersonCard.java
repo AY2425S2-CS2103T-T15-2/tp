@@ -1,6 +1,5 @@
 package seedu.address.ui;
 
-//import java.util.Arrays;
 import java.util.Comparator;
 import java.util.function.Consumer;
 
@@ -42,8 +41,6 @@ public class PersonCard extends UiPart<Region> {
     private Label email;
     @FXML
     private FlowPane tags;
-    // @FXML
-    // private FlowPane grades;
 
     private Consumer<Person> onSelected;
 
@@ -62,8 +59,6 @@ public class PersonCard extends UiPart<Region> {
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        // Arrays.stream(person.getGrades())
-        //         .forEach(grade -> grades.getChildren().add(new Label(grade.toString())));
 
         cardPane.setOnMouseClicked(event -> {
             onSelected.accept(person);
