@@ -24,8 +24,8 @@ public class CommandGuidePanel extends UiPart<Region> {
         "Display a person: ", "display INDEX"
     };
     private static final String[] EDIT_COMMAND = {
-        "Edit a person: ", "edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] "
-            + "[a/ADDRESS] [g/SUBJECT1:GRADE ... SUBJECT6:GRADE] [t/TAG]"
+        "Edit a person: ",
+            "edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/SUBJECT1:GRADE ... SUBJECT6:GRADE] [t/TAG]"
     };
     private static final String[] EXIT_COMMAND = {
         "Exit the application: ", "exit"
