@@ -29,6 +29,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Grade;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.PersonSimilarity;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
@@ -58,7 +59,8 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Person: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
-    private static boolean recalculateGrades;
+    public static final String MESSAGE_SIMILAR_PERSON = "It is likely that this "
+            + "person already exists in the address book.";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -86,17 +88,30 @@ public class EditCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
+        // Check for duplicates in the entire address book
+        List<Person> allPersons = model.getAddressBook().getPersonList();
+        for (Person person : allPersons) {
+            if (!person.equals(personToEdit)) { // Skip the person being edited
+                PersonSimilarity similarity = editedPerson.isSamePerson(person);
+                if (similarity.isSame) {
+                    throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+                }
+                if (similarity.isLikelySame) {
+                    throw new CommandException(MESSAGE_SIMILAR_PERSON);
+                }
+            }
+        }
 
-        if (!personToEdit.isSamePerson(editedPerson) && model.hasPerson(editedPerson)) {
+        try {
+            model.setPerson(personToEdit, editedPerson);
+            model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+            if (editPersonDescriptor.isGradeFieldEdited()) {
+                GroupingLogic.groupStudents(model);
+            }
+            return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
+        } catch (Exception e) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
-
-        model.setPerson(personToEdit, editedPerson);
-        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        if (recalculateGrades) {
-            GroupingLogic.groupStudents(model.getFilteredPersonList()); // to edit 1. delete current tagging 2. add new
-        }
-        return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS, Messages.format(editedPerson)));
     }
 
     /**
@@ -111,9 +126,6 @@ public class EditCommand extends Command {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Remark updatedRemark = personToEdit.getRemark(); // edit command does not allow editing remarks
-        if (editPersonDescriptor.getGrades().isPresent()) { // sets recalculates to true if grades are changed
-            recalculateGrades = true;
-        }
         Grade[] updatedGrades = editPersonDescriptor.getGrades().orElse(personToEdit.getGrades());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
@@ -172,13 +184,18 @@ public class EditCommand extends Command {
             setTags(toCopy.tags);
         }
 
-
-
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, grades, tags);
+        }
+
+        /**
+         * Returns true if at least one field is edited.
+         */
+        public boolean isGradeFieldEdited() {
+            return CollectionUtil.isAnyNonNull((Object) grades);
         }
 
         /**

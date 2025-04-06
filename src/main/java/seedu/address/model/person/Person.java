@@ -27,7 +27,7 @@ public class Person {
     private final Remark remark;
     private final Set<Tag> tags = new HashSet<>();
     private final Grade[] grades;
-    private int studyGroup;
+    private final int studyGroup;
 
 
     /**
@@ -45,8 +45,35 @@ public class Person {
         this.studyGroup = 1;
     }
 
+    /**
+     * Every field must be present and not null.
+     */
+    public Person(Name name, Phone phone, Email email, Address address, Remark remark, Grade[] grades, Set<Tag> tags,
+                  int studyGroup) {
+        requireAllNonNull(name, phone, email, address, tags, grades);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.remark = remark;
+        this.grades = grades.clone();
+        this.tags.addAll(tags);
+        this.studyGroup = studyGroup;
+    }
+
     public Grade[] getGrades() {
         return grades.clone();
+    }
+
+    public String getGradesString() {
+        StringBuilder sb = new StringBuilder();
+        for (Grade grade : grades) {
+            if (grade != null) {
+                sb.append(grade.toString());
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
     }
 
     public Name getName() {
@@ -81,19 +108,57 @@ public class Person {
         return studyGroup;
     }
 
+
     /**
-     * Returns true if both persons have the same name.
+     * Returns a PersonSimilarity indicating if persons are same or likely the same.
      * This defines a weaker notion of equality between two persons.
      */
-    public boolean isSamePerson(Person otherPerson) {
+    public PersonSimilarity isSamePerson(Person otherPerson) {
         if (otherPerson == this) {
-            return true;
+            return new PersonSimilarity(true, false);
         }
 
-        return otherPerson != null
-                && otherPerson.getName().equals(getName());
+        if (otherPerson == null) {
+            return new PersonSimilarity(false, false);
+        }
+
+        boolean isExactMatch = otherPerson.getName().equals(getName());
+
+        // Check for similarity by comparing alphanumeric characters
+        boolean nameSimilar = stripNonAlphanumeric(name.toString())
+                .equals(stripNonAlphanumeric(otherPerson.getName().toString()));
+        boolean emailSimilar = stripNonAlphanumeric(email.toString())
+                .equals(stripNonAlphanumeric(otherPerson.getEmail().toString()));
+        boolean phoneSimilar = stripNonAlphanumeric(phone.toString())
+                .equals(stripNonAlphanumeric(otherPerson.getPhone().toString()));
+        boolean addressSimilar = stripNonAlphanumeric(address.toString())
+                .equals(stripNonAlphanumeric(otherPerson.getAddress().toString()));
+        boolean gradesSimilar = Arrays.equals(grades, otherPerson.getGrades());
+        boolean tagsSimilar = tags.equals(otherPerson.getTags());
+
+        boolean isLikelySame = nameSimilar && emailSimilar && phoneSimilar && addressSimilar
+                && gradesSimilar && tagsSimilar;
+        boolean isOtherFieldfifferent = !emailSimilar || !phoneSimilar || !addressSimilar
+                || !gradesSimilar || !tagsSimilar;
+        if (isExactMatch) {
+            if (isOtherFieldfifferent) {
+                return new PersonSimilarity(false, true);
+            }
+            return new PersonSimilarity(true, false);
+        }
+
+        if (isLikelySame) {
+            return new PersonSimilarity(false, true);
+        }
+        return new PersonSimilarity(false, false);
     }
 
+    /**
+     * Removes all non-alphanumeric characters and converts to lowercase.
+     */
+    private String stripNonAlphanumeric(String input) {
+        return input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+    }
     /**
      * Returns true if both persons have the same identity and data fields.
      * This defines a stronger notion of equality between two persons.
@@ -163,9 +228,4 @@ public class Person {
         return Double.compare(this.getOverallGrade(), p.getOverallGrade());
     }
 
-    public void setStudyGroup(int group) {
-        this.studyGroup = group;
-        this.tags.removeIf(tag -> tag.tagName.contains("StudyGroup"));
-        this.tags.add(new Tag("StudyGroup" + studyGroup));
-    }
 }

@@ -24,6 +24,7 @@ public class RemarkCommand extends Command {
             + "by the index number used in the last person listing. "
             + "Existing remark will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
+            + "Only one INDEX is allowed per command.\n"
             + PREFIX_REMARK + "[REMARK]\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_REMARK + "Likes to swim.";
@@ -68,7 +69,7 @@ public class RemarkCommand extends Command {
      */
     private String generateSuccessMessage(Person personToEdit) {
         String message = !remark.value.isEmpty() ? MESSAGE_ADD_REMARK_SUCCESS : MESSAGE_DELETE_REMARK_SUCCESS;
-        return String.format(message, personToEdit);
+        return String.format(message, Messages.format(personToEdit));
     }
 
     @Override

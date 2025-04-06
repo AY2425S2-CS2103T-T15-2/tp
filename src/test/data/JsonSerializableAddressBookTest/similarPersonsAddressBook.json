@@ -1,10 +1,10 @@
 {
   "persons": [ {
     "name": "Alice Pauline",
-    "phone": "94351253",
+    "phone": "96375654",
     "email": "alice@example.com",
     "address": "123, Jurong West Ave 6, #08-111",
-    "remark" : "She likes cats.",
+    "remark": "She likes cats.",
     "grades" : [
       {"subject": "Math", "grade": "A"},
       {"subject": "Science", "grade": "A"},
@@ -13,21 +13,21 @@
       {"subject": "Geography", "grade": "A"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags": [ "friends" ]
+    "tags": ["friends"]
   }, {
     "name": "Alice Pauline",
     "phone": "94351253",
-    "email": "alice@example.com",
-    "address": "123, Jurong West Ave 6, #08-111",
-    "remark" : "She likes cats.",
+    "email": "pauline@example.com",
+    "address": "4th street",
+    "remark": "She likes cats.",
     "grades" : [
       {"subject": "Math", "grade": "A"},
       {"subject": "Science", "grade": "A"},
       {"subject": "English", "grade": "A"},
       {"subject": "History", "grade": "A"},
-      {"subject": "Geography", "grade": "A"},
+      {"subject": "Geography", "grade": "B"},
       {"subject": "Music", "grade": "A"}
     ],
-    "tags": [ "friends" ]
+    "tags": ["friends"]
   } ]
 }

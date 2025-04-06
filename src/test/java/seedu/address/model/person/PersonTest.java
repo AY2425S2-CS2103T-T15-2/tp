@@ -15,12 +15,10 @@ import static seedu.address.testutil.TypicalPersons.DEFAULT_GRADES;
 import static seedu.address.testutil.TypicalPersons.NEW_TEST_PERSON;
 
 import java.util.Arrays;
-import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
 
@@ -36,29 +34,54 @@ public class PersonTest {
 
     @Test
     public void isSamePerson() {
-        // same object -> returns true
-        assertTrue(ALICE.isSamePerson(ALICE));
 
-        // null -> returns false
-        assertFalse(ALICE.isSamePerson(null));
+        // same object -> returns true with no likely similarity
+        PersonSimilarity result = ALICE.isSamePerson(ALICE);
+        assertTrue(result.isSame);
+        assertFalse(result.isLikelySame);
 
-        // same name, all other attributes different -> returns true
-        Person editedAlice = new PersonBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-                .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
-        assertTrue(ALICE.isSamePerson(editedAlice));
+        // null -> returns false with no likely similarity
+        result = ALICE.isSamePerson(null);
+        assertFalse(result.isSame);
+        assertFalse(result.isLikelySame);
 
-        // different name, all other attributes same -> returns false
-        editedAlice = new PersonBuilder(ALICE).withName(VALID_NAME_BOB).build();
-        assertFalse(ALICE.isSamePerson(editedAlice));
+        // exact name match but different object -> returns true with no likely similarity
+        Person editedAlice = new PersonBuilder(ALICE).withName(ALICE.getName().fullName).build();
+        result = ALICE.isSamePerson(editedAlice);
+        assertTrue(result.isSame);
+        assertFalse(result.isLikelySame);
 
-        // name differs in case, all other attributes same -> returns false
-        Person editedBob = new PersonBuilder(BOB).withName(VALID_NAME_BOB.toLowerCase()).build();
-        assertFalse(BOB.isSamePerson(editedBob));
+        // different name, but similar (without spaces) -> returns false but likely same
+        editedAlice = new PersonBuilder(ALICE).withName("AlicePauline").build();
+        result = ALICE.isSamePerson(editedAlice);
+        assertFalse(result.isSame);
+        assertTrue(result.isLikelySame);
 
-        // name has trailing spaces, all other attributes same -> returns false
-        String nameWithTrailingSpaces = VALID_NAME_BOB + " ";
-        editedBob = new PersonBuilder(BOB).withName(nameWithTrailingSpaces).build();
-        assertFalse(BOB.isSamePerson(editedBob));
+        // different name, but similar (part of uppercase) -> returns false but likely same
+        editedAlice = new PersonBuilder(ALICE).withName("ALICE Pauline").build();
+        result = ALICE.isSamePerson(editedAlice);
+        assertFalse(result.isSame);
+        assertTrue(result.isLikelySame);
+
+        // name differs in case -> returns false but likely same
+        Person editedBob = new PersonBuilder(BOB).withName(VALID_NAME_BOB.toUpperCase()).build();
+        result = BOB.isSamePerson(editedBob);
+        assertFalse(result.isSame);
+        assertTrue(result.isLikelySame);
+
+        // similar email but different name -> returns false due to compeltely different name
+        editedAlice = new PersonBuilder(ALICE).withName("Different Name")
+                .withEmail("alice@example.com").build();
+        result = ALICE.isSamePerson(editedAlice);
+        assertFalse(result.isSame);
+        assertFalse(result.isLikelySame);
+
+        // same name  but different email -> returns false but similar
+        editedBob = new PersonBuilder(BOB).withName(VALID_NAME_BOB)
+                .withEmail("alice@example.com").build();
+        result = BOB.isSamePerson(editedBob);
+        assertFalse(result.isSame);
+        assertTrue(result.isLikelySame);
     }
 
     @Test
@@ -113,22 +136,6 @@ public class PersonTest {
         person = new PersonBuilder(ALICE).withGrade(DEFAULT_GRADES).build();
     }
 
-    @Test
-    void getStudyGroup() {
-        person.setStudyGroup(2);
-        assertEquals(2, person.getStudyGroup(), "Study group should be set correctly.");
-    }
-
-    @Test
-    void getOverallGrade() {
-        // Case 1: Default grades
-
-        // Case 2: Empty grades array
-
-        // Case 3: Null grades array
-
-        // Case 4: Mixed valid and null grades
-    }
 
     @Test
     void compareTo() {
@@ -142,18 +149,5 @@ public class PersonTest {
                 "Default grade should be less than lower grade.");
         assertEquals(0, person.compareTo(person),
                 "Same person should return 0 in comparison.");
-    }
-
-    @Test
-    void setStudyGroup() {
-        person.setStudyGroup(0);
-
-        // Verify study group is updated
-        assertEquals(0, person.getStudyGroup(), "Study group should be set correctly.");
-
-        // Verify the tag is updated
-        Set<Tag> tags = person.getTags();
-        assertTrue(tags.stream().anyMatch(tag -> tag.tagName.equals("StudyGroup0")),
-                "Person should have the correct StudyGroup tag.");
     }
 }

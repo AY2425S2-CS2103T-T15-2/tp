@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.GroupingLogic;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -50,6 +51,7 @@ public class DeleteCommand extends Command {
 
         // Perform deletions
         personsToDelete.forEach(model::deletePerson);
+        GroupingLogic.groupStudents(model);
 
         return new CommandResult(String.format(
                 MESSAGE_DELETE_PERSON_SUCCESS,

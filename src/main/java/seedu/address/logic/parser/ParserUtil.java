@@ -2,9 +2,11 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
@@ -44,11 +46,17 @@ public class ParserUtil {
      */
     public static Name parseName(String name) throws ParseException {
         requireNonNull(name);
-        String trimmedName = name.trim();
-        if (!Name.isValidName(trimmedName)) {
+        // Ignoring trailing spaces between given names
+        String trimmedName = name.trim().replaceAll("\\s+", " ");
+
+        // Formatting names via camelcase - case insensitive names
+        String formattedName = Arrays.stream(trimmedName.toLowerCase().split(" "))
+                .map(n -> n.substring(0, 1).toUpperCase() + n.substring(1)) // Capitalize first letter
+                .collect(Collectors.joining(" ")); // Rejoin words with spaces
+        if (!Name.isValidName(formattedName)) {
             throw new ParseException(Name.MESSAGE_CONSTRAINTS);
         }
-        return new Name(trimmedName);
+        return new Name(formattedName);
     }
 
     /**

@@ -29,11 +29,20 @@ public class UniquePersonList implements Iterable<Person> {
             FXCollections.unmodifiableObservableList(internalList);
 
     /**
-     * Returns true if the list contains an equivalent person as the given argument.
+     * Returns a ContainsResult indicating if the list contains a duplicate or similar person.
      */
-    public boolean contains(Person toCheck) {
+    public ContainsResult contains(Person toCheck) {
         requireNonNull(toCheck);
-        return internalList.stream().anyMatch(toCheck::isSamePerson);
+        for (Person person : internalList) {
+            PersonSimilarity similarity = person.isSamePerson(toCheck);
+            if (similarity.isSame) {
+                return new ContainsResult(true, false);
+            }
+            if (similarity.isLikelySame) {
+                return new ContainsResult(false, true);
+            }
+        }
+        return new ContainsResult(false, false);
     }
 
     /**
@@ -42,7 +51,8 @@ public class UniquePersonList implements Iterable<Person> {
      */
     public void add(Person toAdd) {
         requireNonNull(toAdd);
-        if (contains(toAdd)) {
+        ContainsResult result = contains(toAdd);
+        if (result.isDuplicate) {
             throw new DuplicatePersonException();
         }
         internalList.add(toAdd);
@@ -61,10 +71,16 @@ public class UniquePersonList implements Iterable<Person> {
             throw new PersonNotFoundException();
         }
 
-        if (!target.isSamePerson(editedPerson) && contains(editedPerson)) {
-            throw new DuplicatePersonException();
+        // Check if editing would create a duplicate with any other person
+        for (int i = 0; i < internalList.size(); i++) {
+            if (i != index) {
+                Person existingPerson = internalList.get(i);
+                PersonSimilarity similarity = editedPerson.isSamePerson(existingPerson);
+                if (similarity.isSame || similarity.isLikelySame) {
+                    throw new DuplicatePersonException();
+                }
+            }
         }
-
         internalList.set(index, editedPerson);
     }
 
@@ -140,7 +156,8 @@ public class UniquePersonList implements Iterable<Person> {
     private boolean personsAreUnique(List<Person> persons) {
         for (int i = 0; i < persons.size() - 1; i++) {
             for (int j = i + 1; j < persons.size(); j++) {
-                if (persons.get(i).isSamePerson(persons.get(j))) {
+                PersonSimilarity similarity = persons.get(i).isSamePerson(persons.get(j));
+                if (similarity.isSame) {
                     return false;
                 }
             }

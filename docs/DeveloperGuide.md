@@ -71,7 +71,7 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/se-
 
 <puml src="diagrams/UiClassDiagram.puml" alt="Structure of the UI Component"/>
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter`, `Person Display`, `Command Guide Panel` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -276,7 +276,7 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Value proposition**:
 
-* Efficient Contact Management: Provides quick access to student, teacher, and guardian details for Junior College homeroom teachers.
+* Efficient Contact Management: Provides quick access to student details for Junior College homeroom teachers.
 * Smart Tagging System: Enables quick categorization and seamless student grouping based on academic strengths.
 * Administrative Convenience: Reduces the hassle of managing student information and classroom interactions.
 * Improved Efficiency: Streamlines administrative tasks, allowing teachers to focus more on student engagement.
@@ -286,14 +286,23 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | JC Homeroom Teacher                                   | search for a student by name       | quickly retrieve their information                 |
-| `* * *`  | JC Homeroom Teacher                                       | add a new contact             | keep track of their contact details efficiently                                                                       |
-| `* * *`  | JC Homeroom Teacher                                       | delete a contact              | remove entries that I no longer need                                   |
-| `* * *`  | JC Homeroom Teacher                                       | exit the program        | close the application when I am done using it |
-
-*{More to be added}*
+| Priority | As a …​                | I want to …​                                   | So that I can…​                                                       |
+|----------|------------------------|-----------------------------------------------|------------------------------------------------------------------------|
+| `* * *`  | JC Homeroom Teacher     | search for a student by name                  | quickly retrieve their information                                     |
+| `* * *`  | JC Homeroom Teacher     | add a new contact                             | keep track of their contact details efficiently                        |
+| `* * *`  | JC Homeroom Teacher     | delete a contact                              | remove entries that I no longer need                                   |
+| `* * *`  | JC Homeroom Teacher     | exit the program                              | close the application when I am done using it                          |
+| `* * *`  | JC Homeroom Teacher     | list all students                             | view the entire class roster at once                                   |
+| `* * *`  | JC Homeroom Teacher     | edit a student’s information                  | update details like phone, email, and grades                           |
+| `* * *`  | JC Homeroom Teacher     | add complex names (e.g., with s/o, d/o)       | accommodate real-world naming formats                                  |
+| `* * *`  | JC Homeroom Teacher     | be warned when adding a student with duplicate name | avoid accidental duplicates while allowing flexibility          |
+| `* * *`  | JC Homeroom Teacher     | group students into 4 balanced study groups   | create fair and effective groupings for collaboration                  |
+| `* * *`  | JC Homeroom Teacher     | automatically regroup students when grades change | keep groupings fair without manual effort                        |
+| `* * *`  | JC Homeroom Teacher     | view a student’s study group via tag          | identify their assigned group easily                                   |
+| `* *`    | JC Homeroom Teacher     | filter students based on tags                 | view specific categories (e.g., student leaders)                       |
+| `* *`    | JC Homeroom Teacher     | leave remarks for students                    | record notes like progress or follow-up actions                        |
+| `*`      | JC Homeroom Teacher     | clear all student entries                     | reset the roster when needed                                           |
+| `*`      | JC Homeroom Teacher     | view a help guide                             | understand how to use the app effectively                              |
 
 ### Use cases
 
@@ -355,7 +364,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2d1. JCRoster+ shows an error message: "Invalid address format. Only letters, numbers, and basic punctuation are allowed."
 
       Use case resumes at step 1.
- 
 * 3a. A person with the same phone number already exists.
     * 3a1. JCRoster+ shows an error message: "A person with this phone number already exists."
 
@@ -392,7 +400,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4. Should handle unexpected user inputs/system crashes gracefully by providing helpful error messages and not losing data.
-5. Software should work without requiring an installer. 
+5. Software should work without requiring an installer.
 6. Data should be stored in a format that is easy to read and edit manually, in case the user wants to do so.
 
 *{More to be added}*
@@ -422,13 +430,13 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Run it using the command 'java -jar jcroster+.jar' Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+   1. Re-launch the app.<br>
        Expected: The most recent window size and location is retained.
 
 1. _{ more test cases …​ }_
@@ -440,20 +448,26 @@ testers are expected to do more *exploratory* testing.
    1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
 
    1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message.
 
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: No person is deleted. Error details shown in the status message.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
 1. _{ more test cases …​ }_
 
-### Saving data
+--------------------------------------------------------------------------------------------------------------------
 
-1. Dealing with missing/corrupted data files
+## **Appendix: Planned Enhancements**
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+**Team Size:** 4
 
-1. _{ more test cases …​ }_
+### 1. UI Enhancement – Full Visibility of Command Guide Panel
+
+Currently, the visibility of the Command Guide Panel may be limited depending on window size or layout constraints. We plan to enhance the user interface by ensuring that the Command Guide Panel is always fully visible, regardless of window state or resolution. This will improve usability by making the available commands consistently accessible to the user, reducing confusion and enhancing overall user experience.
+
+### 2. UI Enhancement - Improve Responsiveness of Person Display Panel
+
+Currently, the Person Display Panel takes in a Person object which is then displayed in the panel. If you use any command afterward that updates the state of the already displayed person, you will have to run the 'display' command again to see the updated information. We plan to improve this by ensuring that the Person Display Panel is always updated with the latest information of the displayed person. This will enhance the user experience by providing real-time updates and reducing the need for manual refreshes.

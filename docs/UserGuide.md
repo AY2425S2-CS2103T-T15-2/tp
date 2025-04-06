@@ -106,6 +106,27 @@ Shows a list of all students in the JCRoster+.
 
 Format: `list`
 
+### Displaying a student's details : `display`
+
+Displays all contact details, grades and tags of a student in the right panel of the GUI.
+
+Format: `display INDEX`
+
+* Displays the student at the specified index in the displayed student list.
+* The index **must be a positive integer** 1, 2, 3, ...
+
+<box type="tip" seamless>
+
+**Tip:** Double-clicking on a student in the list also calls the display command!
+
+**Note:** After updating any of the student's details, re-run the display command to see the updated details!
+
+</box>
+
+Examples:
+
+* `display 1` displays the details of the 1st student in the list.
+
 ### Editing a student : `edit`
 
 Edits an existing student in the JCRoster+.
@@ -139,7 +160,6 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
 
 ### Deleting students : `delete`
 
@@ -157,7 +177,7 @@ Examples:
 
 ### Optional remarks for students : `remark`
 
-Allows adding or editing remarks for a person
+Allows adding, editing or removing remarks for a person
 
 Format: `remark INDEX r/REMARK`
 
@@ -175,7 +195,7 @@ Format: `group`
 Examples:
 * `group` groups all students into 4 study groups based on their grades.
 
-**Note:** The algorithm sorts students by grades and assigns them to groups in a zig-zag pattern:  The first student(weakest) goes into Group 1, the second into Group 2, the third into Group 3, the forth into Group 4, the fifth back to Group 4, the sixth into group 3, and so on. 
+**Note:** The algorithm sorts students by grades and assigns them to groups in a zig-zag pattern:  The first student(weakest) goes into Group 1, the second into Group 2, the third into Group 3, the forth into Group 4, the fifth back to Group 4, the sixth into group 3, and so on.
 This ensures a balanced mix of students in each group.
 
 **Note:** The system will automatically recalculate and reassign study groups (ie. Their Studygroup tags will be updated) to maintain balance and fairness in 2 cases:
@@ -186,19 +206,20 @@ This ensures a balanced mix of students in each group.
 
 ### Advanced Tag-Based Filtering : `filter`
 
-Users can filter students based on multiple tags.
+Users can filter students based on multiple tags. Tags include study groups, and any other unique tags that have been added to students.
 
-Format: `filter KEYWORD [MORE_KEYWORDS]`
+Format: `filter KEYWORD [MORE KEYWORDS]`
 
 Examples:
-* `filter student tutor` filters all students with `student tutor` tag.
+* `filter student` filters all students with `student` tag.
+* `filter Studygroup1` filters all students with `StudyGroup1` tag.
 * Non-full words will still be matched e.g. `friend` will match `friends`
 
 **Tip:** Quickly find the students of a specific study group by using `filter studygroup#` where '#' is a number from 1 to 4.
 
 ### Clearing all entries : `clear`
 
-Clears all entries from the JCRoster+.
+Clears all students entries from the JCRoster+ app. Do use with caution, as this action is irreversible!
 
 Format: `clear`
 
@@ -254,6 +275,7 @@ Action     | Format, Examples
 **Filter**   | `filter KEYWORD [MORE_KEYWORDS]`<br> e.g., `filter student tutor`
 **Remark**   | `remark INDEX r/REMARK`<br> e.g., `remark 2 r/Completed project`
 **Group**   | `group`
+**Display**   | `display INDEX`<br> e.g., `display 2`
 
 
 ## Tech_support
@@ -262,7 +284,7 @@ Action     | Format, Examples
 After opening terminal, you will see a screen like ![this](images/window's_powershell.png)<br>
 Type `ls` to see files in this directory ![](images/ls_command.png)<br>
 Type `cd [folder name] `to enter that folder <br>
-For example : 
+For example :
 `cd Downloads ` The terminal prompt should now show that you’re inside the Downloads folder <br>
 ![](images/cd_command.png)<br>
 Type `cd ..` to go back to previous folder<br>

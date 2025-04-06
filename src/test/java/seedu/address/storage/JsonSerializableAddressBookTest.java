@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.JsonUtil;
-import seedu.address.logic.GroupingLogic;
 import seedu.address.model.AddressBook;
 import seedu.address.testutil.TypicalPersons;
 
@@ -27,8 +26,7 @@ public class JsonSerializableAddressBookTest {
                 JsonSerializableAddressBook.class).get();
         AddressBook addressBookFromFile = dataFromFile.toModelType();
         AddressBook typicalPersonsAddressBook = TypicalPersons.getTypicalAddressBook();
-        GroupingLogic.groupStudents(addressBookFromFile.getPersonList());
-        GroupingLogic.groupStudents(typicalPersonsAddressBook.getPersonList());
+
         // Debug output
         System.out.println("From file: " + addressBookFromFile.getPersonList());
         System.out.println("From TypicalPersons: " + typicalPersonsAddressBook.getPersonList());
@@ -44,11 +42,24 @@ public class JsonSerializableAddressBookTest {
     }
 
     @Test
-    public void toModelType_duplicatePersons_throwsIllegalValueException() throws Exception {
+    public void toModelType_exactDuplicatePersons_throwsIllegalValueException() throws Exception {
         JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(DUPLICATE_PERSON_FILE,
                 JsonSerializableAddressBook.class).get();
         assertThrows(IllegalValueException.class, JsonSerializableAddressBook.MESSAGE_DUPLICATE_PERSON,
                 dataFromFile::toModelType);
     }
 
+    @Test
+    public void toModelType_similarButDifferentPersons_success() throws Exception {
+        // This test assumes you have a new test file with similar but not exact duplicates
+        Path similarPersonsFile = TEST_DATA_FOLDER.resolve("similarPersonsAddressBook.json");
+        JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(similarPersonsFile,
+                JsonSerializableAddressBook.class).get();
+
+        // Should not throw any exception
+        AddressBook addressBook = dataFromFile.toModelType();
+        // Verify the data was loaded successfully
+        assertEquals(2, addressBook.getPersonList().size());
+    }
 }
+

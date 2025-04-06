@@ -44,13 +44,25 @@ public class AddressBookTest {
     }
 
     @Test
-    public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
-        // Two persons with the same identity fields
+    public void resetData_withDuplicatePersons_shouldNotThrow() {
+        // Create a person that has similar fields as ALICE but with a different address
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
         List<Person> newPersons = Arrays.asList(ALICE, editedAlice);
         AddressBookStub newData = new AddressBookStub(newPersons);
 
+        // Should not throw any exception since they are now considered different persons
+        addressBook.resetData(newData);
+    }
+
+    @Test
+    public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
+        // Create an exact copy of ALICE (all fields identical)
+        Person exactCopyAlice = new PersonBuilder(ALICE).build();
+        List<Person> newPersons = Arrays.asList(ALICE, exactCopyAlice);
+        AddressBookStub newData = new AddressBookStub(newPersons);
+
+        // Should throw DuplicatePersonException only for exact duplicates
         assertThrows(DuplicatePersonException.class, () -> addressBook.resetData(newData));
     }
 
@@ -71,11 +83,25 @@ public class AddressBookTest {
     }
 
     @Test
-    public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
+    public void resetData_withSimilarButDifferentPersons_shouldNotThrow() {
+        // Create a person with same name but different address
+        Person similarAlice = new PersonBuilder(ALICE)
+                .withAddress(VALID_ADDRESS_BOB)
+                .withTags(VALID_TAG_HUSBAND)
+                .build();
+        List<Person> newPersons = Arrays.asList(ALICE, similarAlice);
+        AddressBookStub newData = new AddressBookStub(newPersons);
+
+        // Should not throw exception as persons have different fields
+        addressBook.resetData(newData);
+    }
+
+    @Test
+    public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsFalse() {
         addressBook.addPerson(ALICE);
         Person editedAlice = new PersonBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(addressBook.hasPerson(editedAlice));
+        assertFalse(addressBook.hasPerson(editedAlice));
     }
 
     @Test
