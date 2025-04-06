@@ -248,7 +248,7 @@ with(this){return _c('p',[_c('strong',[_v("Use case: Add a person")])])}
 with(this){return _c('p',[_c('strong',[_v("MSS")])])}
 },function anonymous(
 ) {
-with(this){return _c('ol',[_c('li',[_c('p',[_v("JCRoster+ prompts the user to enter student details (name, phone number, email, address, and optional tags).")])]),_v(" "),_c('li',[_c('p',[_v("User enters the details in the specified format.")])]),_v(" "),_c('li',[_c('p',[_v("JCRoster+ validates the input.\n4.JCRoster+ adds the person to the address book and displays a success message.")]),_v(" "),_c('p',[_v("Use case ends.")])])])}
+with(this){return _c('ol',[_c('li',[_c('p',[_v("JCRoster+ prompts the user to enter student details (name, phone number, email, address, and optional tags).")])]),_v(" "),_c('li',[_c('p',[_v("User enters the details in the specified format.")])]),_v(" "),_c('li',[_c('p',[_v("JCRoster+ validates the input.")])]),_v(" "),_c('li',[_c('p',[_v("JCRoster+ adds the person to the address book and displays a success message.")]),_v(" "),_c('p',[_v("Use case ends.")])])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("Extensions")])])}
@@ -317,6 +317,6 @@ with(this){return _c('h3',{attrs:{"id":"1-ui-enhancement-full-visibility-of-comm
 with(this){return _c('h3',{attrs:{"id":"2-ui-enhancement-improve-responsiveness-of-person-display-panel"}},[_v("2. UI Enhancement - Improve Responsiveness of Person Display Panel"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#2-ui-enhancement-improve-responsiveness-of-person-display-panel","onclick":"event.stopPropagation()"}})])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Fri, 4 Apr 2025, 13:46:57 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Sun, 6 Apr 2025, 17:36:31 GMT+8]")])])])}
 }];
   
