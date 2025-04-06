@@ -336,8 +336,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. JCRoster+ prompts the user to enter student details (name, phone number, email, address, and optional tags).
 2. User enters the details in the specified format.
-3. JCRoster+ validates the input.
-4.JCRoster+ adds the person to the address book and displays a success message.
+3. JCRoster+ validates the input. 
+4. JCRoster+ adds the person to the address book and displays a success message.
 
     Use case ends.
 
