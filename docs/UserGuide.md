@@ -25,7 +25,7 @@ JCRoster+ (MVP) is a **desktop app for managing student contacts and details, op
    The application will create a `data` folder in the home folder to store the data.
 
 1. Open a command terminal (*powershell for windows, terminal for Mac*), <br>
-   `cd` into the folder you put the jar file in, (Refer to the [Tech_support](#Tech_support) for using `cd` command)
+   `cd` into the folder you put the jar file in, (Refer to the [Tech support](#Tech support) for using `cd` command)
    <br>and use the `java -jar jcroster+.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
@@ -231,7 +231,7 @@ JCRoster+ data are saved in the hard disk automatically after any command that c
 
 JCRoster+ data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<box type="warning" seamless>
+[//]: # (<box type="warning" seamless>)
 
 **Caution:**
 If your changes to the data file makes its format invalid, JCRoster+ will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
@@ -272,7 +272,7 @@ Action     | Format, Examples
 **Display**   | `display INDEX`<br> e.g., `display 2`
 
 
-## Tech_support
+## Tech support
 ### Using `cd` command
 
 After opening terminal, you will see a screen like ![this](images/window's_powershell.png)<br>
