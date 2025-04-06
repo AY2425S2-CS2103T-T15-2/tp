@@ -54,7 +54,8 @@ public class PersonDisplay extends UiPart<Region> {
         super(FXML);
         this.person = null;
         personDisplayTitle.setText("Student Profile Display:");
-        setLabelWrap(name, "Double click on a person to display their full profile");
+        setLabelWrap(name, "Double click on a student, or use the display command, "
+                + "to display a student's full profile");
         phone.setText("");
         address.setText("");
         email.setText("");
