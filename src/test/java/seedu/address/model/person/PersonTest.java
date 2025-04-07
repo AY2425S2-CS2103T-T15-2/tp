@@ -84,6 +84,45 @@ public class PersonTest {
         result = BOB.isSamePerson(editedBob);
         assertFalse(result.isSame);
         assertTrue(result.isLikelySame);
+
+        // similar name (case difference) but all other fields different -> returns false and true for likely same
+        editedAlice = new PersonBuilder(ALICE)
+                .withName(ALICE.getName().toString().toUpperCase())
+                .withPhone("99999999")
+                .withEmail("different@email.com")
+                .withAddress("Different Address")
+                .build();
+        result = ALICE.isSamePerson(editedAlice);
+        assertFalse(result.isSame);
+        assertTrue(result.isLikelySame);
+
+        // same email but different name and phone -> returns false and true for likely same
+        editedAlice = new PersonBuilder(ALICE)
+                .withName("Different Name")
+                .withPhone("99999999")
+                .withEmail(ALICE.getEmail().toString())
+                .build();
+        result = ALICE.isSamePerson(editedAlice);
+        assertFalse(result.isSame);
+        assertTrue(result.isLikelySame);
+
+        // same email but different name and phone -> returns false and true for likely same
+        editedAlice = new PersonBuilder(ALICE)
+                .withName("Different Name")
+                .withPhone("99999999")
+                .withEmail(ALICE.getEmail().toString())
+                .build();
+        result = ALICE.isSamePerson(editedAlice);
+        assertFalse(result.isSame);
+        assertTrue(result.isLikelySame);
+
+        // similar name with special characters -> returns false and true for likely same
+        editedAlice = new PersonBuilder(ALICE)
+                .withName("Alices/oPauline123")
+                .build();
+        result = ALICE.isSamePerson(editedAlice);
+        assertFalse(result.isSame);
+        assertTrue(result.isLikelySame);
     }
 
     @Test
