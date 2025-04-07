@@ -123,6 +123,8 @@ public class Person {
         }
 
         boolean isExactMatch = otherPerson.getName().equals(getName());
+        boolean isSamePhone = otherPerson.getPhone().equals(getPhone());
+        boolean isSameEmail = otherPerson.getEmail().equals(getEmail());
 
         // Check for similarity by comparing alphanumeric characters
         boolean nameSimilar = stripNonAlphanumeric(name.toString())
@@ -136,19 +138,23 @@ public class Person {
         boolean gradesSimilar = Arrays.equals(grades, otherPerson.getGrades());
         boolean tagsSimilar = tags.equals(otherPerson.getTags());
 
-        boolean isLikelySame = nameSimilar && emailSimilar && phoneSimilar && addressSimilar
-                && gradesSimilar && tagsSimilar;
-        boolean isOtherFieldfifferent = !emailSimilar || !phoneSimilar || !addressSimilar
-                || !gradesSimilar || !tagsSimilar;
+        if (!isExactMatch) {
+            if (isSameEmail || isSamePhone || emailSimilar || phoneSimilar) {
+                return new PersonSimilarity(false, true);
+            } else if (nameSimilar) {
+                return new PersonSimilarity(false, true);
+            } else {
+                return new PersonSimilarity(false, false);
+            }
+        }
+
+        boolean isOtherFieldfifferent = !addressSimilar
+                || !gradesSimilar || !tagsSimilar || !phoneSimilar || !emailSimilar;
         if (isExactMatch) {
             if (isOtherFieldfifferent) {
                 return new PersonSimilarity(false, true);
             }
             return new PersonSimilarity(true, false);
-        }
-
-        if (isLikelySame) {
-            return new PersonSimilarity(false, true);
         }
         return new PersonSimilarity(false, false);
     }
