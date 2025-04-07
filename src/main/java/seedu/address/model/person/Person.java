@@ -145,8 +145,6 @@ public class Person {
                 return new PersonSimilarity(false, false);
             }
         }
-//        boolean isLikelySame = nameSimilar && emailSimilar && phoneSimilar && addressSimilar
-//                && gradesSimilar && tagsSimilar;
 
         boolean isOtherFieldfifferent = !addressSimilar
                 || !gradesSimilar || !tagsSimilar || !phoneSimilar || !emailSimilar;
@@ -156,10 +154,6 @@ public class Person {
             }
             return new PersonSimilarity(true, false);
         }
-//
-//        if (isLikelySame) {
-//            return new PersonSimilarity(false, true);
-//        }
         return new PersonSimilarity(false, false);
     }
 
