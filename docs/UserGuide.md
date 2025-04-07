@@ -21,7 +21,7 @@ JCRoster+ is a **desktop app for managing student contacts and details, optimize
 2. Download the latest `.jar` file from [AY2425S2-CS2103T-T15-2/tp/releases](https://github.com/AY2425S2-CS2103T-T15-2/tp/releases).
 
 3. Move the file to the folder you want to use as the _home folder_ for JCRoster+.
-
+ 
 <box type="tip" seamless>
 
 **Important:** It is recommended to put the file in a new empty folder as the application will create a `data` folder in the home folder to store the data.
@@ -436,7 +436,7 @@ JCRoster+ data are saved in the hard disk automatically after any command that c
 
 JCRoster+ data are saved automatically as a JSON file `[JAR file location]/data/jcrosterplus.json`. Advanced users are welcome to update data directly by editing that data file.
 
-<box type="warning" seamless>
+[//]: # (<box type="warning" seamless>)
 
 **Caution:**
 If your changes to the data file makes its format invalid, JCRoster+ will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
