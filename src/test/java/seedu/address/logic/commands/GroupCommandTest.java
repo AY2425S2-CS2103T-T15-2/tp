@@ -26,10 +26,14 @@ public class GroupCommandTest {
     @Test
     public void execute_groupCommand_groupsStudents() {
         // Create sample students
-        Person student1 = new PersonBuilder().withName("Alice").withGrade(PersonBuilder.DEFAULT_GRADES).build();
-        Person student2 = new PersonBuilder().withName("Bob").withGrade(PersonBuilder.F_GRADES).build();
-        Person student3 = new PersonBuilder().withName("Charlie").withGrade(PersonBuilder.DEFAULT_GRADES).build();
-        Person student4 = new PersonBuilder().withName("David").withGrade(PersonBuilder.A_GRADES).build();
+        Person student1 = new PersonBuilder().withName("Alice").withPhone("12345678").withEmail("Alice@gmail.com")
+                .withGrade(PersonBuilder.DEFAULT_GRADES).build();
+        Person student2 = new PersonBuilder().withName("Bob").withPhone("12345670").withEmail("bob@gmail.com")
+                .withGrade(PersonBuilder.F_GRADES).build();
+        Person student3 = new PersonBuilder().withName("Charlie").withPhone("12345078").withEmail("Char@gmail.com")
+                .withGrade(PersonBuilder.DEFAULT_GRADES).build();
+        Person student4 = new PersonBuilder().withName("David").withPhone("12045678").withEmail("David@gmail.com")
+                .withGrade(PersonBuilder.A_GRADES).build();
 
         model.addPerson(student1);
         model.addPerson(student2);

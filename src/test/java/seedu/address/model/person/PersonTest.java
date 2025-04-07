@@ -51,14 +51,16 @@ public class PersonTest {
         assertTrue(result.isSame);
         assertFalse(result.isLikelySame);
 
-        // different name, but similar (without spaces) -> returns false but likely same
-        editedAlice = new PersonBuilder(ALICE).withName("AlicePauline").build();
+        // similar name and email but same phonenumber -> returns true with no likely similarity
+        editedAlice = new PersonBuilder(ALICE).withName("AlicePauline").withEmail("aliCE@example.com")
+                .withPhone("94351253").build();
         result = ALICE.isSamePerson(editedAlice);
         assertFalse(result.isSame);
         assertTrue(result.isLikelySame);
 
         // different name, but similar (part of uppercase) -> returns false but likely same
-        editedAlice = new PersonBuilder(ALICE).withName("ALICE Pauline").build();
+        editedAlice = new PersonBuilder(ALICE).withName("Pauline").withEmail("alice@example.com").withPhone("94351253")
+                .build();
         result = ALICE.isSamePerson(editedAlice);
         assertFalse(result.isSame);
         assertTrue(result.isLikelySame);
@@ -69,14 +71,14 @@ public class PersonTest {
         assertFalse(result.isSame);
         assertTrue(result.isLikelySame);
 
-        // similar email but different name -> returns false due to compeltely different name
+        // similar email but different name -> returns false but likely same
         editedAlice = new PersonBuilder(ALICE).withName("Different Name")
                 .withEmail("alice@example.com").build();
         result = ALICE.isSamePerson(editedAlice);
         assertFalse(result.isSame);
-        assertFalse(result.isLikelySame);
+        assertTrue(result.isLikelySame);
 
-        // same name  but different email -> returns false but similar
+        // same name but different email -> returns false but similar
         editedBob = new PersonBuilder(BOB).withName(VALID_NAME_BOB)
                 .withEmail("alice@example.com").build();
         result = BOB.isSamePerson(editedBob);
