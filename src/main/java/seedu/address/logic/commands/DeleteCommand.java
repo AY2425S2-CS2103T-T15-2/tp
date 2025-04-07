@@ -44,9 +44,10 @@ public class DeleteCommand extends Command {
             }
         }
 
-        // Sort indices in descending order to avoid index shifting issues during deletion
+        // Remove duplicates and sort indices in descending order to avoid index shifting issues during deletion
         List<Person> personsToDelete = targetIndices.stream()
                 .map(index -> lastShownList.get(index.getZeroBased()))
+                .distinct()
                 .collect(Collectors.toList());
 
         // Perform deletions
