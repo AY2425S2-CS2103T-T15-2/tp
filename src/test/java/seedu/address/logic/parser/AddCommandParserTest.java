@@ -30,10 +30,12 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_GRADE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
+import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.AMY;
 import static seedu.address.testutil.TypicalPersons.BOB;
 
@@ -41,6 +43,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Grade;
@@ -210,5 +213,31 @@ public class AddCommandParserTest {
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + GRADE_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+    }
+
+
+
+    @Test
+    public void parse_duplicateSubjects_throwsParseException() {
+        String duplicateSubjectsInput = " " + PREFIX_NAME + "John Doe "
+                + PREFIX_PHONE + "98765432 "
+                + PREFIX_EMAIL + "john@example.com "
+                + PREFIX_ADDRESS + "123 Main St "
+                + PREFIX_GRADE + "Math:A, Math:B, English:C, History:D, Geography:E, Music:F";
+
+        assertThrows(ParseException.class, Grade.MESSAGE_DUPLICATE_SUBJECT, () ->
+                parser.parse(duplicateSubjectsInput));
+    }
+
+    @Test
+    public void parse_duplicateSubjectsDifferentCase_throwsParseException() {
+        String duplicateSubjectsInput = " " + PREFIX_NAME + "John Doe "
+                + PREFIX_PHONE + "98765432 "
+                + PREFIX_EMAIL + "john@example.com "
+                + PREFIX_ADDRESS + "123 Main St "
+                + PREFIX_GRADE + "Math:A, MATH:B, English:C, History:D, Geography:E, Music:F";
+
+        assertThrows(ParseException.class, Grade.MESSAGE_DUPLICATE_SUBJECT, () ->
+                parser.parse(duplicateSubjectsInput));
     }
 }

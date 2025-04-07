@@ -21,14 +21,68 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.person.Grade;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
 
 public class AddCommandTest {
+    private static final String DUPLICATED_GRADES = "Maths:A, Maths:B, History:B, Economics:A, Chemistry:C, Biology:A";
+    private static final String DUPLICATED_GRADES_SOMEDIFFERENTCASE = "Maths:A, Chinese:B,"
+            + " maths:B, Economics:A, Chemistry:C, Biology:A";
+    private static final String DUPLICATED_GRADES_ALLDIFFERENTCASE = "Maths:A, MATHS:B,"
+            + " History:B, Economics:A, Chemistry:C, Biology:A";
+    @Test
+    public void execute_duplicateSubjects_throwsCommandException() {
+        Person personWithDuplicateGrades = new PersonBuilder()
+                .withName("John Doe")
+                .withPhone("98765432")
+                .withEmail("johnd@example.com")
+                .withAddress("123 Main St")
+                .withGrade(DUPLICATED_GRADES)
+                .build();
+        AddCommand addCommand = new AddCommand(personWithDuplicateGrades);
+        Model model = new ModelManager();
 
+        assertThrows(CommandException.class, Grade.MESSAGE_DUPLICATE_SUBJECT, () ->
+                addCommand.execute(model));
+    }
+
+
+    @Test
+    public void parse_duplicateSubjectsSomeDifferentCase_throwsParseException() {
+        Person personWithDuplicateGrades = new PersonBuilder()
+                .withName("John Doe")
+                .withPhone("98765432")
+                .withEmail("johnd@example.com")
+                .withAddress("123 Main St")
+                .withGrade(DUPLICATED_GRADES_ALLDIFFERENTCASE)
+                .build();
+        AddCommand addCommand = new AddCommand(personWithDuplicateGrades);
+        Model model = new ModelManager();
+
+        assertThrows(CommandException.class, Grade.MESSAGE_DUPLICATE_SUBJECT, () ->
+                addCommand.execute(model));
+    }
+
+    @Test
+    public void parse_duplicateSubjectsAllDifferentCase_throwsParseException() {
+        Person personWithDuplicateGrades = new PersonBuilder()
+                .withName("John Doe")
+                .withPhone("98765432")
+                .withEmail("johnd@example.com")
+                .withAddress("123 Main St")
+                .withGrade(DUPLICATED_GRADES_SOMEDIFFERENTCASE)
+                .build();
+        AddCommand addCommand = new AddCommand(personWithDuplicateGrades);
+        Model model = new ModelManager();
+
+        assertThrows(CommandException.class, Grade.MESSAGE_DUPLICATE_SUBJECT, () ->
+                addCommand.execute(model));
+    }
     @Test
     public void constructor_nullPerson_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new AddCommand(null));

@@ -12,6 +12,7 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.Grade;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonSimilarity;
 
@@ -58,6 +59,11 @@ public class AddCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
+
+        // Check for duplicate subjects first
+        if (!Grade.hasUniqueSixSubjects(toAdd.getGrades())) {
+            throw new CommandException(Grade.MESSAGE_DUPLICATE_SUBJECT);
+        }
 
         for (Person person : model.getFilteredPersonList()) {
             PersonSimilarity similarity = person.isSamePerson(toAdd);
