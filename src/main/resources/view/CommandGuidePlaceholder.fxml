@@ -19,8 +19,8 @@
                             <Region fx:constant="USE_PREF_SIZE" />
                         </minWidth>
                     </Label>
-                    <Label fx:id="addCommand" styleClass="cell_small_label" text="\$addCommand" maxWidth="200"/>
-                    <Label fx:id="addDesc" styleClass="cell_small_label_desc" text="\$addDesc" maxWidth="200"/>
+                    <Label fx:id="addCommand" styleClass="cell_small_label" text="\$addCommand" />
+                    <Label fx:id="addDesc" styleClass="cell_small_label_desc" text="\$addDesc" />
                     <Label fx:id="clearCommand" styleClass="cell_small_label" text="\$clearCommand" />
                     <Label fx:id="clearDesc" styleClass="cell_small_label_desc" text="\$clearDesc" />
                     <Label fx:id="deleteCommand" styleClass="cell_small_label" text="\$deleteCommand" />
