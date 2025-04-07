@@ -103,13 +103,25 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, SUBJECT2:
 
 **Tip:** Tags are optional, a student can have any number of tags (including 0), 
 
-**Note:** Use **single-word** tags only, eg: `t/friend` and not `t/friend of John Doe`.
+**Note:** Use **single-word** tags only, eg: `t/friend` and not `t/friend of John Doe`.<br>
+**Note:** There is duplication detection for students added, if the command result shows warnings such as <br>
+
+`Warning: It is likely that this 
+            person already exists in the address book.
+            We will add anyways, but please double check
+            You may want to use the edit command or delete command instead。`<br>
+
+It means that the student you are trying to add (maybe) already exists in the JCRoster+.<br>
+Please check the list of students to see if the student you are trying to add already exists. If it does, 
+you can use the `edit` command to edit the student instead of adding a new one.
 
 </box>
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 g/Maths:A, Geography:B, History:B, Economics:A, Chemistry:C, Biology:A`
 
+**Note:** Student's subject can actually be set to any strings. You may want to double check the subject names 
+you are entering. The system will not check if the subject names are valid or not.
 <br />
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
@@ -194,11 +206,12 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [g/SUBJECT1:GRADE, 
 * When editing tags, all existing tags of the student will be removed i.e adding of tags is not cumulative.
 * You can remove all of a student’s tags by typing `t/` without
     specifying any tags after it.
+* To edit the student’s grades, you must specify all 6 subjects and their grades. The system will not check if the subject names are valid or not.
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and removes all existing tags.
-
+* `edit 2 g/Maths:A, Geography:B, History:A, Economics:A, Chemistry:C, Biology:A` edits the subjects/grades of the 2nd student to be `Maths:A, Geography:B, History:A, Economics:A, Chemistry:C, Biology:A`.
 <br />
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
