@@ -123,6 +123,8 @@ public class Person {
         }
 
         boolean isExactMatch = otherPerson.getName().equals(getName());
+        boolean isSamePhone = otherPerson.getPhone().equals(getPhone());
+        boolean isSameEmail = otherPerson.getEmail().equals(getEmail());
 
         // Check for similarity by comparing alphanumeric characters
         boolean nameSimilar = stripNonAlphanumeric(name.toString())
@@ -137,7 +139,7 @@ public class Person {
         boolean tagsSimilar = tags.equals(otherPerson.getTags());
 
         if (!isExactMatch) {
-            if (emailSimilar || phoneSimilar) {
+            if (isSameEmail || isSamePhone || emailSimilar || phoneSimilar) {
                 return new PersonSimilarity(false, true);
             } else if (nameSimilar) {
                 return new PersonSimilarity(false, true);
