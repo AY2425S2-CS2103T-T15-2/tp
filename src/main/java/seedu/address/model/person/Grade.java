@@ -3,6 +3,8 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.util.HashSet;
+import java.util.Set;
 /**
         * Represents a Grade with a subject and a grade value.
         * Ensures that the subject is less than 100 characters and the grade is between A and F.
@@ -11,15 +13,21 @@ public class Grade {
     /**
      * Error message to be displayed if the grade constraints are violated.
      */
+    public static final String MESSAGE_DUPLICATE_SUBJECT =
+            "Each subject must be unique in the grade list.\n"
+                    + "Example: Math:A, Science:B, English:A, History:C, Geography:B, Music:A";
     public static final String MESSAGE_CONSTRAINTS =
             "Subject should be less than 100 characters and grade should be A-F\n"
+                    + "With no special chracter + or - allowed\n"
+                    + "Example: Math:A, Science:B, English:A, History:C, Geography:B, Music:A\n"
+                    + "only single grade is allowed\n"
                     + "Format: subject:grade"
-            + "Grade must not be empty";
+                    + "Grade must not be empty, and all six subject:grade pair must be present.\n";
 
     /**
      * Regular expression to validate the grade value.
      */
-    public static final String GRADE_VALIDATION_REGEX = "[A-Fa-f]";
+    public static final String GRADE_VALIDATION_REGEX = "[A-Fa-fSsUu]";
 
     /**
      * Maximum length for the subject.
@@ -55,7 +63,6 @@ public class Grade {
         this.subject = subject;
         this.grade = grade.toUpperCase();
     }
-
     /**
      * Constructs a Grade object with the specified subject and grade.
      *
@@ -155,5 +162,28 @@ public class Grade {
             throw new IllegalStateException("Invalid grade value: " + this.grade);
         }
     }
+
+
+    /**
+     * Checks if there are duplicate subjects in the given array of grades.
+     * Each student must have six unique subjects.
+     *
+     * @param grades The array of grades to check
+     * @return true if there are exactly six unique subjects, false otherwise
+     */
+    public static boolean hasUniqueSixSubjects(Grade[] grades) {
+        if (grades == null || grades.length != 6) {
+            return false;
+        }
+
+        Set<String> subjects = new HashSet<>();
+        for (Grade grade : grades) {
+            if (grade == null || !subjects.add(grade.subject.toLowerCase())) {
+                return false;
+            }
+        }
+        return subjects.size() == 6;
+    }
+
 }
 

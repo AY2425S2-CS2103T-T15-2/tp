@@ -52,6 +52,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get());
         Remark remark = new Remark(""); // add command does not allow adding remarks straight away
         Grade[] grades = ParserUtil.parseGrades(argMultimap.getValue(PREFIX_GRADE).get());
+        // Validate grades for unique subjects
+        if (!Grade.hasUniqueSixSubjects(grades)) {
+            throw new ParseException(Grade.MESSAGE_DUPLICATE_SUBJECT);
+        }
+
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         Person person = new Person(name, phone, email, address, remark, grades, tagList);
