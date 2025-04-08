@@ -54,6 +54,8 @@ JCRoster+ is a **desktop app for managing student contacts and details, optimize
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Features
 
 <box type="info" seamless>
@@ -132,13 +134,13 @@ Examples:
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
     <a href="images/bef-add-command.png" target="_blank">
-      <img src="images/bef-add-command.png" width="500" alt="Before Add Command" />
+      <img src="images/bef-add-command.png" width="400" alt="Before Add Command" />
     </a>
     <figcaption><em>Before Add Command</em></figcaption>
   </figure>
   <figure style="text-align: center;">
     <a href="images/aft-add-command.png" target="_blank">
-      <img src="images/aft-add-command.png" width="500" alt="After Add Command" />
+      <img src="images/aft-add-command.png" width="400" alt="After Add Command" />
     </a>
     <figcaption><em>After Add Command</em></figcaption>
   </figure>
@@ -187,13 +189,13 @@ Examples:
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
     <a href="images/bef-display-command.png" target="_blank">
-      <img src="images/bef-display-command.png" width="500" alt="Before Display Command" />
+      <img src="images/bef-display-command.png" width="400" alt="Before Display Command" />
     </a>
     <figcaption><em>Before Display Command</em></figcaption>
   </figure>
   <figure style="text-align: center;">
     <a href="images/aft-display-command.png" target="_blank">
-      <img src="images/aft-display-command.png" width="500" alt="After Display Command" />
+      <img src="images/aft-display-command.png" width="400" alt="After Display Command" />
     </a>
     <figcaption><em>After Display Command</em></figcaption>
   </figure>
@@ -222,13 +224,13 @@ Examples:
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
     <a href="images/bef-edit-command.png" target="_blank">
-      <img src="images/bef-edit-command.png" width="500" alt="Before Edit Command" />
+      <img src="images/bef-edit-command.png" width="400" alt="Before Edit Command" />
     </a>
     <figcaption><em>Before Edit Command</em></figcaption>
   </figure>
   <figure style="text-align: center;">
     <a href="images/aft-edit-command.png" target="_blank">
-      <img src="images/aft-edit-command.png" width="500" alt="After Edit Command" />
+      <img src="images/aft-edit-command.png" width="400" alt="After Edit Command" />
     </a>
     <figcaption><em>After Edit Command</em></figcaption>
   </figure>
@@ -256,13 +258,13 @@ Examples:
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
     <a href="images/bef-find-command.png" target="_blank">
-      <img src="images/bef-find-command.png" width="500" alt="Before Find Command" />
+      <img src="images/bef-find-command.png" width="400" alt="Before Find Command" />
     </a>
     <figcaption><em>Before Find Command</em></figcaption>
   </figure>
   <figure style="text-align: center;">
     <a href="images/aft-find-command.png" target="_blank">
-      <img src="images/aft-find-command.png" width="500" alt="After Find Command" />
+      <img src="images/aft-find-command.png" width="400" alt="After Find Command" />
     </a>
     <figcaption><em>After Find Command</em></figcaption>
   </figure>
@@ -289,13 +291,13 @@ Examples:
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
     <a href="images/bef-delete-command.png" target="_blank">
-      <img src="images/bef-delete-command.png" width="500" alt="Before Delete Command" />
+      <img src="images/bef-delete-command.png" width="400" alt="Before Delete Command" />
     </a>
     <figcaption><em>Before Delete Command</em></figcaption>
   </figure>
   <figure style="text-align: center;">
     <a href="images/aft-delete-command.png" target="_blank">
-      <img src="images/aft-delete-command.png" width="500" alt="After Delete Command" />
+      <img src="images/aft-delete-command.png" width="400" alt="After Delete Command" />
     </a>
     <figcaption><em>After Delete Command</em></figcaption>
   </figure>
@@ -317,13 +319,13 @@ Examples:
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
     <a href="images/bef-remark-command.png" target="_blank">
-      <img src="images/bef-remark-command.png" width="500" alt="Before Remark Command" />
+      <img src="images/bef-remark-command.png" width="400" alt="Before Remark Command" />
     </a>
     <figcaption><em>Before Remark Command</em></figcaption>
   </figure>
   <figure style="text-align: center;">
     <a href="images/aft-remark-command.png" target="_blank">
-      <img src="images/aft-remark-command.png" width="500" alt="After Remark Command" />
+      <img src="images/aft-remark-command.png" width="400" alt="After Remark Command" />
     </a>
     <figcaption><em>After Remark Command</em></figcaption>
   </figure>
@@ -361,13 +363,13 @@ Examples:
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
     <a href="images/bef-group-command.png" target="_blank">
-      <img src="images/bef-group-command.png" width="500" alt="Before Group Command" />
+      <img src="images/bef-group-command.png" width="400" alt="Before Group Command" />
     </a>
     <figcaption><em>Before Group Command</em></figcaption>
   </figure>
   <figure style="text-align: center;">
     <a href="images/aft-group-command.png" target="_blank">
-      <img src="images/aft-group-command.png" width="500" alt="After Group Command" />
+      <img src="images/aft-group-command.png" width="400" alt="After Group Command" />
     </a>
     <figcaption><em>After Group Command</em></figcaption>
   </figure>
@@ -397,13 +399,13 @@ Examples:
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
     <a href="images/bef-filter-command.png" target="_blank">
-      <img src="images/bef-filter-command.png" width="500" alt="Before Filter Command" />
+      <img src="images/bef-filter-command.png" width="400" alt="Before Filter Command" />
     </a>
     <figcaption><em>Before Filter Command</em></figcaption>
   </figure>
   <figure style="text-align: center;">
     <a href="images/aft-filter-command.png" target="_blank">
-      <img src="images/aft-filter-command.png" width="500" alt="After Filter Command" />
+      <img src="images/aft-filter-command.png" width="400" alt="After Filter Command" />
     </a>
     <figcaption><em>After Filter Command</em></figcaption>
   </figure>
@@ -426,13 +428,13 @@ Format: `clear`
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">
     <a href="images/bef-clear-command.png" target="_blank">
-      <img src="images/bef-clear-command.png" width="500" alt="Before Clear Command" />
+      <img src="images/bef-clear-command.png" width="400" alt="Before Clear Command" />
     </a>
     <figcaption><em>Before Clear Command</em></figcaption>
   </figure>
   <figure style="text-align: center;">
     <a href="images/aft-clear-command.png" target="_blank">
-      <img src="images/aft-clear-command.png" width="500" alt="After Clear Command" />
+      <img src="images/aft-clear-command.png" width="400" alt="After Clear Command" />
     </a>
     <figcaption><em>After Clear Command</em></figcaption>
   </figure>
