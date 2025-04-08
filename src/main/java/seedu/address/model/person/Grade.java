@@ -17,7 +17,7 @@ public class Grade {
             "Each subject must be unique in the grade list.\n"
                     + "Example: Math:A, Science:B, English:A, History:C, Geography:B, Music:A";
     public static final String MESSAGE_CONSTRAINTS =
-            "Subject should be less than 100 characters and grade should be A-F\n"
+            "Subject should be less than 100 characters and grade should be A-F, S or U\n"
                     + "With no special character + or - allowed\n"
                     + "Example: Math:A, Science:B, English:A, History:C, Geography:B, Music:A\n"
                     + "only single grade is allowed\n"

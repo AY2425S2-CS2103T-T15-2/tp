@@ -13,7 +13,7 @@
 
 ## **Acknowledgements**
 
-_{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
+This project is a brownfield software developed based on [AddressBook Level-3](https://github.com/nus-cs2103-AY2425S2/tp), provided by the CS2103T teaching team.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -22,6 +22,8 @@ _{ list here sources of all reused/adapted ideas, code, documentation, and third
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
+
+**Note:** The terms *“Person”* and *“Student”* refer to the same entity and are used interchangeably throughout this guide and the application. Similarly, in the Design and Implementation sections, the term *“AddressBook”* has been retained instead of *“JCRoster+”* to remain consistent with the existing file and class names in the codebase.
 
 ## **Design**
 
@@ -251,12 +253,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -314,9 +310,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  JCRoster+ shows a list of persons
-2.  User requests to delete a specific person in the list
-3.  AddressBook deletes the person
+1.  JCRoster+ shows a list of persons.
+2.  User requests to delete specific person(s) in the list.
+3.  JCRoster+ deletes the person(s).
 
     Use case ends.
 
@@ -328,7 +324,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 2a. The given index is invalid.
 
-    * 2a1. AddressBook shows an error message.
+    * 2a1. JCRoster+ shows an error message.
 
       Use case resumes at step 1.
 
@@ -336,7 +332,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. JCRoster+ prompts the user to enter student details (name, phone number, email, address, and optional tags).
+1. JCRoster+ prompts the user to enter student details (name, phone number, email, address, grades, and optional tags).
 2. User enters the details in the specified format.
 3. JCRoster+ validates the input. 
 4. JCRoster+ adds the person to the address book and displays a success message.
@@ -345,29 +341,20 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. User enters an invalid name (contains numbers or special characters).
+* 2a. User enters an invalid name.
 
-    * 2a1. JCRoster+ shows an error message: "Numbers and special characters are not allowed."
+    * 2a1. JCRoster+ shows an error message.
 
       Use case resumes at step 1.
-* 2b. User enters an invalid phone number (not numeric or outside 7-15 digits).
+* 2b. User enters an invalid phone number (less than 3 or more than 15 digits).
 
-    * 2b1. JCRoster+ shows an error message: "Phone number must contain only digits and be between 7 to 15 digits long."
+    * 2b1. JCRoster+ shows an error message.
 
       Use case resumes at step 1.
 
 * 2c. User enters an invalid email (incorrect format).
 
-    * 2c1. JCRoster+ shows an error message: "Invalid email format. Please enter a valid email (e.g., johndoe@example.com)."
-
-      Use case resumes at step 1.
-* 2d. User enters an invalid address (contains unsupported special characters).
-
-    * 2d1. JCRoster+ shows an error message: "Invalid address format. Only letters, numbers, and basic punctuation are allowed."
-
-      Use case resumes at step 1.
-* 3a. A person with the same phone number already exists.
-    * 3a1. JCRoster+ shows an error message: "A person with this phone number already exists."
+    * 2c1. JCRoster+ shows an error message.
 
       Use case resumes at step 1.
 
@@ -377,24 +364,78 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. JCRoster+ prompts the user to enter a name or keyword to search.
 2. User enters the search query.
-3. JCRoster+ searches the address book for matching names.
+3. JCRoster+ searches the student list for matching names.
 4. JCRoster+ displays a list of matching persons, if found.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. User enters an invalid name (contains numbers or special characters).
-
-    * 2a1. JCRoster+ shows an error message: "Numbers and special characters are not allowed."
-
-      Use case resumes at step 1.
 * 3a. No matches are found.
 
-    * 3a1. JCRoster+ shows an error message: "No matches found. Try another name!"
+    * 3a1. JCRoster+ displays an empty list.
       Use case resumes at step 1.
 
-*{More to be added}*
+**Use case: Edit a student**
+
+**MSS**
+
+1.  JCRoster+ shows a list of students.
+2.  User requests to edit a student’s details using the edit command, specifying the student’s index and one or more fields to update.
+3.  JCRoster+ validates the input.
+4.  JCRoster+ updates the student’s information and displays a success message.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+    * 1a1. JCRoster+ shows an error message.  
+      Use case ends.
+
+* 2a. The given index is invalid.
+
+    * 2a1. JCRoster+ shows an error message.  
+      Use case resumes at step 1.
+
+* 2b. No fields are provided for update.
+
+    * 2b1. JCRoster+ shows an error message.  
+      Use case resumes at step 1.
+
+* 3a. One or more input fields are invalid (e.g., invalid phone number, email, or grade format).
+
+    * 3a1. JCRoster+ shows an error message.  
+      Use case resumes at step 1.
+
+**Use case: Add/Edit/Remove a remark for a student**
+
+**MSS**
+
+1.  JCRoster+ shows a list of students.
+2.  User requests to add, edit, or remove a remark for a specific student using the `remark` command with a specified index and remark content.
+3.  JCRoster+ validates the input.
+4.  JCRoster+ updates the student’s remark and displays a success message.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+    * 1a1. JCRoster+ shows an error message.  
+      Use case ends.
+
+* 2a. The given index is invalid.
+
+    * 2a1. JCRoster+ shows an error message.  
+      Use case resumes at step 1.
+
+* 2b. The remark prefix `r/` is missing or malformed.
+
+    * 2b1. JCRoster+ shows an error message.  
+      Use case resumes at step 1.
 
 ### Non-Functional Requirements
 
@@ -404,8 +445,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4. Should handle unexpected user inputs/system crashes gracefully by providing helpful error messages and not losing data.
 5. Software should work without requiring an installer.
 6. Data should be stored in a format that is easy to read and edit manually, in case the user wants to do so.
-
-*{More to be added}*
 
 ### Glossary
 
@@ -473,3 +512,19 @@ Currently, the visibility of the Command Guide Panel may be limited depending on
 ### 2. UI Enhancement - Improve Responsiveness of Person Display Panel
 
 Currently, the Person Display Panel takes in a Person object which is then displayed in the panel. If you use any command afterward that updates the state of the already displayed person, you will have to run the 'display' command again to see the updated information. We plan to improve this by ensuring that the Person Display Panel is always updated with the latest information of the displayed person. This will enhance the user experience by providing real-time updates and reducing the need for manual refreshes.
+
+### 3. Feature Enhancement – Support for Multi-word Tags
+
+Currently, tags are limited to single words, which restricts expressiveness when categorizing students. We plan to enhance the tagging functionality to support multi-word tags (e.g., “Needs Follow-Up”, “High Achiever”). This will allow users to add more descriptive and meaningful tags, improving the clarity and usefulness of student categorization.
+
+### 4. Behavioural Enhancement – Preserve Displayed Subset After Command Execution
+
+At present, the student list resets to display all students after each command, regardless of whether a filtered subset was shown prior. We plan to enhance this by retaining the previously displayed subset. For instance, if the user filters the list using the `find` command and then executes a `remark` command, the filtered subset will remain visible instead of reverting to the full list. This improvement ensures smoother workflows and a more intuitive user experience during focused tasks.
+
+### 5. Data Validation Enhancement – Subject Field Input Checking
+
+Currently, the application accepts any input in the subject fields, which may lead to inconsistent or invalid data. We plan to introduce validation that cross-checks subject entries against a predefined list of subjects offered at junior colleges (JCs). This enhancement will improve data integrity and prevent erroneous or unsupported subject entries, ensuring greater reliability of student academic records.
+
+### 6. Usability Enhancement – More Specific and Actionable Error Messages
+
+Currently, some of the application's error messages are general and may not provide users with enough information to understand what went wrong or how to fix it. We plan to enhance the user experience by replacing vague error messages with more specific and contextual ones that clearly indicate the cause of the error and suggest possible corrective actions. This will help users recover more efficiently from mistakes and reduce frustration during usage.
