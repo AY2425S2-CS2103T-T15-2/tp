@@ -51,7 +51,6 @@
         "common-classes": "Common classes",
         "implementation": "Implementation",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
-        "proposed-data-archiving": "[Proposed] Data archiving",
         "documentation-logging-testing-configuration-dev-ops": "Documentation, logging, testing, configuration, dev-ops",
         "appendix-requirements": "Appendix: Requirements",
         "product-scope": "Product scope",
@@ -64,7 +63,11 @@
         "deleting-a-person": "Deleting a person",
         "appendix-planned-enhancements": "Appendix: Planned Enhancements",
         "1-ui-enhancement-full-visibility-of-command-guide-panel": "1. UI Enhancement – Full Visibility of Command Guide Panel",
-        "2-ui-enhancement-improve-responsiveness-of-person-display-panel": "2. UI Enhancement - Improve Responsiveness of Person Display Panel"
+        "2-ui-enhancement-improve-responsiveness-of-person-display-panel": "2. UI Enhancement - Improve Responsiveness of Person Display Panel",
+        "3-feature-enhancement-support-for-multi-word-tags": "3. Feature Enhancement – Support for Multi-word Tags",
+        "4-behavioural-enhancement-preserve-displayed-subset-after-command-execution": "4. Behavioural Enhancement – Preserve Displayed Subset After Command Execution",
+        "5-data-validation-enhancement-subject-field-input-checking": "5. Data Validation Enhancement – Subject Field Input Checking",
+        "6-usability-enhancement-more-specific-and-actionable-error-messages": "6. Usability Enhancement – More Specific and Actionable Error Messages"
       },
       "headingKeywords": {}
     },
