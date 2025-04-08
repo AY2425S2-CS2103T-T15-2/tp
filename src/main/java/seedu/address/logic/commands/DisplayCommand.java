@@ -17,11 +17,11 @@ public class DisplayCommand extends Command {
     public static final String COMMAND_WORD = "display";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Display the person identified by the index number used in the displayed person list.\n"
+            + ": Display the student identified by the index number used in the displayed student list.\n"
             + "Parameters: INDEX (must be positive integer, only 1 index allowed)\n"
             + "Example: " + COMMAND_WORD + " 3";
 
-    public static final String MESSAGE_DISPLAY_PERSON_SUCCESS = "Displayed Person: %1$s";
+    public static final String MESSAGE_DISPLAY_PERSON_SUCCESS = "Displayed Student: %1$s";
 
     private final Index index;
 

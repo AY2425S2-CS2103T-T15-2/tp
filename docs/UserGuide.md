@@ -6,7 +6,7 @@
 
 # JCRoster+ User Guide
 
-JCRoster+ is a **desktop app for managing student contacts and details, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, JCRoster+ can get your homeroom teacher tasks done faster than traditional GUI apps.
+JCRoster+ is a **desktop app for managing student contacts and details, optimized for use via a  Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, JCRoster+ can get your homeroom teacher tasks done faster than traditional GUI apps.
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -73,6 +73,8 @@ JCRoster+ is a **desktop app for managing student contacts and details, optimize
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
+* The display list is reset to show all students after any command is run.
+
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </box>
 
@@ -111,7 +113,7 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, SUBJECT2:
 
 **Tip:** There is duplication detection for students added, if the command result shows warnings such as the one below:
 
-`Warning: It is likely that this person already exists in the address book. We will add anyways, but please double check. You may want to use the edit command or delete command instead.`
+`Warning: It is likely that this student already exists in the JCRoster+ student list. We will add anyways, but please double check. You may want to use the edit command or delete command instead.`
 
 This means that the student you are trying to add (maybe) already exists in the JCRoster+.<br>
 Please check the list of students to see if the student you are trying to add already exists. If it does, you can use the `edit` command to edit the student instead of adding a new one.
@@ -304,9 +306,9 @@ Allows for adding, editing or removing remarks of a student.
 Format: `remark INDEX r/REMARK`
 
 Examples:
-* `remark 2 r/` removes all remarks of the 2nd student.
-* `remark 2 r/Needs follow-up on project deadline` adds a remark to 2nd student.
-* `remark 2 r/Completed project` edits the remark of 2nd student.
+* `remark 2 r/` removes all remarks of the 2nd student in the **currently displayed** list.
+* `remark 2 r/Needs follow-up on project deadline` adds a remark to the 2nd student in the **currently displayed** list.
+* `remark 2 r/Completed project` edits the remark of the 2nd student in the **currently displayed** list.
 
 <br />
 <div style="display: flex; justify-content: center; gap: 40px;">
