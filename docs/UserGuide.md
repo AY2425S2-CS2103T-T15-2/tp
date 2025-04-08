@@ -103,25 +103,26 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, SUBJECT2:
 
 **Tip:** Tags are optional, a student can have any number of tags (including 0), 
 
-**Note:** Use **single-word** tags only, eg: `t/friend` and not `t/friend of John Doe`.<br>
-**Note:** There is duplication detection for students added, if the command result shows warnings such as <br>
-
-`Warning: It is likely that this 
-            person already exists in the address book.
-            We will add anyways, but please double check
-            You may want to use the edit command or delete command instead。`<br>
-
-It means that the student you are trying to add (maybe) already exists in the JCRoster+.<br>
-Please check the list of students to see if the student you are trying to add already exists. If it does, 
-you can use the `edit` command to edit the student instead of adding a new one.
+**Note:** Use **single-word** tags only, eg: `t/friend` and not `t/friend of John Doe`.
 
 </box>
+
+<box type="warning" seamless>
+
+**Tip:** There is duplication detection for students added, if the command result shows warnings such as the one below:
+
+`Warning: It is likely that this person already exists in the address book. We will add anyways, but please double check. You may want to use the edit command or delete command instead.`
+
+This means that the student you are trying to add (maybe) already exists in the JCRoster+.<br>
+Please check the list of students to see if the student you are trying to add already exists. If it does, you can use the `edit` command to edit the student instead of adding a new one.
+
+</box>
+
+**Note:** Student's subject can actually be set to any strings. You may want to double check the subject names you are entering. The system will not check if the subject names are valid or not.
 
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 g/Maths:A, Geography:B, History:B, Economics:A, Chemistry:C, Biology:A`
 
-**Note:** Student's subject can actually be set to any strings. You may want to double check the subject names 
-you are entering. The system will not check if the subject names are valid or not.
 <br />
 <div style="display: flex; justify-content: center; gap: 40px;">
   <figure style="text-align: center;">

@@ -18,7 +18,7 @@ public class Grade {
                     + "Example: Math:A, Science:B, English:A, History:C, Geography:B, Music:A";
     public static final String MESSAGE_CONSTRAINTS =
             "Subject should be less than 100 characters and grade should be A-F\n"
-                    + "With no special chracter + or - allowed\n"
+                    + "With no special character + or - allowed\n"
                     + "Example: Math:A, Science:B, English:A, History:C, Geography:B, Music:A\n"
                     + "only single grade is allowed\n"
                     + "Format: subject:grade"

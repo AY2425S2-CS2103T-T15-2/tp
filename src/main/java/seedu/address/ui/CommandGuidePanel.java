@@ -122,6 +122,23 @@ public class CommandGuidePanel extends UiPart<Region> {
         setLabels(filterCommand, filterDesc, FILTER_COMMAND);
         setLabels(remarkCommand, remarkDesc, REMARK_COMMAND);
         setLabels(groupCommand, groupDesc, GROUP_COMMAND);
+
+        // Bind each description label's maxWidth to the width of the container minus padding.
+        commandGuidePlaceholder.widthProperty().addListener((obs, oldWidth, newWidth) -> {
+            double maxW = newWidth.doubleValue() - 10; // adjust subtraction for your desired padding
+            addDesc.setMaxWidth(maxW);
+            clearDesc.setMaxWidth(maxW);
+            deleteDesc.setMaxWidth(maxW);
+            displayDesc.setMaxWidth(maxW);
+            editDesc.setMaxWidth(maxW);
+            exitDesc.setMaxWidth(maxW);
+            findDesc.setMaxWidth(maxW);
+            helpDesc.setMaxWidth(maxW);
+            listDesc.setMaxWidth(maxW);
+            filterDesc.setMaxWidth(maxW);
+            remarkDesc.setMaxWidth(maxW);
+            groupDesc.setMaxWidth(maxW);
+        });
     }
 
     private static void setLabels(Label label1, Label label2, String[] commands) {

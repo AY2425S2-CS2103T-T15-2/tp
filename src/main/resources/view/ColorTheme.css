@@ -336,7 +336,7 @@
     -fx-font-family: "Segoe UI";
     -fx-font-size: 13px;
     -fx-text-fill: #333333;
-    -fx-padding: 0 0 10px 0;
+    -fx-padding: 0 0 10 0;
 }
 #commandGuideScrollPane {
     -fx-background-color: white;
@@ -354,11 +354,12 @@
 #personDisplayPlaceholder .cell_big_label {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: #333333;
 }
 #personDisplayPlaceholder .cell_big_label_name {
     -fx-font-size: 13px;
-    -fx-font-weight: bold;
+    -fx-font-family: "Segoe UI Semibold";
     -fx-text-fill: #333333;
 }
 #personDisplayPlaceholder Label {
