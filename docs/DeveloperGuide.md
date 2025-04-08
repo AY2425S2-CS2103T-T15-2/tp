@@ -25,6 +25,8 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 **Note:** The terms *“Person”* and *“Student”* refer to the same entity and are used interchangeably throughout this guide and the application. Similarly, in the Design and Implementation sections, the term *“AddressBook”* has been retained instead of *“JCRoster+”* to remain consistent with the existing file and class names in the codebase.
 
+<div style="page-break-after: always;"></div>
+
 ## **Design**
 
 ### Architecture
@@ -67,6 +69,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
+<div style="page-break-after: always;"></div>
+
 ### UI component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -83,6 +87,8 @@ The `UI` component,
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+
+<div style="page-break-after: always;"></div>
 
 ### Logic component
 
@@ -101,8 +107,6 @@ The sequence diagram below illustrates the interactions within the `Logic` compo
 **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline continues till the end of diagram.
 </box>
 
-<div style="page-break-after: always;"></div>
-
 How the `Logic` component works:
 
 1. When `Logic` is called upon to execute a command, it is passed to an `AddressBookParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
@@ -118,6 +122,8 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+
+<div style="page-break-after: always;"></div>
 
 ### Model component
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
@@ -140,6 +146,7 @@ The `Model` component,
 
 </box>
 
+<div style="page-break-after: always;"></div>
 
 ### Storage component
 
@@ -301,6 +308,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | JC Homeroom Teacher     | leave remarks for students                    | record notes like progress or follow-up actions                        |
 | `*`      | JC Homeroom Teacher     | clear all student entries                     | reset the roster when needed                                           |
 | `*`      | JC Homeroom Teacher     | view a help guide                             | understand how to use the app effectively                              |
+
+<div style="page-break-after: always;"></div>
 
 ### Use cases
 
