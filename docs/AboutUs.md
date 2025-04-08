@@ -36,8 +36,8 @@ Please contact heytheresakinah@gmail.com for any concerns and queries.
 
 [[github](http://github.com/sreelakshmiharidos)]
 
-* Role: Documentation
-* Responsibilities: Responsible for the quality of various project documents.
+* Role: Developer
+* Responsibilities: Shared responsibilities in brownfield development, testing, admin tasks and documentation.
 
 ### Yin Can
 
