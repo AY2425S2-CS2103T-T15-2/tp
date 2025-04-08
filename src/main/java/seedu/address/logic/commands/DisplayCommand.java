@@ -21,7 +21,7 @@ public class DisplayCommand extends Command {
             + "Parameters: INDEX (must be positive integer, only 1 index allowed)\n"
             + "Example: " + COMMAND_WORD + " 3";
 
-    public static final String MESSAGE_DISPLAY_PERSON_SUCCESS = "Displayed Student: %1$s";
+    public static final String MESSAGE_DISPLAY_PERSON_SUCCESS = "Displayed Person: %1$s";
 
     private final Index index;
 

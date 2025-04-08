@@ -13,6 +13,8 @@ JCRoster+ is a **desktop app for managing student contacts and details, optimize
 
 --------------------------------------------------------------------------------------------------------------------
 
+**Note:** The terms "Person" and "Student" refer to the same entity and are used interchangeably in both theis guide and the app.
+
 ## Quick start
 
 1. Ensure you have Java `17` or above installed in your Computer.<br>
@@ -100,6 +102,7 @@ Adds a student to JCRoster+.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS g/SUBJECT1:GRADE, SUBJECT2:GRADE, SUBJECT3:GRADE, SUBJECT4:GRADE SUBJECT5:GRADE, SUBJECT6:GRADE [t/TAG]…​`
 
 * Names are case-insensitive and are formatted to capitalise the first letter of the name.
+* Grades can be A-F, S or U.
 
 <box type="tip" seamless>
 

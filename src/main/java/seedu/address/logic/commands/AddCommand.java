@@ -40,7 +40,7 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "friends "
             + PREFIX_GRADE + "Math:A, Science:B, English:A, History:C, Geography:B, Music:A";
 
-    public static final String MESSAGE_SUCCESS = "New student added: %1$s";
+    public static final String MESSAGE_SUCCESS = "New person added: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This student already exists in the JCRoster+ student list!";
     public static final String MESSAGE_SIMILAR_PERSON = "Warning: It is likely that this "
             + "student already exists in the JCRoster+ student list. "
